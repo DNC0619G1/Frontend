@@ -1,0 +1,123 @@
+<div class="container ng-scope">
+    <h3> Thông tin bán vé</h3>
+    <hr>
+    <div *ngIf="time">
+        <div class="row">
+            <div class="col-md-3">
+                <img src="https://image.bongngo.tv/upload/bg_one-piece-dao-hai-tac.jpg">
+            </div>
+            <div class="col-md-9">
+                <table class="table table-striped">
+                    <h2>{{time.idMovie}}</h2>
+                    <tr>
+                        <td class="w-25 ">
+                            <p>Màn hình :</p>
+                        </td>
+                        <td>{{time.room}}</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Ngày chiếu :</p>
+                        </td>
+                        <td>{{time.showDate}}</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Giờ chiếu :</p>
+                        </td>
+                        <td>{{time.showTime}}</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Ghế :</p>
+                        </td>
+                        <td>
+                            <div *ngFor="let idChair of chairListChoise">
+                                <div *ngFor="let chair of chairs">
+                                    <div *ngIf="chair.idChair==idChair">
+                                            {{chair.position}}
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Giá :</p>
+                        </td>
+                        <td>
+                            <div *ngFor="let idChair of chairListChoise">
+                                <div *ngFor="let chair of chairs">
+                                    <div *ngIf="chair.idChair==idChair && chair.idChairDetail==1">
+                                        {{chair.position}} : {{45000}} vnd
+                                    </div>
+                                    <div *ngIf="chair.idChair==idChair && chair.idChairDetail==2">
+                                        {{chair.position}} : {{45000+10000}} vnd
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Đổi vé :</p>
+                        </td>
+                        <td>{{pointChange}}</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Điểm đổi vé :</p>
+                        </td>
+                        <td>{{user.point-pointChange*100}}</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Tổng cộng :</p>
+                        </td>
+                        <td>{{45000*chairListChoise.length +amountVip*10000-45000*pointChange}} vnd</td>
+                    </tr>
+                </table>
+
+                <div class="confirm">
+                    <h4>Thông tin thành viên</h4>
+                    <div *ngIf="user">
+                        <table class="table table-striped">
+                            <tr>
+                                <td class="w-25 ">
+                                    <p>Mã thành viên :</p>
+                                </td>
+                                <td>
+                                    <p>{{user.nameMemberCard}}</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>CMND :</p>
+                                </td>
+                                <td>
+                                    <p>{{user.license}}</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>Họ tên :</p>
+                                </td>
+                                <td>
+                                    <p>{{user.fullName}}</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>Số điện thoại :</p>
+                                </td>
+                                <td>
+                                    <p>{{user.numberPhone}}</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

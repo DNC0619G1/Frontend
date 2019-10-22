@@ -1,0 +1,13 @@
+#footer{
+    background-color:rgb(25, 39, 44);
+    height: 90px;
+    width: 100%;
+    color:whitesmoke;
+    text-align: center;
+    clear: both;
+}
+
+#footer p{
+    margin: 5px;
+    text-shadow:black 0.2em 0.2em 0.2em;
+}

@@ -1,0 +1,51 @@
+.row1{
+    background-color: darkcyan;
+    height:400px;
+    width: 19%;
+    float: left;
+    margin: 0.5% 0.5% 0.5% 0.5%; 
+    text-align: center;
+}
+
+.row1 img{
+    height: 80%;
+    width: 100%;
+}
+
+.row1 a{
+    height: 10%;
+    width: 100%;
+    color:wheat;
+    line-height: 40px;
+    font-size: 15px;
+    text-shadow: red 0.1em 0.1em 0.2em;
+    text-decoration: none;
+}
+ .row1 p{
+     color: bisque;
+ }
+
+#tille{
+    background-color:rgb(25, 39, 44);
+    height: 50px;
+    color:yellow;
+    text-shadow: red 0.1em 0.1em 0.2em;
+}
+
+#tille1{
+    float: left;
+}
+#tille2{
+    float: right;
+}
+
+#all{
+    font-size: 20px;
+    color: red;
+    margin-right: 10px;
+    margin-top: 100px;
+}
+#page{
+
+    clear: both;
+}

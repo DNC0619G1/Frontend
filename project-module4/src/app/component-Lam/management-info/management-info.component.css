@@ -1,0 +1,51 @@
+body{
+    font-family: 'Raleway', sans-serif;
+}
+.col-sm-8{
+    border: 1px solid #bdc3c7;
+    height: auto;
+    /* border-radius: 1%; */
+    background: #bdc3c7;
+}
+.col-sm-4{
+    
+    height: 1000px;
+    border-right: none;
+}
+.avt{
+    border-radius: 50%;
+    width: 170px;
+    height: 170px;
+}
+.left-col-4{
+    text-align: center;
+    margin-left: 25%;
+}
+.infoLogin{
+    width: auto;
+    height: 50px;
+    border-bottom: 1px solid #bdc3c7;
+    border-radius: 100%;
+    background: #636e72;
+    line-height: 50px;
+    font-size: 25px;
+    border-radius: 1%;
+    margin-left: -15px;
+    text-align: center;
+}
+.right-col-8 {
+    margin-top: 40px;
+    margin-left: 20px;
+}
+.right-col-8 td{
+    margin-top: 20px;  
+}
+.right-col-8 input{
+    margin-left: 50px;
+}
+.right-col-8 button{
+    margin-left: 50px;
+}
+.form-control{
+    width: 500px;
+}

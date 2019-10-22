@@ -1,0 +1,45 @@
+<div class="row" id="content-1">
+    <div class="col-md-3">
+        <img src="../../../assets/{{movie.imgMovie}}" width="100%" height="100%">
+    </div>
+    <div class="col-md-9">
+        <h3>{{movie.nameMovie}}</h3>
+        <table class="table">
+            <tr>
+                <td><b>Khởi chiếu:</b></td>
+                <td>{{movie.openingTime}}</td>
+            </tr>
+            <tr>
+                <td><b>Loại phim:</b></td>
+                <td>{{movie.categoryMovie}}</td>
+            </tr>
+            <tr>
+                <td><b>Diễn viên:</b></td>
+                <td>{{movie.actor}}</td>
+            </tr>
+            <tr>
+                <td><b>Đạo diễn:</b></td>
+                <td>{{movie.author}}</td>
+            </tr>
+            <tr>
+                <td><b>Thời lượng:</b></td>
+                <td>{{movie.duration}}</td>
+            </tr>
+            <tr>
+                <td><b>Hãng phim:</b></td>
+                <td>{{movie.studioMovie}}</td>
+            </tr>
+        </table>
+        <button type="button" class="btn btn-primary" [routerLink]="['/muave']">Mua vé</button>
+    </div>
+    <div id="content-2">
+        <button class="btn btn-info" (click)="OnClick1()">Tóm tắt nội dung</button>
+        <button class="btn btn-info" (click)="OnClick2()">Trailer</button>
+        <button class="btn btn-info" (click)="OnClick3()">Lịch chiếu</button><br>
+        <textarea style="width: 1140px; height: 150px;" *ngIf="p1">{{movie.content}}</textarea>
+        <video width="720px" height="auto" controls autoplay *ngIf="p2">
+            <source src="../../../assets/{{movie.trailerMovie}}" type="video/mp4">
+        </video>
+        <textarea style="width: 1140px; height: 150px;" *ngIf="p3">Đây là phần ghi lịch chiếu của phim này</textarea>
+    </div>
+</div>

@@ -1,0 +1,50 @@
+#header{
+    background-image: url('../../../assets/header1.jpg');
+    background-position-y: -150px;
+}
+
+.lore{
+    color:yellow;
+    font-weight: bold;
+    text-decoration: none;
+    text-shadow:black 0.2em 0.2em 0.2em;
+}
+.lore:hover{
+    color:white;
+}
+
+.nav-link{
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 25px;
+    color: white;
+}
+#search{
+    width: 330px;
+}
+
+#nav{
+    height: 60px;
+    background-color:black;
+    position: relative;
+}
+
+.item-nav{
+    float: left;
+}
+
+.item-navs button{
+    float: right;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: chocolate;
+    color: white;
+}
+
+.item-navs input{
+    float: right;
+    position: absolute;
+    top: 10px;
+    right: 100px;
+}
