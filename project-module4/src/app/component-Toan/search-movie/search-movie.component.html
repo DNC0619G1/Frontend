@@ -1,0 +1,15 @@
+<div class="content">
+    <div id='tille'>
+        <div id="tille1">
+            <h3>Danh sách tất cả các phim</h3>
+        </div>
+    </div>
+    <div *ngFor="let movie of movies | paginate: {itemsPerPage:5, currentPage:p}">
+        <div class="row1">
+            <a [routerLink]="['/detail', movie.idMovie]"><img src="../../../assets/{{movie.imgMovie}}"></a>
+            <a [routerLink]="['/detail', movie.idMovie]">{{movie.nameMovie}}</a>
+            <p>{{movie.duration}}</p>
+        </div>
+    </div>
+    <div id="page"><pagination-controls (pageChange)= "p = $event"></pagination-controls></div>
+</div>

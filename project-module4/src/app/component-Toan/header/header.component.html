@@ -1,0 +1,49 @@
+<div class="row" id="header">
+    <div class="col-md-3" id="logo">
+        <a href=""><img src="../assets/Untitled-1.png" height="150" width="300"></a>
+    </div>
+    <div class="col-md-9">
+        <div class="row" style="float: right">
+            <div class="col-md-7" style="font-size: 25px">
+                <a class="lore" href="/login">Đăng nhập</a>
+            </div>
+            <div class="col-md-5" style="font-size: 25px">
+                <a class="lore" href="/register">Đăng ký</a>
+            </div>
+            <div class="col-md-1">
+            </div>
+        </div>
+    </div>
+</div>
+<div id="nav">
+    <div class="item-nav">
+        <a class="nav-link" href="/">Trang chủ</a>
+    </div>
+    <div class="item-nav">
+        <a href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Loại phim
+        </a>
+
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item" [routerLink]="['/listCategory', 'hanh dong']">Phim Hành động</a>
+            <a class="dropdown-item" [routerLink]="['/listCategory', 'kinh di']">Phim Kinh dị</a>
+            <a class="dropdown-item" [routerLink]="['/listCategory', 'tinh cam']">Phim Tình cảm</a>
+            <a class="dropdown-item" [routerLink]="['/listCategory', 'hoat hinh']">Phim Hoạt hình</a>
+            <a class="dropdown-item" [routerLink]="['/listCategory', 'xa hoi']">Phim Xã hội</a>
+        </div>
+    </div>
+    <div class="item-nav">
+        <a class="nav-link" href="/">Đặt vé</a>
+    </div>
+    <div class="item-nav">
+        <a class="nav-link" [routerLink]="['/muave']">Mua vé</a>
+    </div>
+    <div class="item-navs">
+        <button type="submit" class="btn btn-outline-success my-2 my-sm-0" [routerLink]="['/search', keyword ]">Tìm
+            kiếm</button>
+    </div>
+    <div class="item-navs">
+        <input id="search" class="form-control mr-sm-2" type="text" name="search"
+            placeholder="Tìm kiếm theo Phim, Diễn viên, Đạo diễn" aria-label="Search" [(ngModel)]="keyword">
+    </div>
+</div>

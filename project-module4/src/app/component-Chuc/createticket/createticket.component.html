@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="panel-body">
+        <div class="row">
+            <div class='col-md-12'>
+                <div class="form-group">
+                    <label class="control-label">chọn ngày</label>
+                    <div class='input-group date' id='datetimepicker1'>
+                        <input type="date" [(ngModel)]='setDate'>
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class='col-md-12'>
+                <div class="form-group">
+                    <div *ngFor='let filmShows of filmShowMap|keyvalue'>
+                        <div *ngIf="isContainFilmAsDay(filmShows.value,  (setDate | date: 'dd/MM/yyyy'))" class="col-md-4">
+                            <li class="list-group-item" style="font-weight:bold">{{filmShows.key}}</li>
+                            <div *ngFor="let filmShow of filmShows.value">
+                                <div *ngIf="isSameDay(filmShow.showDate, (setDate | date: 'dd/MM/yyyy'))">
+                                    <li class="list-group-item">
+                                        <a [routerLink]="['/chonve', filmShow.idTime]">
+                                            {{filmShow.showTime}}
+                                        </a>
+                                    </li>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

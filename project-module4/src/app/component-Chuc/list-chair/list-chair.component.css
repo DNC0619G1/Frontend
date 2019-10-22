@@ -1,0 +1,30 @@
+li {
+    border: 1px solid black;
+    float: left;
+    margin: 10px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    list-style: none;
+    }
+.chair-button{
+    background: none;
+    border: none;
+}
+select{
+    margin-left:20px ;
+}
+.shownotice{
+    float: left;
+}
+.choiseChair {
+    clear: left;
+}
+label {
+    line-height: 60px;
+    text-align: left;
+}
+a {
+    text-decoration: none;
+    background: blue;
+}

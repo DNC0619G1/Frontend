@@ -1,0 +1,99 @@
+<div class="container ng-scope">
+    <div class="row">
+        <div class="col-md-12">
+            <h3>chọn ghế</h3>
+            <div class="row">
+                <div class="col-md-12" style="text-align: left">
+                    <label>chọn số lượng ghế :</label>
+                    <select [(ngModel)]='selectChar' (ngModelChange)="chairChanged(selectChar)" style="width: 40px">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container ng-scope">
+        <div *ngIf="time">
+            <div class="row">
+                <div class="col-md-3">
+                    <p>Phim : {{time.idMovie}} </p>
+                </div>
+                <div class="col-md-3">
+                    <p>Ngày chiếu : {{time.showDate}}</p>
+                </div>
+                <div class="col-md-3">
+                    <p>Giờ chiếu: {{time.showTime}}</p>
+                </div>
+                <div class="col-md-3">
+                    <p>Phòng: {{time.idRoom}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="selectChar">
+        <label>Bạn chọn: {{selectChar}} ghế</label>
+        <div class="container ng-scope">
+            <div class="row">
+                <div class="col-md-3">
+                    <li style="background:orangered"></li>
+                    <label>: Ghế đã đặt</label>
+                </div>
+                <div class="col-md-3">
+                    <li style="background:palegreen;"></li>
+                    <label>: Ghế vip</label>
+                </div>
+                <div class="col-md-3">
+                    <li style="background:yellow;"></li>
+                    <label>: Ghế đang chọn</label>
+                </div>
+                <div class="col-md-3">
+                    <li style="background:none"></li>
+                    <label>: Ghế trống</label>
+                </div>
+            </div>
+            <table class="choiseChair">
+                <tr *ngFor="let row of rows">
+                    <td *ngFor="let col of columns ">
+                        <div *ngFor="let chair of chairs">
+                            <div *ngIf="chair.row==row && chair.column==col">
+                                <div *ngIf="chair.statusChair==0; else not">
+                                    <button class="chair-button">
+                                        <li style="background:orangered;"> {{chair.position}}</li>
+                                    </button>
+                                </div>
+                            </div>
+                            <ng-template #not>
+                                <div *ngIf="chair.idChairDetail==2">
+                                    <button class="chair-button" (click)="changeStatus(chair.row,chair.column)">
+                                        <div *ngIf="chair.choiseStatus==false;">
+                                            <li style="background:palegreen;"> {{chair.position}}</li>
+                                        </div>
+                                        <div *ngIf="chair.choiseStatus==true;">
+                                            <li style="background:yellow;"> {{chair.position}}</li>
+                                        </div>
+                                    </button>
+                                </div>
+                                <div *ngIf="chair.idChairDetail==1">
+                                    <button class="chair-button" (click)="changeStatus(chair.row,chair.column)">
+                                        <div *ngIf="chair.choiseStatus==false;">
+                                            <li> {{chair.position}}</li>
+                                        </div>
+                                        <div *ngIf="chair.choiseStatus==true;">
+                                            <li style="background:yellow;"> {{chair.position}}</li>
+                                        </div>
+                                    </button>
+                                </div>
+                            </ng-template>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <button (click)="checkChair(selectChar)" class="btn btn-primary">Tiếp tục</button>
+        <!-- <button [routerLink]="['/xacnhanbanve/',time.idTime]" class="btn btn-primary">Tiếp tục</button> -->
+    </div>
+</div>

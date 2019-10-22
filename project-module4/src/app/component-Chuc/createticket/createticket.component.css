@@ -1,0 +1,13 @@
+.list-group {
+    border: 1px solid black;
+}
+
+input {
+    margin-right: 40px;
+}
+.col-md-4{
+    margin-top:10px ;
+    float: left;
+}
+
+
