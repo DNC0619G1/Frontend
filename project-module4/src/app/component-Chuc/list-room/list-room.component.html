@@ -1,18 +1,26 @@
 <div class="row ">
-    <h2>Danh Sách Phòng Chiếu:</h2>
-    <table class="table w-100">
+    <div class="col-md-9">
+        <h2>Danh Sách Phòng Chiếu:</h2>
+    </div>
+    <div class="col-md-3">
+            <button type="button" class="btn btn-primary btn-sm" [routerLink]="['/newroom']" >Thêm Phòng</button>
+    </div>
+</div>
+<div class="row ">
+    <table class="table">
         <thead class="thead-light">
             <tr>
-                <th scope="col">Mã Phòng</th>
-                <th scope="col">Tên Phòng</th>
-                <th scope="col">Chi tiết ghế</th>
+                <th scope="col" style="text-align: center;">Mã Phòng</th>
+                <th scope="col" style="text-align: center;">Tên Phòng</th>
+                <th scope="col" style="text-align: center;">Chi tiết ghế</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let room of rooms">
-                <td>{{room.idRoom}}</td>
-                <td>{{room.nameRoom}}</td>
-                <td><a [routerLink]="['/roomdetail', room.idRoom]">chi tiết</a></td>
+                <td style="text-align: center">{{room.idRoom}}</td>
+                <td style="text-align: center;">{{room.nameRoom}}</td>
+                <td style="text-align: center;"><a [routerLink]="['/roomdetail', room.idRoom]">chi tiết</a></td>
             </tr>
         </tbody>
     </table>
+</div>
