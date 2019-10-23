@@ -26,7 +26,6 @@ import { RommDetailComponent } from './component-Chuc/romm-detail/romm-detail.co
 import { CreatRoomComponent } from './component-Chuc/creat-room/creat-room.component';
 import { CreateChairComponent } from './component-Chuc/create-chair/create-chair.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,7 +47,8 @@ import { CreateChairComponent } from './component-Chuc/create-chair/create-chair
     ListRoomComponent,
     RommDetailComponent,
     CreatRoomComponent,
-    CreateChairComponent
+    CreateChairComponent,
+
   ],
   imports: [
     BrowserModule,

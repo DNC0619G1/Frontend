@@ -18,8 +18,6 @@ import { RommDetailComponent } from './component-Chuc/romm-detail/romm-detail.co
 import { CreatRoomComponent } from './component-Chuc/creat-room/creat-room.component';
 import { CreateChairComponent } from './component-Chuc/create-chair/create-chair.component';
 
-
-
 const routes: Routes = [
   {path:'', component: ListMoviesComponent},
   {path:'detail/:i', component: DetailMovieComponent},
@@ -43,7 +41,6 @@ const routes: Routes = [
   { path: "roomdetail/:room.idRoom", component: RommDetailComponent },
   { path: "newroom", component: CreatRoomComponent },
   { path: "newchair", component: CreateChairComponent },
-
   {
     path: 'infoUser/history/:idUser',component :HitoryComponent
   },
