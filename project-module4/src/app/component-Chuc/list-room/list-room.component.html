@@ -1,1 +1,20 @@
-<p>list-room works!</p>
+<div class="row ">
+    <h2>Danh Sách Phòng Chiếu:</h2>
+    <table class="table w-100">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">Mã Phòng</th>
+                <th scope="col">Tên Phòng</th>
+                <th scope="col">Chi tiết ghế</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let room of rooms">
+                <td>{{room.idRoom}}</td>
+                <td>{{room.nameRoom}}</td>
+                <td><a [routerLink]="['/roomdetail', room.idRoom]">chi tiết</a></td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
