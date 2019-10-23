@@ -36,7 +36,6 @@ export class CreateticketComponent implements OnInit {
     return end == start;
   }
 
-  //  mi coi roi chinh html vs css hi
   isContainFilmAsDay(filmShows: ShowTime[], day: Date): boolean {
     console.log(day)
     let hasFilm = false;
