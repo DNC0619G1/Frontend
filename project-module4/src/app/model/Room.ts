@@ -1,5 +1,6 @@
 export class Room{
-    idRoom : number;
-    nameRoom :String;
+
+    idRoom:number;
+    nameRoom:String;
 
 }

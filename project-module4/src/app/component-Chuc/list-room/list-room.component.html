@@ -6,6 +6,7 @@
             <button type="button" class="btn btn-primary btn-sm" [routerLink]="['/newroom']" >Thêm Phòng</button>
     </div>
 </div>
+      
 <div class="row ">
     <table class="table">
         <thead class="thead-light">
@@ -17,9 +18,9 @@
         </thead>
         <tbody>
             <tr *ngFor="let room of rooms">
-                <td style="text-align: center">{{room.idRoom}}</td>
-                <td style="text-align: center;">{{room.nameRoom}}</td>
-                <td style="text-align: center;"><a [routerLink]="['/roomdetail', room.idRoom]">chi tiết</a></td>
+                <td>{{room.idRoom}}</td>
+                <td>{{room.nameRoom}}</td>
+                <td><a [routerLink]="['/roomdetail', room.idRoom]">chi tiết</a></td>
             </tr>
         </tbody>
     </table>
