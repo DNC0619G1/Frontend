@@ -13,4 +13,8 @@ export class RoomService {
   getRooms(count=10):Observable<Room[]> {
     return this.http.get<Room[]>(`${this.API_URL}/rooms`);
   }
+  getRoomByID(id:number):Observable<Room>{
+    return this.http.get<Room>(`${this.API_URL}/room/${id}`)
+  }
 }
+

@@ -14,6 +14,10 @@ import { ListChairComponent } from './component-Chuc/list-chair/list-chair.compo
 import { ConfirmticketComponent } from './component-Chuc/confirmticket/confirmticket.component';
 import { InforTicketComponent } from './component-Chuc/infor-ticket/infor-ticket.component';
 import { ListRoomComponent } from './component-Chuc/list-room/list-room.component';
+import { RommDetailComponent } from './component-Chuc/romm-detail/romm-detail.component';
+import { CreatRoomComponent } from './component-Chuc/creat-room/creat-room.component';
+import { CreateChairComponent } from './component-Chuc/create-chair/create-chair.component';
+
 
 
 const routes: Routes = [
@@ -36,6 +40,10 @@ const routes: Routes = [
   { path: "xacnhanbanve/:time.idTime/:chairListChoise", component: ConfirmticketComponent },
   { path: "thongtinbanve/:time.idTime/:chairListChoise/:user.id/:pointChange", component: InforTicketComponent },
   { path: "rooms", component: ListRoomComponent },
+  { path: "roomdetail/:room.idRoom", component: RommDetailComponent },
+  { path: "newroom", component: CreatRoomComponent },
+  { path: "newchair", component: CreateChairComponent },
+
   {
     path: 'infoUser/history/:idUser',component :HitoryComponent
   },

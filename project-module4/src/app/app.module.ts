@@ -22,6 +22,9 @@ import { InforTicketComponent } from './component-Chuc/infor-ticket/infor-ticket
 import { ListChairComponent } from './component-Chuc/list-chair/list-chair.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import { ListRoomComponent } from './component-Chuc/list-room/list-room.component';
+import { RommDetailComponent } from './component-Chuc/romm-detail/romm-detail.component';
+import { CreatRoomComponent } from './component-Chuc/creat-room/creat-room.component';
+import { CreateChairComponent } from './component-Chuc/create-chair/create-chair.component';
 
 
 @NgModule({
@@ -42,7 +45,10 @@ import { ListRoomComponent } from './component-Chuc/list-room/list-room.componen
     ConfirmticketComponent,
     InforTicketComponent,
     ListChairComponent,
-    ListRoomComponent
+    ListRoomComponent,
+    RommDetailComponent,
+    CreatRoomComponent,
+    CreateChairComponent
   ],
   imports: [
     BrowserModule,
