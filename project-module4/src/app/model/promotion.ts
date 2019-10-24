@@ -4,5 +4,6 @@ export class Promotion{
     startDate: string;
     endDate: string;
     saleOff: number;
-    datailPromotion: string;
+    detailPromotion: string;
+    imgPromotion: string;
 }
