@@ -13,6 +13,10 @@ import { CreateticketComponent } from './component-Chuc/createticket/createticke
 import { ListChairComponent } from './component-Chuc/list-chair/list-chair.component';
 import { ConfirmticketComponent } from './component-Chuc/confirmticket/confirmticket.component';
 import { InforTicketComponent } from './component-Chuc/infor-ticket/infor-ticket.component';
+import { ListPromotionComponent } from './component-Toan/list-promotion/list-promotion.component';
+import { EditPromotionComponent } from './component-Toan/edit-promotion/edit-promotion.component';
+import { DeletePromotionComponent } from './component-Toan/delete-promotion/delete-promotion.component';
+import { AddPromotionComponent } from './component-Toan/add-promotion/add-promotion.component';
 
 
 const routes: Routes = [
@@ -20,7 +24,11 @@ const routes: Routes = [
   {path:'detail/:i', component: DetailMovieComponent},
   {path:'listAll', component: ListAllComponent},
   {path:'search/:keyword', component: SearchMovieComponent},
+  {path:'listPromotion', component: ListPromotionComponent},
+  {path:'editPromotion/:id', component: EditPromotionComponent},
+  {path:'deletePromotion/:id', component: DeletePromotionComponent},
   {path:'listCategory/:category', component: ListCategoryMoviesComponent},
+  {path:'addPromotion', component: AddPromotionComponent},
   {
     path: 'infoUser/:idUser',component :ManagementInfoComponent,
   },

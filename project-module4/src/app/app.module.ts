@@ -21,6 +21,10 @@ import { ConfirmticketComponent } from './component-Chuc/confirmticket/confirmti
 import { InforTicketComponent } from './component-Chuc/infor-ticket/infor-ticket.component';
 import { ListChairComponent } from './component-Chuc/list-chair/list-chair.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import { ListPromotionComponent } from './component-Toan/list-promotion/list-promotion.component';
+import { EditPromotionComponent } from './component-Toan/edit-promotion/edit-promotion.component';
+import { DeletePromotionComponent } from './component-Toan/delete-promotion/delete-promotion.component';
+import { AddPromotionComponent } from './component-Toan/add-promotion/add-promotion.component';
 
 
 @NgModule({
@@ -40,7 +44,11 @@ import {ReactiveFormsModule} from '@angular/forms';
     CreateticketComponent,
     ConfirmticketComponent,
     InforTicketComponent,
-    ListChairComponent
+    ListChairComponent,
+    ListPromotionComponent,
+    EditPromotionComponent,
+    DeletePromotionComponent,
+    AddPromotionComponent
   ],
   imports: [
     BrowserModule,
