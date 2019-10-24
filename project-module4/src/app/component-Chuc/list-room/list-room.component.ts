@@ -16,7 +16,6 @@ export class ListRoomComponent implements OnInit {
   ngOnInit() {
     this.roomService.getRooms().subscribe((data:Room[])=>{
       data.forEach(element=>{this.rooms.push(element)})
-      console.log(this.rooms)
     })
   }
 }

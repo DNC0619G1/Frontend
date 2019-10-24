@@ -30,6 +30,7 @@ import { ListRoomComponent } from './component-Chuc/list-room/list-room.componen
 import { RommDetailComponent } from './component-Chuc/romm-detail/romm-detail.component';
 import { CreatRoomComponent } from './component-Chuc/creat-room/creat-room.component';
 import { CreateChairComponent } from './component-Chuc/create-chair/create-chair.component';
+import { EditRoomComponent } from './component-Chuc/edit-room/edit-room.component';
 
 @NgModule({
   declarations: [
@@ -52,11 +53,12 @@ import { CreateChairComponent } from './component-Chuc/create-chair/create-chair
     ListPromotionComponent,
     EditPromotionComponent,
     DeletePromotionComponent,
-    AddPromotionComponent
+    AddPromotionComponent,
     ListRoomComponent,
     RommDetailComponent,
     CreatRoomComponent,
     CreateChairComponent,
+    EditRoomComponent,
   ],
   imports: [
     BrowserModule,

@@ -9,22 +9,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./creat-room.component.css']
 })
 export class CreatRoomComponent implements OnInit {
-  room:Room=new Room();
+  room: Room = new Room();
   constructor(private roomService: RoomService, private router: Router) { }
   submitted = false;
   ngOnInit() {
   }
-  newEmployee(): void {
-    this.submitted = false;
-    this.room = new Room();
-  }
-  createRoom(){
-    this.roomService.createRoom(this.room).subscribe(data => console.log(data), error => console.log(error))
-    this.room = new Room();    
-    this.router.navigate(['/rooms']);
-  }
   onSubmit() {
     this.submitted = true;
-    this.createRoom();    
+    this.roomService.createRoom(this.room).subscribe(data => this.router.navigate(['/rooms']))
   }
 }
