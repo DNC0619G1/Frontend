@@ -16,4 +16,7 @@ export class RoomService {
   getRoomByID(id:number):Observable<Room>{
     return this.http.get<Room>(`${this.API_URL}/room/${id}`)
   }
+  createRoom(room: Partial<Room>): Observable<Room> {
+    return this.http.post<Room>(`${this.API_URL}/rooms`,room);
+  }
 }
