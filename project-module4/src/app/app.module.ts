@@ -21,6 +21,11 @@ import { ConfirmticketComponent } from './component-Chuc/confirmticket/confirmti
 import { InforTicketComponent } from './component-Chuc/infor-ticket/infor-ticket.component';
 import { ListChairComponent } from './component-Chuc/list-chair/list-chair.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import { ListPromotionComponent } from './component-Toan/list-promotion/list-promotion.component';
+import { EditPromotionComponent } from './component-Toan/edit-promotion/edit-promotion.component';
+import { DeletePromotionComponent } from './component-Toan/delete-promotion/delete-promotion.component';
+import { AddPromotionComponent } from './component-Toan/add-promotion/add-promotion.component';
+
 import { ListRoomComponent } from './component-Chuc/list-room/list-room.component';
 import { RommDetailComponent } from './component-Chuc/romm-detail/romm-detail.component';
 import { CreatRoomComponent } from './component-Chuc/creat-room/creat-room.component';
@@ -44,11 +49,14 @@ import { CreateChairComponent } from './component-Chuc/create-chair/create-chair
     ConfirmticketComponent,
     InforTicketComponent,
     ListChairComponent,
+    ListPromotionComponent,
+    EditPromotionComponent,
+    DeletePromotionComponent,
+    AddPromotionComponent
     ListRoomComponent,
     RommDetailComponent,
     CreatRoomComponent,
     CreateChairComponent,
-
   ],
   imports: [
     BrowserModule,

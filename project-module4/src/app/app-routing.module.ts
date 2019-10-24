@@ -12,18 +12,27 @@ import { HitoryComponent } from './component-Lam/hitory/hitory.component';
 import { CreateticketComponent } from './component-Chuc/createticket/createticket.component';
 import { ListChairComponent } from './component-Chuc/list-chair/list-chair.component';
 import { ConfirmticketComponent } from './component-Chuc/confirmticket/confirmticket.component';
-import { InforTicketComponent } from './component-Chuc/infor-ticket/infor-ticket.component';
+import { InforTicketComponent } from './component-Chuc/infor-ticket/infor-ticket.component';<<<<<<< toan
+import { ListPromotionComponent } from './component-Toan/list-promotion/list-promotion.component';
+import { EditPromotionComponent } from './component-Toan/edit-promotion/edit-promotion.component';
+import { DeletePromotionComponent } from './component-Toan/delete-promotion/delete-promotion.component';
+import { AddPromotionComponent } from './component-Toan/add-promotion/add-promotion.component';
 import { ListRoomComponent } from './component-Chuc/list-room/list-room.component';
 import { RommDetailComponent } from './component-Chuc/romm-detail/romm-detail.component';
 import { CreatRoomComponent } from './component-Chuc/creat-room/creat-room.component';
 import { CreateChairComponent } from './component-Chuc/create-chair/create-chair.component';
+
 
 const routes: Routes = [
   {path:'', component: ListMoviesComponent},
   {path:'detail/:i', component: DetailMovieComponent},
   {path:'listAll', component: ListAllComponent},
   {path:'search/:keyword', component: SearchMovieComponent},
+  {path:'listPromotion', component: ListPromotionComponent},
+  {path:'editPromotion/:id', component: EditPromotionComponent},
+  {path:'deletePromotion/:id', component: DeletePromotionComponent},
   {path:'listCategory/:category', component: ListCategoryMoviesComponent},
+  {path:'addPromotion', component: AddPromotionComponent},
   {
     path: 'infoUser/:idUser',component :ManagementInfoComponent,
   },
