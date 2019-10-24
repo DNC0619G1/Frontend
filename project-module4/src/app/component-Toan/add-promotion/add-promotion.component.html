@@ -5,32 +5,33 @@
 <div class="row">
     <div class="col-md-4"></div>
     <div class="col-md-8">
-        <form>
-            <div class="form-group ">
-                <label for="exampleInputEmail1">Hình ảnh</label>
-                <input type="file" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <form (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="name">Hình ảnh</label>
+                <input type="file" class="form-control" required [(ngModel)]="promotion.imgPromotion" name="imgPromotion">
             </div>
             <div class="form-group">
-                <label for="exampleInputPassword1">Tiêu đề</label>
-                <input type="text" class="form-control" id="exampleInputPassword1">
+                <label for="name">Tiêu đề</label>
+                <input type="text" class="form-control" required [(ngModel)]="promotion.titlePromotion" name="titlePromotion">
             </div>
             <div class="form-group">
-                <label for="exampleInputPassword1">Thời gian bắt đầu</label>
-                <input type="text" class="form-control" id="exampleInputPassword1">
+                <label for="name">Thời gian bắt đầu</label>
+                <input type="date" class="form-control" required [(ngModel)]="promotion.startDate" name="startDate">
             </div>
             <div class="form-group">
-                <label for="exampleInputPassword1">Thời gian kết thúc</label>
-                <input type="text" class="form-control" id="exampleInputPassword1">
+                <label for="name">Thời gian kết thúc</label>
+                <input type="date" class="form-control" required [(ngModel)]="promotion.endDate" name="endDate">
             </div>
             <div class="form-group">
-                <label for="exampleInputPassword1">Mức giảm giá</label>
-                <input type="number" class="form-control" id="exampleInputPassword1">
+                <label for="name">Mức giảm giá</label>
+                <input type="number" class="form-control" required [(ngModel)]="promotion.saleOff" name="saleOff">
             </div>
             <div class="form-group">
-                <label for="exampleInputPassword1">Chi tiết</label>
-                <textarea type="text" class="form-control" id="exampleInputPassword1"></textarea>
+                <label for="name">Chi tiết</label>
+                <textarea type="text" class="form-control" required [(ngModel)]="promotion.detailPromotion" name="detailPromotion"></textarea>
             </div>
-            <button type="submit" class="btn btn-primary">Xác nhận</button>
+            <button type="submit" class="btn btn-success">Thêm</button>
         </form>
+        <br>
     </div>
 </div>

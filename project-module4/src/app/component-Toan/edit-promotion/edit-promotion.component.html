@@ -1,1 +1,39 @@
-<p>edit-promotion works!</p>
+<div>
+    <h2><b>Thay đổi trình Khuyến mãi</b></h2>
+</div>
+<hr>
+<div class="row">
+    <div class="col-md-4">
+        <img src="../../../assets/khuyen mai.jpg">
+    </div>
+    <div class="col-md-8">
+        <form (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="name">Hình ảnh</label>
+                <input type="file" class="form-control" required [(ngModel)]="promotion.imgPromotion" name="imgPromotion">
+            </div>
+            <div class="form-group">
+                <label for="name">Tiêu đề</label>
+                <input type="text" class="form-control" required [(ngModel)]="promotion.titlePromotion" name="titlePromotion">
+            </div>
+            <div class="form-group">
+                <label for="name">Thời gian bắt đầu</label>
+                <input type="date" class="form-control" required [(ngModel)]="promotion.startDate" name="startDate">
+            </div>
+            <div class="form-group">
+                <label for="name">Thời gian kết thúc</label>
+                <input type="date" class="form-control" required [(ngModel)]="promotion.endDate" name="endDate">
+            </div>
+            <div class="form-group">
+                <label for="name">Mức giảm giá</label>
+                <input type="number" class="form-control" required [(ngModel)]="promotion.saleOff" name="saleOff">
+            </div>
+            <div class="form-group">
+                <label for="name">Chi tiết</label>
+                <textarea type="text" class="form-control" required [(ngModel)]="promotion.detailPromotion" name="detailPromotion"></textarea>
+            </div>
+            <button type="submit" class="btn btn-success">Thay đổi</button>
+        </form>
+        <br>
+    </div>
+</div>

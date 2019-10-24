@@ -9,7 +9,7 @@ import { PromotionService } from 'src/app/service/promotion.service';
   styleUrls: ['./delete-promotion.component.css']
 })
 export class DeletePromotionComponent implements OnInit {
-promotion: Promotion;
+promotion: Promotion = new Promotion();
 id: number;
   constructor(private promotionService: PromotionService, private route: ActivatedRoute, private router: Router ) { }
 
@@ -28,8 +28,8 @@ id: number;
 
   Confirm(){
     this.promotionService.deletePromotion(this.id).subscribe(
-      next => {
-        this.router.navigate(['/listPromotion']);
-      });
+    () =>{
+      this.router.navigate(['/listPromotion'])
+    });
   }
 }

@@ -10,7 +10,13 @@
         <table class="table">
             <thead class="thead-dark">
                 <tr>
-                    <th scope="col">Tiêu đề</th>
+                    <th scope="col"><a class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Tiêu đề &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="glyphicon glyphicon-chevron-down"></span>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <input class="form-control" type="text" placeholder="Search" aria-label="Search" (change)="Search()">
+                    </div>
+                </th>
                     <th scope="col">Thời gian bắt đầu</th>
                     <th scope="col">Thời gian kết thúc</th>
                     <th scope="col">Mức giảm giá</th>
@@ -24,7 +30,7 @@
                     <td>{{promotion.titlePromotion}}</td>
                     <td>{{promotion.startDate}}</td>
                     <td>{{promotion.endDate}}</td>
-                    <td>{{promotion.saleOff}}</td>
+                    <td>{{promotion.saleOff}} đồng</td>
                     <td>{{promotion.detailPromotion}}</td>
                     <td><a [routerLink]="['/editPromotion', promotion.idPromotion]"><span
                                 class="glyphicon glyphicon-pencil"></span></a></td>
