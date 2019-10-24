@@ -4,10 +4,13 @@
     width: 100%;
     color:whitesmoke;
     text-align: center;
-    clear: both;
+   
 }
 
 #footer p{
     margin: 5px;
     text-shadow:black 0.2em 0.2em 0.2em;
+}
+.row{
+    clear: both;
 }

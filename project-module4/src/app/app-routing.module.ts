@@ -12,7 +12,7 @@ import { HitoryComponent } from './component-Lam/hitory/hitory.component';
 import { CreateticketComponent } from './component-Chuc/createticket/createticket.component';
 import { ListChairComponent } from './component-Chuc/list-chair/list-chair.component';
 import { ConfirmticketComponent } from './component-Chuc/confirmticket/confirmticket.component';
-import { InforTicketComponent } from './component-Chuc/infor-ticket/infor-ticket.component';<<<<<<< toan
+import { InforTicketComponent } from './component-Chuc/infor-ticket/infor-ticket.component';
 import { ListPromotionComponent } from './component-Toan/list-promotion/list-promotion.component';
 import { EditPromotionComponent } from './component-Toan/edit-promotion/edit-promotion.component';
 import { DeletePromotionComponent } from './component-Toan/delete-promotion/delete-promotion.component';

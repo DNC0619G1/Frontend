@@ -52,7 +52,7 @@ import { CreateChairComponent } from './component-Chuc/create-chair/create-chair
     ListPromotionComponent,
     EditPromotionComponent,
     DeletePromotionComponent,
-    AddPromotionComponent
+    AddPromotionComponent,
     ListRoomComponent,
     RommDetailComponent,
     CreatRoomComponent,
