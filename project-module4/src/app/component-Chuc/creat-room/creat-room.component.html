@@ -1,18 +1,19 @@
 <h3> Thêm Phòng Chiếu</h3>
 <hr>
-<form>
-    <div class="form-group row">
+<form (ngSubmit)="onSubmit()">
+    <!-- <div class="form-group row">
         <label  class="col-sm-2 col-form-label w-75">Mã Phòng</label>
         <div class="col-sm-10">
-            <input type="number" class="form-control w-50" id="staticEmail" placeholder="m phòng">
+            <input type="number" class="form-control w-50" id="staticEmail" placeholder="ma phòng" [(ngModel)]="roomId">
         </div>
-    </div>
-    <div class="form-group row">
-        <label  class="col-sm-2 col-form-label w-75">Tên Phòng</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control w-50" id="inputRoom" placeholder="tên phòng">
-        </div>
-    </div>
-    <button type="submit" class="btn btn-primary">Thêm </button>
+    </div> -->
+
+    <div class="form-group">
+        <label for="name">Tên Phòng</label>
+        <input type="text" class="form-control" id="firstName" required [(ngModel)]="room.nameRoom" name="nameRoom">
+      </div>
+
+    <!-- <button type="button" class="btn btn-primary" (click)="createRoom(nameRoom.value)">Thêm </button> -->
+    <button type="submit" class="btn btn-success">Thêm</button>
 </form>
 <br>
