@@ -57,6 +57,7 @@ export class InforTicketComponent implements OnInit {
 
   
     this.route.paramMap.subscribe(params => {
+      this.user=new User();
       this.idUser = this.route.snapshot.params[('user.id')];
       this.usersService.getUserByIdUser(this.idUser)
         .subscribe(data => {

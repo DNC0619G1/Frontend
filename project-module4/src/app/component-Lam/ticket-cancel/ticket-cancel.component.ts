@@ -5,7 +5,7 @@ import { TicketService } from '../../service/ticket.service';
 import { from } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Ticket } from '../../model/Ticket';
-import { element } from 'protractor';
+// import { element } from 'protractor';
 @Component({
   selector: 'app-ticket-cancel',
   templateUrl: './ticket-cancel.component.html',

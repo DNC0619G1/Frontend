@@ -26,6 +26,10 @@ import { EditPromotionComponent } from './component-Toan/edit-promotion/edit-pro
 import { DeletePromotionComponent } from './component-Toan/delete-promotion/delete-promotion.component';
 import { AddPromotionComponent } from './component-Toan/add-promotion/add-promotion.component';
 
+import { ListRoomComponent } from './component-Chuc/list-room/list-room.component';
+import { RommDetailComponent } from './component-Chuc/romm-detail/romm-detail.component';
+import { CreatRoomComponent } from './component-Chuc/creat-room/creat-room.component';
+import { CreateChairComponent } from './component-Chuc/create-chair/create-chair.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +53,10 @@ import { AddPromotionComponent } from './component-Toan/add-promotion/add-promot
     EditPromotionComponent,
     DeletePromotionComponent,
     AddPromotionComponent
+    ListRoomComponent,
+    RommDetailComponent,
+    CreatRoomComponent,
+    CreateChairComponent,
   ],
   imports: [
     BrowserModule,

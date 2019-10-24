@@ -1,0 +1,57 @@
+
+<!-- <div class="row ">
+    <div class="col-md-9">
+        <h3>Chi tiết ghế phòng {{room.nameRoom}}</h3>
+    </div>
+    <div class="col-md-3">
+        <button type="button" class="btn btn-primary btn-sm" [routerLink]="['/newchair']">Thêm Ghế</button>
+    </div>
+</div> -->
+<div class="row ">
+        <div class="col-md-12">
+            <h3>Chi tiết ghế phòng {{room.nameRoom}}</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <li style="background:palegreen;"></li>
+            <label>: Ghế vip</label>
+        </div>
+        <div class="col-md-6">
+            <li style="background:none"></li>
+            <label>: Ghế thường</label>
+        </div>
+        <div class="col-md-3">
+    
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <form class="">
+                <table class="choiseChair">
+                    <tr *ngFor="let row of rows">
+                        <td *ngFor="let col of columns ">
+                            <div *ngFor="let chair of chairs">
+                                <div *ngIf="chair.row==row && chair.column==col">
+                                    <div *ngIf="chair.idChairDetail==2">
+                                        <button class="chair-button" (click)="changeStatus(chair.row,chair.column)">
+                                            <li style="background:palegreen;"> {{chair.position}}</li>
+                                        </button>
+                                    </div>
+                                    <div *ngIf="chair.idChairDetail==1">
+                                        <button class="chair-button" (click)="changeStatus(chair.row,chair.column)">
+                                            <li> {{chair.position}}</li>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+    
+                </table>
+                <button class="btn btn-primary" [routerLink]="['/rooms']">Quay Lại</button>
+                <button (click)="checkChair(selectChar)" class="btn btn-primary">Lưu</button>
+            </form>
+            <br>
+        </div>
+    </div> 

@@ -32,17 +32,11 @@ export class ConfirmticketComponent implements OnInit {
 
   ngOnInit() {
 
-    // this.movieService.getAllMovies().subscribe((data: Movie[]) => {
-    //   data.forEach(element => {
-    //     this.movies.push(element);
-    //   });
-    // });
-
     this.usersService.getAllUsers()
     .subscribe((data: User[]) => {
       data.forEach(element => {
         this.users.push(element)
-    
+    console.log(this.users)
       })
     });
 
