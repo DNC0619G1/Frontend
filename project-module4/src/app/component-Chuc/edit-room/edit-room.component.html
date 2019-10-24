@@ -1,14 +1,13 @@
-<h3> Thêm Phòng Chiếu</h3>
-<hr>
-<form (ngSubmit)="onSubmit()">
+<h3>Update Room</h3>
+<form (ngSubmit)="updateRoom()">
     <div class="form-group">
         <label for="name">Tên Phòng</label>
-        <input type="text" class="form-control" id="firstName" required [(ngModel)]="room.nameRoom" name="nameRoom">
+        <input type="text" class="form-control" required [(ngModel)]="room.nameRoom" name="nameRoom">
       </div>
       <div class="form-group">
         <label for="name">Mô tả:</label>
         <textarea type="text" class="form-control" id="Description" required [(ngModel)]="room.description" name="Description" style="height: 150px;"></textarea>
       </div>
-    <button type="submit" class="btn btn-success">Thêm</button>
+    <button type="submit" class="btn btn-success">Edit</button>
 </form>
 <br>

@@ -7,20 +7,23 @@
     </div>
 </div>
 <div class="row ">
-    <table class="table">
-            <thead class="thead-light">
-                <tr>
-                    <th scope="col">Mã Phòng</th>
-                    <th scope="col">Tên Phòng</th>
-                    <th scope="col">Chi tiết ghế</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let room of rooms">
-                    <td>{{room.idRoom}}</td>
-                    <td>{{room.nameRoom}}</td>
-                    <td><a [routerLink]="['/roomdetail', room.idRoom]">chi tiết</a></td>
-                </tr>
-            </tbody>
-        </table>
+    <table class="table w-75">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">Mã Phòng</th>
+                <th scope="col">Tên Phòng</th>
+                <th scope="col">Chi tiết ghế</th>
+                <th scope="col">Edit</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let room of rooms">
+                <td>{{room.idRoom}}</td>
+                <td>{{room.nameRoom}}</td>
+                <td><a [routerLink]="['/roomdetail', room.idRoom]">chi tiết</a></td>
+                <td><a [routerLink]="['/roomedit', room.idRoom]"><span class="glyphicon glyphicon-pencil"></span></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>
