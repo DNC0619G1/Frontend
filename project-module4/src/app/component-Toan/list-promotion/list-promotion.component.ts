@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PromotionService} from '../../service/promotion.service';
+import { PromotionService } from '../../service/promotion.service';
 import { Promotion } from '../../model/promotion';
 @Component({
   selector: 'app-list-promotion',
@@ -7,7 +7,8 @@ import { Promotion } from '../../model/promotion';
   styleUrls: ['./list-promotion.component.css']
 })
 export class ListPromotionComponent implements OnInit {
-promotions: Promotion[] =[];
+  promotions: Promotion[] = [];
+  keyword: any;
   constructor(private promotionService: PromotionService) { }
 
   ngOnInit() {
@@ -17,5 +18,13 @@ promotions: Promotion[] =[];
       });
     });
   }
-
+  Search(keyword) {
+    this.promotions = [];
+    this.promotionService.searchPromotion(keyword).subscribe((data: Promotion[]) => {
+      data.forEach(element => {
+        this.promotions.push(element);
+      })
+    })
+    this.keyword = null;
+  }
 }
