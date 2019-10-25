@@ -1,12 +1,12 @@
-<div id="content">
-    <div id='tille'>
-        <div id="tille1">
+
+    <div id='tille' class="row">
+        <div class="col-md-8">
             <h4>Danh sách phim hot đang công chiếu trên Rạp</h4>
         </div>
-        <div id="tille2"><a id="all" href="listAll">Xem tất cả</a></div>
+        <div class="col-md-4"><a style="margin-left: 240px !important;" id="all" href="listAll">Xem tất cả</a></div>
     </div>
 
-    <div class="category"><a  [routerLink]="['/listCategory', 'hanh dong']">Phim hành động</a></div>
+    <div class="category row"><a  [routerLink]="['/listCategory', 'hanh dong']">Phim hành động</a></div>
     <div class="categoryMovie" *ngFor="let acctionMovie of acctionMovies">
         <div class="row1">
             <a [routerLink]="['/detail', acctionMovie.idMovie]"><img src="../../../assets/{{acctionMovie.imgMovie}}"></a>
@@ -15,7 +15,7 @@
         </div>
     </div>
 
-    <div class="category"><a [routerLink]="['/listCategory', 'tinh cam']">Phim tình cảm</a></div>
+    <div class="category row"><a [routerLink]="['/listCategory', 'tinh cam']">Phim tình cảm</a></div>
     <div class="categoryMovie" *ngFor="let loveMovie of loveMovies">
         <div class="row1">
             <a [routerLink]="['/detail', loveMovie.idMovie]"><img src="../../../assets/{{loveMovie.imgMovie}}"></a>
@@ -24,7 +24,7 @@
         </div>
     </div>
    
-    <div class="category"><a [routerLink]="['/listCategory', 'kinh di']">Phim kinh dị</a></div>
+    <div class="category row"><a [routerLink]="['/listCategory', 'kinh di']">Phim kinh dị</a></div>
     <div class="categoryMovie" *ngFor="let horrorMovie of horrorMovies">
         <div class="row1">
             <a [routerLink]="['/detail', horrorMovie.idMovie]"><img src="../../../assets/{{horrorMovie.imgMovie}}"></a>
@@ -33,7 +33,7 @@
         </div>
     </div>
    
-    <div class="category"><a [routerLink]="['/listCategory', 'xa hoi']">Phim xã hội</a></div>
+    <div class="category row"><a [routerLink]="['/listCategory', 'xa hoi']">Phim xã hội</a></div>
     <div class="categoryMovie" *ngFor="let socialMovie of socialMovies">
         <div class="row1">
             <a [routerLink]="['/detail', socialMovie.idMovie]"><img src="../../../assets/{{socialMovie.imgMovie}}"></a>
@@ -41,4 +41,4 @@
             <p>{{socialMovie.duration}}</p>
         </div>
     </div> 
-</div>
+

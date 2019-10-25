@@ -16,9 +16,8 @@ export class AddPromotionComponent implements OnInit {
   }
  
   createPromotion(){
-    console.log(this.promotion)
     this.promotionService.getAddPromotion(this.promotion).subscribe(
-      data =>this.router.navigate(['/listPromotion'])
+      data => this.router.navigate(['/listPromotion'])
       )}
   onSubmit() {
     this.submitted = true;
