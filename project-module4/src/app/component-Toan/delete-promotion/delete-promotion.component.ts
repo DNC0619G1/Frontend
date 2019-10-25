@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Promotion } from 'src/app/Model/promotion';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PromotionService } from 'src/app/service/promotion.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-delete-promotion',
@@ -11,7 +12,9 @@ import { PromotionService } from 'src/app/service/promotion.service';
 export class DeletePromotionComponent implements OnInit {
   promotion: Promotion = new Promotion();
   id: number;
-  constructor(private promotionService: PromotionService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private titleService: Title,private promotionService: PromotionService, private route: ActivatedRoute, private router: Router) { 
+    this.titleService.setTitle("Xóa Khuyến Mãi");
+  }
 
   ngOnInit() {
     this.route.params.subscribe(params => {

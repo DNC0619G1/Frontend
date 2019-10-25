@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Promotion } from 'src/app/Model/promotion';
 import { PromotionService } from 'src/app/service/promotion.service';
 import { Router } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-add-promotion',
@@ -10,7 +11,9 @@ import { Router } from '@angular/router';
 })
 export class AddPromotionComponent implements OnInit {
   promotion:Promotion = new Promotion();
-  constructor(private promotionService: PromotionService, private router: Router) { }
+  constructor(private titleService: Title,private promotionService: PromotionService, private router: Router) {
+    this.titleService.setTitle("Thêm Khuyến Mãi");
+   }
   submitted = false;
   ngOnInit() {
   }
