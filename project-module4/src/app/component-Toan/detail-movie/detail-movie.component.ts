@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MoviesService } from 'src/app/service/movies.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Movie } from 'src/app/Model/movie';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-detail-movie',
@@ -36,7 +37,9 @@ export class DetailMovieComponent implements OnInit {
   }
 
 
-  constructor(private movieService: MoviesService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private titleService: Title,private movieService: MoviesService, private route: ActivatedRoute, private router: Router) {
+    this.titleService.setTitle("Chi Tiết Phim");
+   }
 
   ngOnInit() {
     this.route.params.subscribe(params => {

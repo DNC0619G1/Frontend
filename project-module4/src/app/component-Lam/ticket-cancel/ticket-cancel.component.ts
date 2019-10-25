@@ -6,6 +6,7 @@ import { from } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Ticket } from '../../model/Ticket';
 import { element } from 'protractor';
+import { Title } from '@angular/platform-browser';
 @Component({
   selector: 'app-ticket-cancel',
   templateUrl: './ticket-cancel.component.html',
@@ -20,8 +21,11 @@ export class TicketCancelComponent implements OnInit {
     private route: ActivatedRoute,
     private ticketService : TicketService,
     private usersService: UsersService,
-    private router: Router
-    ) { }
+    private router: Router,
+    private titleService: Title,
+    ) { 
+      this.titleService.setTitle("Thông Tin Member Vé Đã Hủy ");
+    }
 
     
     ngOnInit() {
