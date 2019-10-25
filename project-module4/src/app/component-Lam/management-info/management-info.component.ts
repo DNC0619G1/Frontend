@@ -3,6 +3,7 @@ import { User } from '../../model/user';
 import { UsersService } from '../../service/users.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { Title } from '@angular/platform-browser';
 @Component({
   selector: 'app-management-info',
   templateUrl: './management-info.component.html',
@@ -20,8 +21,11 @@ export class ManagementInfoComponent implements OnInit {
     private route: ActivatedRoute,
     private usersService: UsersService,
     private _fb: FormBuilder,
-    private router: Router
-  ) { }
+    private router: Router,
+    private titleService: Title,
+  ) { 
+    this.titleService.setTitle("Thông Tin Member");
+  }
   editForm() {
     this.userForm = this._fb.group({
       fullName: new FormControl(''),

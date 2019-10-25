@@ -1,0 +1,79 @@
+<h2>Xóa Thông Tin Nhân Viên</h2>
+<hr>
+<div class="col-sm-13">
+    <form (ngSubmit)="deleteEmployee()">
+        <table>
+            <tr>
+                <td>
+                    <p>Tài Khoản <i>*</i></p>
+                </td>
+                <td><input type="text" value={{employee.accountEmployee}} disabled class="form-control" placeholder="Tài Khoản"></td>
+            </tr>
+            <br>
+            <tr>
+                <td>
+                    <p>Họ Tên <i>*</i></p>
+                </td>
+                <td><input type="text"disabled value={{employee.nameEmployee}}   class="form-control" placeholder="Họ Và Tên"></td>
+            </tr>
+            <br>
+            <tr>
+                <td>
+                    <p>Ngày Sinh <i>*</i></p>
+                </td>
+                <td><input type="text" value={{employee.birthDayEmployee}} disabled class="form-control"></td>
+            </tr>
+            <br>
+            <tr>
+                <td>Giới Tính : </td>
+                <td>
+                    <input type="radio" name="Man" value="Man"> Nam
+                    <input type="radio" name="Woman" value="Woman"> Nữ
+                </td>
+            </tr>
+            <br>
+            <tr>
+                <td>
+                    Email <i>*</i>
+                </td>
+                <td><input type="email" value={{employee.emailEmployee}} disabled class="form-control" placeholder="Email" aria-label="Sizing example input"
+                        aria-describedby="inputGroup-sizing-sm">
+                </td>
+            </tr>
+            <br>
+            <tr>
+                <td>
+                    CMND <i>*</i>
+                </td>
+                <td><input type="text" value={{employee.licenseEmployee}} disabled class="form-control" placeholder="Chứng Minh Nhân Dân"
+                        aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                </td>
+            </tr>
+            <br>
+            <tr>
+                <td>
+                    Số Điện Thoại <i>*</i>
+                </td>
+                <td><input type="text" value={{employee.numberPhoneEmployee}} disabled class="form-control" placeholder="Số Điện Thoại"
+                        aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                </td>
+            </tr>
+            <br>
+            <tr>
+                <td>
+                    Địa Chỉ <i>*</i>
+                </td>
+                <td><input type="text" value={{employee.addressEmployee}} disabled class="form-control" placeholder="Địa Chỉ"
+                        aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                </td>
+            </tr>
+            <br>
+            <tr>
+                <td></td>
+                <td><button type="submit" class="btn btn-primary" id="add"><span class="glyphicon glyphicon-ok-sign"></span>Xóa</button>
+                    <button type="button" routerLink="/admin/employeeList" class="btn btn-primary" id="back"><span class="glyphicon glyphicon-circle-arrow-left"></span>Quay Lại</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>

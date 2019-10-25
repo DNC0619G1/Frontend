@@ -1,0 +1,25 @@
+.col-sm-12{
+    /* height: auto; */
+    min-height: 310px;
+}
+.btn btn-primary
+{
+  float: left;
+  margin-top: 20px;  
+}
+.title1{
+    float: left;
+}
+#btn-insert{
+float: left;
+  margin-top: 20px; 
+}
+#search-box{
+    float: left;
+    width: 180px;
+    margin-top: 20px; 
+}
+#search-btn{
+    float: left;
+    margin-top: 20px;
+}

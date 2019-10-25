@@ -31,7 +31,10 @@ import { RommDetailComponent } from './component-Chuc/romm-detail/romm-detail.co
 import { CreatRoomComponent } from './component-Chuc/creat-room/creat-room.component';
 import { CreateChairComponent } from './component-Chuc/create-chair/create-chair.component';
 import { EditRoomComponent } from './component-Chuc/edit-room/edit-room.component';
-
+import { ListEmployeeComponent } from './component-Lam/list-employee/list-employee.component';
+import { InsertEmployeeComponent } from './component-Lam/insert-employee/insert-employee.component';
+import { EditEmployeeComponent } from './component-Lam/edit-employee/edit-employee.component';
+import { DeleteEmployeeComponent } from './component-Lam/delete-employee/delete-employee.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,6 +62,10 @@ import { EditRoomComponent } from './component-Chuc/edit-room/edit-room.componen
     CreatRoomComponent,
     CreateChairComponent,
     EditRoomComponent,
+    ListEmployeeComponent,
+    InsertEmployeeComponent,
+    EditEmployeeComponent,
+    DeleteEmployeeComponent,
   ],
   imports: [
     BrowserModule,

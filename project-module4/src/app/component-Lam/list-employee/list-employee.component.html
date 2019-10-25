@@ -1,0 +1,52 @@
+<div class="list">
+    <div class="col-sm-6">
+        <h2 class="title1">Danh Sách Thông Tin Nhân Viên</h2>
+    </div>
+    <div class="col-sm-3">
+        <a routerLink="/admin/employeeAdd">
+            <button type="button" class="btn btn-primary" id="btn-insert">
+                <i class="glyphicon glyphicon-user"></i> Thêm Nhân Viên
+            </button>
+        </a>
+    </div>
+    <div class="col-sm-3">
+        <input class="form-control" id="search-box" type="text" placeholder="Search">
+        <button type="button" class="btn btn-primary" id="search-btn"><i
+                class="glyphicon glyphicon-search"></i></button>
+    </div>
+    <div class="col-sm-13">
+        <div class="table-responsive">
+            <table class="table">
+                <thead class="table-primary">
+                    <tr>
+                        <th scope="col">Mã Nhân Viên</th>
+                        <th scope="col">Tên Nhân Viên</th>
+                        <th scope="col">Số CMND</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">số Điện Thoại</th>
+                        <th scope="col">Địa Chỉ</th>
+                        <th scope="col">Sửa</th>
+                        <th scope="col">Xóa</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="table-success" *ngFor="let em of employees| paginate: {itemsPerPage:7, currentPage:p} ">
+                        <td>{{em.accountEmployee}}</td>
+                        <td>{{em.nameEmployee}}</td>
+                        <td>{{em.licenseEmployee}}</td>
+                        <td>{{em.emailEmployee}}</td>
+                        <td>{{em.numberPhoneEmployee}}</td>
+                        <td>{{em.addressEmployee}}</td>
+                        <td><a [routerLink]="['/admin/employeeEdit',em.idEmployee]">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                            </a></td>
+                        <td><a [routerLink]="['/admin/employeeDelete',em.idEmployee]">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="page"><pagination-controls (pageChange)= "p = $event"></pagination-controls></div>
+    </div>
+</div>
