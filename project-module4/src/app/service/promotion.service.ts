@@ -27,4 +27,8 @@ export class PromotionService {
   getAddPromotion(promotion: Partial<Promotion>): Observable<Promotion>{
     return this.http.post<Promotion>(`${this.API_URL}/promotion/add`, promotion);
   }
+
+  searchPromotion(title: string): Observable<Promotion[]>{
+    return this.http.get<Promotion[]>(`${this.API_URL}/promotion/search/${title}`);
+  }
 }
