@@ -5,7 +5,7 @@ import { TicketService } from '../../service/ticket.service';
 import { from } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Ticket } from '../../model/Ticket';
-// import { element } from 'protractor';
+import { element } from 'protractor';
 
 @Component({
   selector: 'app-ticket-order',
@@ -15,7 +15,7 @@ import { Ticket } from '../../model/Ticket';
 export class TicketOrderComponent implements OnInit {
 
   [x: string]: any;
-  user: User;
+  user: User = new User;
   ticket : Ticket[] = [];
   
   constructor(
