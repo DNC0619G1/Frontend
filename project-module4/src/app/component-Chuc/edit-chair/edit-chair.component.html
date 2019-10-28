@@ -1,0 +1,24 @@
+<h3>Update Chair</h3>
+<form (ngSubmit)="updateChair()">
+    <div class="form-group">
+        <label for="name">Mã Ghế</label>
+        <input type="text" class="form-control" [(ngModel)]="chair.idChair" name="nameRoom" disabled>
+    </div>
+    <div class="form-group">
+        <label for="name">Hàng:</label>
+        <input type="number" class="form-control" id="row" required [(ngModel)]="chair.row" name="row">
+    </div>
+    <div class="form-group">
+        <label for="name">Cột:</label>
+        <input type="number" class="form-control" id="column" required [(ngModel)]="chair.column" name="column">
+    </div>
+    <div class="form-group">
+            <label for="name">Loại ghế : </label>
+            <input class="chair-detail" type="radio" name="change-detai" #chairDetail1
+                value="1" (change)="changDetail(chairDetail1.value)" > Normal
+            <input class="chair-detail" type="radio" name="change-detai" #chairDetail2
+                value="2" (change)="changDetail(chairDetail2.value)" *ngIf="chair.idChairDetail==2;else not" [checked]='true'> VIP 
+        </div>
+    <button type="submit" class="btn btn-success">Edit</button>
+</form>
+<br>

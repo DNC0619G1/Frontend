@@ -29,18 +29,13 @@ export class ConfirmticketComponent implements OnInit {
       return false;
     }
    }
-
   ngOnInit() {
-
     this.usersService.getAllUsers()
     .subscribe((data: User[]) => {
       data.forEach(element => {
         this.users.push(element)
-    console.log(this.users)
       })
     });
-
-
     this.time = new ShowTime();
     this.idTime = this.route.snapshot.params['time.idTime'];
     this.showTimesService.getShowTimeById(this.idTime)
@@ -57,7 +52,9 @@ export class ConfirmticketComponent implements OnInit {
     this.chairService.getchairs()
       .subscribe((data: Chair[]) => {
         data.forEach(element => {
-          this.chairs.push(element)
+          if (this.time.room == element.idRoom) {
+            this.chairs.push(element)
+            }
         })
         for (let i = 0; i < this.chairs.length; i++) {
           for (let j = 0; j < this.chairListChoise.length; j++) {

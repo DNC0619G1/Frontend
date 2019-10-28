@@ -15,7 +15,7 @@ export class EditRoomComponent implements OnInit {
     private roomService: RoomService) {
      }
   ngOnInit() {
-    this.idRoom = this.route.snapshot.params['room.idRoom'];
+    this.idRoom = this.route.snapshot.params['idRoom'];
     this.roomService.getRoomByID(this.idRoom)
     .subscribe(data => {
         this.room = data;

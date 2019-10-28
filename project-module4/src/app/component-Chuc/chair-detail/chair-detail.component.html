@@ -1,0 +1,47 @@
+<div class="container ng-scope">
+    <h3> Thông tin Ghế</h3>
+    <br>
+    <div *ngIf="chair">
+        <table class="table table-striped">
+            <tr>
+                <td class="w-25 ">
+                    <p>Mã ghế :</p>
+                </td>
+                <td>{{chair.idChair}}</td>
+            </tr>
+            <tr>
+                <td>
+                    <p>Hàng :</p>
+                </td>
+                <td>{{chair.row}}</td>
+            </tr>
+            <tr>
+                <td>
+                    <p>Cột :</p>
+                </td>
+                <td>{{chair.column}}</td>
+            </tr>
+            <tr>
+                <td>
+                    <p>Loại :</p>
+                </td>
+                <td>
+                    {{chair.type}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>Vị trí :</p>
+                </td>
+                <td>
+                    {{chair.position}}
+                </td>
+            </tr>
+        </table>
+        
+    </div>
+</div>
+<button class="btn btn-primary" [routerLink]="['/roomdetail', idRoom]"  type="button">Quay Lại</button>
+<button (click)="editChair(chair.idChair)" class="btn btn-primary"  type="button">Edit</button>
+<button (click)="deleteChair(chair.idChair)" class="btn btn-primary" type="button">Delete</button>
+<br>
