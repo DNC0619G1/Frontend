@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Movie } from 'src/app/Model/movie';
 import { MoviesService } from '../../service/movies.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-list-movies',
@@ -13,7 +14,9 @@ export class ListMoviesComponent implements OnInit {
   horrorMovies: Movie[]=[];
   socialMovies: Movie[]=[];
 
-  constructor(private movieService: MoviesService) { }
+  constructor(private movieService: MoviesService,private titleService: Title,) {
+    this.titleService.setTitle("Danh Sách Phim");
+   }
 
   ngOnInit() {
     this.movieService.getCategoryMovies("hanh dong").subscribe((data:Movie[]) => {

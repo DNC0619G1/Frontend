@@ -25,25 +25,6 @@ export class SearchMovieComponent implements OnInit {
   }
 
   searchMovie(keyword) {
-    // this.movieService.searchMoviesByName(keyword).subscribe((data: Movie[]) => {
-    //   data.forEach(element => {
-    //     this.movies.push(element);
-    //   });
-    //   console.log(this.movies.length);
-    //     this.movieService.searchMoviesByActor(keyword).subscribe((data: Movie[]) => {
-    //       data.forEach(element => {
-    //         this.movies.push(element);
-    //       });
-    //         this.movieService.searchMoviesByAuthor(keyword).subscribe((data: Movie[]) => {
-    //           data.forEach(element => {
-    //             this.movies.push(element);
-    //           });
-    //           if(this.movies.length == 0){
-    //             alert("Không tìm thấy phim theo yêu cầu");
-    //           }
-    //         });
-    //     });
-    // });
     if (keyword == "") {
       this.movieService.getAllMovies().subscribe((data: Movie[]) => {
         data.forEach(element => {

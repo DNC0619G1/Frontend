@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Promotion } from 'src/app/Model/promotion';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PromotionService } from 'src/app/service/promotion.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-delete-promotion',
@@ -9,27 +10,29 @@ import { PromotionService } from 'src/app/service/promotion.service';
   styleUrls: ['./delete-promotion.component.css']
 })
 export class DeletePromotionComponent implements OnInit {
-promotion: Promotion;
-id: number;
-  constructor(private promotionService: PromotionService, private route: ActivatedRoute, private router: Router ) { }
+  promotion: Promotion = new Promotion();
+  id: number;
+  constructor(private titleService: Title,private promotionService: PromotionService, private route: ActivatedRoute, private router: Router) { 
+    this.titleService.setTitle("Xóa Khuyến Mãi");
+  }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.id = params['id'];
     })
-    this.getPromotion(); 
+    this.getPromotion();
   }
 
-  getPromotion(){
+  getPromotion() {
     this.promotionService.getPromotion(this.id).subscribe(data => {
-      this.promotion=data;
+      this.promotion = data;
     })
   }
 
-  Confirm(){
-    this.promotionService.deletePromotion(this.id).subscribe(
-      next => {
-        this.router.navigate(['/listPromotion']);
-      });
+  Confirm() {
+    this.promotionService.deletePromotion(this.id).subscribe();
+    alert("ĐÃ XÓA THÀNH CÔNG");
+    () =>
+    this.router.navigate(['/listPromotion']);
   }
 }

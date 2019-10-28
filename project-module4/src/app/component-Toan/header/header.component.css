@@ -1,16 +1,17 @@
 #header{
-    background-image: url('../../../assets/header1.jpg');
-    background-position-y: -150px;
+    background-image: url('../../../assets/anh-nen-thien-nhien-118.jpg');
+    background-position-y: -420px;
+    background-position-x: -1200px;
 }
 
 .lore{
-    color:yellow;
+    color:white;
     font-weight: bold;
     text-decoration: none;
     text-shadow:black 0.2em 0.2em 0.2em;
 }
 .lore:hover{
-    color:white;
+    color: deepskyblue;
 }
 
 .nav-link{

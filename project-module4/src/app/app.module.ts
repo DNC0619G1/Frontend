@@ -25,7 +25,6 @@ import { ListPromotionComponent } from './component-Toan/list-promotion/list-pro
 import { EditPromotionComponent } from './component-Toan/edit-promotion/edit-promotion.component';
 import { DeletePromotionComponent } from './component-Toan/delete-promotion/delete-promotion.component';
 import { AddPromotionComponent } from './component-Toan/add-promotion/add-promotion.component';
-
 import { ListRoomComponent } from './component-Chuc/list-room/list-room.component';
 import { RommDetailComponent } from './component-Chuc/romm-detail/romm-detail.component';
 import { CreatRoomComponent } from './component-Chuc/creat-room/creat-room.component';
@@ -33,7 +32,10 @@ import { CreateChairComponent } from './component-Chuc/create-chair/create-chair
 import { EditRoomComponent } from './component-Chuc/edit-room/edit-room.component';
 import { EditChairComponent } from './component-Chuc/edit-chair/edit-chair.component';
 import { ChairDetailComponent } from './component-Chuc/chair-detail/chair-detail.component';
-
+import { ListEmployeeComponent } from './component-Lam/list-employee/list-employee.component';
+import { InsertEmployeeComponent } from './component-Lam/insert-employee/insert-employee.component';
+import { EditEmployeeComponent } from './component-Lam/edit-employee/edit-employee.component';
+import { DeleteEmployeeComponent } from './component-Lam/delete-employee/delete-employee.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -63,6 +65,10 @@ import { ChairDetailComponent } from './component-Chuc/chair-detail/chair-detail
     EditRoomComponent,
     EditChairComponent,
     ChairDetailComponent,
+    ListEmployeeComponent,
+    InsertEmployeeComponent,
+    EditEmployeeComponent,
+    DeleteEmployeeComponent,
   ],
   imports: [
     BrowserModule,

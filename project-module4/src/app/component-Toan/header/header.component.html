@@ -1,6 +1,6 @@
 <div class="row" id="header">
     <div class="col-md-3" id="logo">
-        <a href=""><img src="../assets/Untitled-1.png" height="150" width="300"></a>
+        <a href=""><img src="../../../assets/Logo movie.png" height="150" width="280"></a>
     </div>
     <div class="col-md-9">
         <div class="row" style="float: right">
@@ -17,8 +17,16 @@
 </div>
 <div id="nav" class="row">
     <div class="item-nav">
-        <a class="nav-link" href="/">Trang chủ</a>
+        <a href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Menu
+        </a>
+
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item" [routerLink]="['/listPromotion']">Danh sách khuyến mãi</a>
+            <a class="dropdown-item" [routerLink]="['/rooms']">Danh sách phòng chiếu</a>
+        </div>
     </div>
+
     <div class="item-nav">
         <a href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Loại phim
@@ -37,9 +45,6 @@
     </div>
     <div class="item-nav">
         <a class="nav-link" [routerLink]="['/muave']">Mua vé</a>
-    </div>
-    <div class="item-nav">
-        <a class="nav-link" [routerLink]="['/rooms']">Phòng vé</a>
     </div>
     <div class="item-navs">
         <button type="submit" class="btn btn-outline-success my-2 my-sm-0" [routerLink]="['/search', keyword ]">Tìm
