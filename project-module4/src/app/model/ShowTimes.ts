@@ -3,7 +3,7 @@ export class ShowTime {
     idMovie: number;
     showDate: Date;
     showTime: number;
-    room: string;
+    room: number;
 }
 
 

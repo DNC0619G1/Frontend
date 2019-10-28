@@ -3,7 +3,7 @@ export class Chair{
     row :number;
     column : number;
     idChairDetail :number;
-    room: number;
+    idRoom: number;
     statusChair : number; 
     choiseStatus:boolean;
     position :String;

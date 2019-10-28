@@ -1,19 +1,29 @@
-
 <h3> Thêm Ghế:</h3>
 <hr>
-<form>
-    <div class="form-group row">
-        <label  class="col-sm-2 col-form-label w-75">Mã Phòng</label>
-        <div class="col-sm-10">
-            <input type="number" class="form-control w-50" id="staticEmail" value="room.idRoom">
-        </div>
+<form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="name">Hàng</label>
+        <input type="number" class="form-control" id="row" required [(ngModel)]="chair.row" name="row">
     </div>
-    <div class="form-group row">
-        <label  class="col-sm-2 col-form-label w-75">Tên Phòng</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control w-50" id="inputRoom" placeholder="tên phòng">
-        </div>
+    <div class="form-group">
+        <label for="name">Cột</label>
+        <input type="number" class="form-control" id="column" required [(ngModel)]="chair.column" name="column">
     </div>
-    <button type="submit" class="btn btn-primary">Thêm </button>
+    <div class="form-group">
+        <label for="name">Vị trí</label>
+        <input type="text" class="form-control" id="position" required [(ngModel)]="chair.position" name="column"
+            placeholder="example :A1">
+    </div>
+    <div class="form-group">
+        <label for="name">Loại ghế : </label>
+        <input class="chair-detail" type="radio" name="change-detai" #chairDetail1
+            value="1" (change)="changDetail(chairDetail1.value)" > VIP
+        <input class="chair-detail" type="radio" name="change-detai" #chairDetail2
+            value="2" (change)="changDetail(chairDetail2.value)" [checked]='true'> Normal
+
+    </div>
+
+    <button type="submit" class="btn btn-success">Thêm</button>
+    <button type="button" class="btn btn-success" [routerLink]="['/roomdetail', idRoom]" style="margin-left: 10px;">Cancel</button>
 </form>
 <br>
