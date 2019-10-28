@@ -17,7 +17,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let room of rooms">
+            <tr *ngFor="let room of rooms| paginate: { itemsPerPage: 5, currentPage: p }; let i = index">
                 <td>{{room.idRoom}}</td>
                 <td>{{room.nameRoom}}</td>
                 <td><a [routerLink]="['/roomdetail', room.idRoom]">chi tiết</a></td>
@@ -25,5 +25,8 @@
                 </td>
             </tr>
         </tbody>
+        <div>
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </div>
     </table>
 </div>
