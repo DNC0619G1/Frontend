@@ -20,16 +20,16 @@
         <div *ngIf="time">
             <div class="row">
                 <div class="col-md-3">
-                    <p>Phim : {{time.idMovie}} </p>
+                    <p>Phim : {{time.movie.nameMovie}} </p>
                 </div>
                 <div class="col-md-3">
                     <p>Ngày chiếu : {{time.showDate}}</p>
                 </div>
                 <div class="col-md-3">
-                    <p>Giờ chiếu: {{time.showTime}}</p>
+                    <p>Giờ chiếu: {{time.showTime.timeStart}}</p>
                 </div>
                 <div class="col-md-3">
-                    <p>Phòng: {{time.idRoom}}</p>
+                    <p>Phòng: {{time.room.nameRoom}}</p>
                 </div>
             </div>
         </div>
@@ -56,10 +56,10 @@
                 </div>
             </div>
             <table class="choiseChair">
-                <tr *ngFor="let row of rows">
-                    <td *ngFor="let col of columns ">
+                <tr *ngFor='let columns of rowColumnMap|keyvalue'>
+                    <td *ngFor="let column of columns.value">
                         <div *ngFor="let chair of chairs">
-                            <div *ngIf="chair.row==row && chair.column==col">
+                            <div *ngIf="chair.row==columns.key && chair.column==column">
                                 <div *ngIf="chair.statusChair==0; else not">
                                     <button class="chair-button">
                                         <li style="background:orangered;"> {{chair.position}}</li>

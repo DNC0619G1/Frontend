@@ -12,33 +12,42 @@ import { ChairServiceService } from 'src/app/service/chair-service';
 })
 export class RommDetailComponent implements OnInit {
   room: Room;
-  id: number;
+  idRoom: number;
+  rowColumnMap: Map<number, number[]>=new Map<0, []>();
+  // mapChairs: Map<number, Chair[]>;
   chairs: Chair[] = [];
-  rows: number[] = [1, 2, 3, 4, 5, 6];
-  columns: number[] = [1, 2, 3, 4, 5, 6];
   constructor(private roomService: RoomService, private router: Router, private route: ActivatedRoute, private chairService: ChairServiceService) { }
 
   ngOnInit() {
     this.room = new Room();
-    this.id = this.route.snapshot.params['room.idRoom'];
-    this.roomService.getRoomByID(this.id)
+    this.idRoom = this.route.snapshot.params['idRoom'];
+    this.roomService.getRoomByID(this.idRoom)
       .subscribe(data => {
         this.room = data;
-        console.log(this.room)
       })
-
     this.chairService.getchairs()
       .subscribe((data: Chair[]) => {
         data.forEach(element => {
-          this.chairs.push(element)
+          if (this.idRoom == element.room.idRoom) {
+            this.chairs.push(element)
+            if (this.rowColumnMap.get(element.row) == null) {
+              this.rowColumnMap.set(element.row, [element.column]);
+            } else {
+              this.rowColumnMap.get(element.row).push(element.column);
+            }
+          }
         })
+        this.rowColumnMap.forEach((value: number[], key: number) => {
+          value.sort();
+      });
       })
   }
-  changeStatus(row: number, column: number) {
+  changeStatus(idChair: number) {
     for (let i = 0; i < this.chairs.length; i++) {
-      if ((this.chairs[i].column == column) && (this.chairs[i].row == row)) {
-        (this.chairs[i].idChairDetail==1)?this.chairs[i].idChairDetail++:this.chairs[i].idChairDetail--;
+      if (this.chairs[i].idChair == idChair ) {
+        continue;
       }
     }
+    this.router.navigate(['/chairdetail',this.idRoom,idChair])
   }
 }

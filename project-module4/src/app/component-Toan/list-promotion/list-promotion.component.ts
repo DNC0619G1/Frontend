@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PromotionService } from '../../service/promotion.service';
 import { Promotion } from '../../model/promotion';
+import { Title } from '@angular/platform-browser';
 @Component({
   selector: 'app-list-promotion',
   templateUrl: './list-promotion.component.html',
@@ -9,7 +10,9 @@ import { Promotion } from '../../model/promotion';
 export class ListPromotionComponent implements OnInit {
   promotions: Promotion[] = [];
   keyword: any;
-  constructor(private promotionService: PromotionService) { }
+  constructor(private promotionService: PromotionService,private titleService: Title) {
+    this.titleService.setTitle("Danh Sách Khuyến Mãi");
+   }
 
   ngOnInit() {
     this.promotionService.getAllPromotions().subscribe((data: Promotion[]) => {

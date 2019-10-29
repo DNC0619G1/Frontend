@@ -22,6 +22,13 @@ import { RommDetailComponent } from './component-Chuc/romm-detail/romm-detail.co
 import { CreatRoomComponent } from './component-Chuc/creat-room/creat-room.component';
 import { CreateChairComponent } from './component-Chuc/create-chair/create-chair.component';
 import { EditRoomComponent } from './component-Chuc/edit-room/edit-room.component';
+import { ChairDetailComponent } from './component-Chuc/chair-detail/chair-detail.component';
+import { EditChairComponent } from './component-Chuc/edit-chair/edit-chair.component';
+import { ListEmployeeComponent } from './component-Lam/list-employee/list-employee.component';
+import { InsertEmployeeComponent } from './component-Lam/insert-employee/insert-employee.component';
+import { EditEmployeeComponent } from './component-Lam/edit-employee/edit-employee.component';
+import { DeleteEmployeeComponent } from './component-Lam/delete-employee/delete-employee.component';
+
 
 
 const routes: Routes = [
@@ -48,14 +55,27 @@ const routes: Routes = [
   { path: "xacnhanbanve/:time.idTime/:chairListChoise", component: ConfirmticketComponent },
   { path: "thongtinbanve/:time.idTime/:chairListChoise/:user.id/:pointChange", component: InforTicketComponent },
   { path: "rooms", component: ListRoomComponent },
-  { path: "roomdetail/:room.idRoom", component: RommDetailComponent },
-  { path: "roomedit/:room.idRoom", component: EditRoomComponent },
+  { path: "roomdetail/:idRoom", component: RommDetailComponent },
+  { path: "roomedit/:idRoom", component: EditRoomComponent },
   { path: "newroom", component: CreatRoomComponent },
-  { path: "newchair", component: CreateChairComponent },
-  
+  { path: "newchair/:idRoom", component: CreateChairComponent },
+  { path: "chairdetail/:idRoom/:chair.idChair", component: ChairDetailComponent },
+  { path: "editchair/:chair.idChair", component: EditChairComponent },
   {
     path: 'infoUser/history/:idUser',component :HitoryComponent
   },
+  {
+    path: 'admin/employeeList',component : ListEmployeeComponent
+  },
+  {
+    path: 'admin/employeeAdd',component : InsertEmployeeComponent
+  },
+  {
+    path: 'admin/employeeEdit/:idEmployee', component : EditEmployeeComponent
+  },
+  {
+    path: 'admin/employeeDelete/:idEmployee', component: DeleteEmployeeComponent
+  }
 ];
 
 @NgModule({

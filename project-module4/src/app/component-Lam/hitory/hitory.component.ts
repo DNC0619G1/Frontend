@@ -8,6 +8,7 @@ import { Ticket } from '../../model/Ticket';
 import { MemberCard } from '../../model/MemberCard';
 import { MemberCardService } from '../../service/member-card.service';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-hitory',
@@ -27,10 +28,12 @@ export class HitoryComponent implements OnInit {
     private memberCardService: MemberCardService,
     private router: Router,
     private _fb: FormBuilder,
+    private titleService: Title,
   ) {
     this.router.routeReuseStrategy.shouldReuseRoute = function () {
       return false;
     }
+    this.titleService.setTitle("Lịch Sử Dùng Điểm");
   }
   hitoryForm() {
     this.historyForm = this._fb.group({

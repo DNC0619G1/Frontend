@@ -1,0 +1,120 @@
+<h2>Thêm Mới Nhân Viên</h2>
+<hr>
+<div class="col-sm-13">
+    <!-- [formGroup]="employeeForm" -->
+    <form (ngSubmit)="create()">
+        <table>
+            <tr>
+                <td>
+                    <p>Hình Ảnh <i>*</i></p>
+                </td>
+                <td><input type="file" class="form-control" [(ngModel)]="employee.imageEmployee" name="imageEmployee">
+                </td>
+                <!-- #img formControlName="imageEmployee" -->
+            </tr>
+            <br>
+            <tr>
+                <td>
+                    <p>Tài Khoản <i>*</i></p>
+                </td>
+                <td><input type="text" [(ngModel)]="employee.accountEmployee" name="accountEmployee"
+                        class="form-control" placeholder="Tài Khoản"></td>
+                <!-- #accountName formControlName="accountEmployee" -->
+            </tr>
+            <br>
+            <tr>
+                <td>
+                    <p>Mật Khẩu <i>*</i></p>
+                </td>
+                <td><input type="password" [(ngModel)]="employee.passwordEmployee" name="passwordEmployee"
+                        class="form-control" placeholder="Mật Khẩu"></td>
+                <!-- #password formControlName="passwordEmployee" -->
+            </tr>
+            <br>
+            <!-- <tr>
+                <td>
+                    <p>Nhập Lại Mật Khẩu <i>*</i></p>
+                </td>
+                <td><input type="password" #veriPassword class="form-control" placeholder="Xác Nhận Mật Khẩu"></td>
+            </tr>
+            <br> -->
+            <tr>
+                <td>
+                    <p>Họ Tên <i>*</i></p>
+                </td>
+                <td><input type="text" [(ngModel)]="employee.nameEmployee" name="nameEmployee" class="form-control"
+                        placeholder="Họ Và Tên"></td>
+                <!-- #nameEmployee formControlName="nameEmployee" -->
+            </tr>
+            <br>
+            <tr>
+                <td>
+                    <p>Ngày Sinh <i>*</i></p>
+                </td>
+                <td><input type="date" [(ngModel)]="employee.birthDayEmployee" name="birthDayEmployee"
+                        class="form-control"></td>
+                <!-- #birthDayEmployee formControlName="birthDayEmployee" -->
+            </tr>
+            <br>
+            <tr>
+                <td>Giới Tính : </td>
+                <td>
+                    <!-- #sexEmployee formControlName="sexEmployee" -->
+                    <input type="radio" [(ngModel)]="employee.sexEmployee" name="sexEmployee" value="Man"> Nam
+                    <input type="radio" [(ngModel)]="employee.sexEmployee" name="sexEmployee" value="Woman"> Nữ
+                </td>
+            </tr>
+            <br>
+            <tr>
+                <td>
+                    Email <i>*</i>
+                </td>
+                <!-- #emailEmployee formControlName="emailEmployee" -->
+                <td><input type="email" [(ngModel)]="employee.emailEmployee" name="emailEmployee" class="form-control"
+                        placeholder="Email" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                </td>
+            </tr>
+            <br>
+            <tr>
+                <td>
+                    CMND <i>*</i>
+                </td>
+                <!-- #licenseEmployee formControlName="licenseEmployee" -->
+                <td><input type="text" [(ngModel)]="employee.licenseEmployee" name="licenseEmployee" class="form-control"
+                        placeholder="Chứng Minh Nhân Dân" aria-label="Sizing example input"
+                        aria-describedby="inputGroup-sizing-sm">
+                </td>
+            </tr>
+            <br>
+            <tr>
+                <td>
+                    Số Điện Thoại <i>*</i>
+                </td>
+                <!-- #numberPhoneEmployee formControlName="numberPhoneEmployee" -->
+                <td><input type="text" [(ngModel)]="employee.numberPhoneEmployee" name="numberPhoneEmployee" class="form-control"
+                        placeholder="Số Điện Thoại" aria-label="Sizing example input"
+                        aria-describedby="inputGroup-sizing-sm">
+                </td>
+            </tr>
+            <br>
+            <tr>
+                <td>
+                    Địa Chỉ <i>*</i>
+                </td>
+                <!-- #addressEmployee formControlName="addressEmployee" -->
+                <td><input type="text" [(ngModel)]="employee.addressEmployee" name="addressEmployee" class="form-control"
+                        placeholder="Địa Chỉ" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                </td>
+            </tr>
+            <br>
+            <tr>
+                <td></td>
+                <td><button type="submit" class="btn btn-primary" id="add"><span
+                            class="glyphicon glyphicon-ok-sign"></span>Thêm Mới</button>
+                    <button type="button" routerLink="/admin/employeeList" class="btn btn-primary" id="back"><span
+                            class="glyphicon glyphicon-circle-arrow-left"></span>Quay Lại</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
