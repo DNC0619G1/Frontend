@@ -17,13 +17,13 @@
     <div class="form-group">
         <label for="name">Loại ghế : </label>
         <input class="chair-detail" type="radio" name="change-detai" #chairDetail1
-            value="1" (change)="changDetail(chairDetail1.value)" > VIP
+            value="2" (change)="changDetail(chairDetail1.value)" > VIP
         <input class="chair-detail" type="radio" name="change-detai" #chairDetail2
-            value="2" (change)="changDetail(chairDetail2.value)" [checked]='true'> Normal
+            value="1" (change)="changDetail(chairDetail2.value)" [checked]='true'> Normal
 
     </div>
 
-    <button type="submit" class="btn btn-success">Thêm</button>
-    <button type="button" class="btn btn-success" [routerLink]="['/roomdetail', idRoom]" style="margin-left: 10px;">Cancel</button>
+    <button type="submit" class="btn btn-primary">Thêm</button>
+    <button type="button" class="btn btn-primary" [routerLink]="['/roomdetail', idRoom]" style="margin-left: 10px;">Cancel</button>
 </form>
 <br>

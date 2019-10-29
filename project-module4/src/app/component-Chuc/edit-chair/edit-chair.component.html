@@ -16,17 +16,18 @@
         <label for="name">Loại ghế : </label>
         <div *ngIf="chair.idChairDetail==1">
             <input class="chair-detail" type="radio" name="change-detai" #chairDetail1 value="1"
-                (change)="changDetail(chairDetail1.value)" [checked]='true'> Normal
+                (change)="changDetail(chairDetail1.value)" [checked]='true'>  Normal
             <input class="chair-detail" type="radio" name="change-detai" #chairDetail2 value="2"
-                (change)="changDetail(chairDetail2.value)"> VIP
+                (change)="changDetail(chairDetail2.value)">  VIP
         </div>
         <div *ngIf="chair.idChairDetail==2">
             <input class="chair-detail" type="radio" name="change-detai" #chairDetail1 value="1"
-                (change)="changDetail(chairDetail1.value)">Normal
+                (change)="changDetail(chairDetail1.value)">  Normal
             <input class="chair-detail" type="radio" name="change-detai" #chairDetail2 value="2"
-                (change)="changDetail(chairDetail2.value)" [checked]='true'> VIP
+                (change)="changDetail(chairDetail2.value)" [checked]='true'>  VIP
         </div>
     </div>
-    <button type="submit" class="btn btn-success">Edit</button>
+    <button type="submit" class="btn btn-primary">Edit</button>
+    <button type="button" class="btn btn-primary" style="margin-left: 10px;" [routerLink]="['/chairdetail',idRoom,idChair]">Back</button>
 </form>
 <br>

@@ -23,6 +23,7 @@ export class InforTicketComponent implements OnInit {
   amountVip: number = 0;
   users : User[];
   user:User;
+  priceSum:number=0;
   constructor(private chairService: ChairServiceService, private router: Router, private route: ActivatedRoute,private usersService:UsersService,
      private showTimesService: ShowTimesService, ) { }
 
@@ -48,14 +49,12 @@ export class InforTicketComponent implements OnInit {
         })
         for (let i = 0; i < this.chairs.length; i++) {
           for (let j = 0; j < this.chairListChoise.length; j++) {
-            if ((this.chairs[i].idChair == this.chairListChoise[j]) && (this.chairs[i].idChairDetail == 2)) {
-              this.amountVip++;
+            if (this.chairs[i].idChair == this.chairListChoise[j]) {
+              this.priceSum+=this.chairs[i].priceChairType+this.time.showTime.priceTime;
             }
           }
         }
       });
-
-  
     this.route.paramMap.subscribe(params => {
       this.user=new User();
       this.idUser = this.route.snapshot.params[('user.id')];

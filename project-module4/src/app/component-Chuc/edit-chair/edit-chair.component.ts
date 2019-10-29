@@ -19,8 +19,7 @@ export class EditChairComponent implements OnInit {
     this.chairService.getChairByID(this.idChair)
       .subscribe(data => {
         this.chair = data;
-        this.idRoom = this.chair.idRoom;
-        console.log(this.chair)
+        this.idRoom = this.chair.room.idRoom;
       })
   }
   changDetail(changedetail: number) {

@@ -19,6 +19,9 @@ export class RoomService {
   createRoom(room: Partial<Room>): Observable<Room> {
     return this.http.post<Room>(`${this.API_URL}/addroom`,room);
   }
+  searchNameRoon(nameRoom:String):Observable<Room[]>{
+    return this.http.get<Room[]>(`${this.API_URL}/searchNameRoom/${nameRoom}`);
+  }
 
   // updateRoom(id: number, value: String): Observable<Object> {
   //   return this.http.put(`${this.API_URL}/${id}`, value);

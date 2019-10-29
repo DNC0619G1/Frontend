@@ -1,27 +1,33 @@
 <div class="row ">
-    <div class="col-md-9">
+    <div class="col-md-7">
         <h2>Danh Sách Phòng Chiếu:</h2>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-2">
         <button type="button" class="btn btn-primary btn-sm" [routerLink]="['/newroom']">Thêm Phòng</button>
+    </div>
+    <div class="col-md-3">
+        <input class="form-control" #inputsearch id="search-box" type="text" placeholder="Search">
+        <button type="button" class="btn btn-primary" id="search-btn"><i class="glyphicon glyphicon-search"
+                (click)="searchNameRoom(inputsearch.value)"></i></button>
     </div>
 </div>
 <div class="row ">
-    <table class="table w-75">
+    <table class="table">
         <thead class="thead-light">
             <tr>
-                <th scope="col">Mã Phòng</th>
-                <th scope="col">Tên Phòng</th>
-                <th scope="col">Chi tiết ghế</th>
-                <th scope="col">Edit</th>
+                <th style="width: 20%;" scope="col">Mã Phòng</th>
+                <th scope="col" style="width: 20%;">Tên Phòng</th>
+                <th scope="col" style="width: 20%;">Chi tiết ghế</th>
+                <th scope="col" style="width: 10%;">Edit</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let room of rooms| paginate: { itemsPerPage: 5, currentPage: p }; let i = index">
                 <td>{{room.idRoom}}</td>
-                <td>{{room.nameRoom}}</td>
-                <td><a [routerLink]="['/roomdetail', room.idRoom]">chi tiết</a></td>
-                <td><a [routerLink]="['/roomedit', room.idRoom]"><span class="glyphicon glyphicon-pencil"></span></a>
+                <td class="w-45">{{room.nameRoom}}</td>
+                <td class="w-25"><a [routerLink]="['/roomdetail', room.idRoom]">chi tiết</a></td>
+                <td class="w-25"><a [routerLink]="['/roomedit', room.idRoom]"><span
+                            class="glyphicon glyphicon-pencil"></span></a>
                 </td>
             </tr>
         </tbody>

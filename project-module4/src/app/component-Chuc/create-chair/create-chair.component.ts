@@ -23,8 +23,8 @@ export class CreateChairComponent implements OnInit {
     this.roomService.getRoomByID(this.idRoom)
       .subscribe(data => {
         this.room = data;
+        this.chair.room=this.room;
       })
-    this.chair.idRoom=this.idRoom;
   }
   onSubmit() {
     this.submitted = true;
