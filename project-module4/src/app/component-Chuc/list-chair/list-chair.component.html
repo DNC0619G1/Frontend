@@ -20,16 +20,16 @@
         <div *ngIf="time">
             <div class="row">
                 <div class="col-md-3">
-                    <p>Phim : {{time.idMovie}} </p>
+                    <p>Phim : {{time.movie.nameMovie}} </p>
                 </div>
                 <div class="col-md-3">
                     <p>Ngày chiếu : {{time.showDate}}</p>
                 </div>
                 <div class="col-md-3">
-                    <p>Giờ chiếu: {{time.showTime}}</p>
+                    <p>Giờ chiếu: {{time.showTime.timeStart}}</p>
                 </div>
                 <div class="col-md-3">
-                    <p>Phòng: {{time.room}}</p>
+                    <p>Phòng: {{time.room.nameRoom}}</p>
                 </div>
             </div>
         </div>

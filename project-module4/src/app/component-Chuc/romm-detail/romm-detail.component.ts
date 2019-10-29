@@ -28,7 +28,7 @@ export class RommDetailComponent implements OnInit {
     this.chairService.getchairs()
       .subscribe((data: Chair[]) => {
         data.forEach(element => {
-          if (this.idRoom == element.idRoom) {
+          if (this.idRoom == element.room.idRoom) {
             this.chairs.push(element)
             if (this.rowColumnMap.get(element.row) == null) {
               this.rowColumnMap.set(element.row, [element.column]);

@@ -4,16 +4,16 @@
     <div *ngIf="time">
         <div class="row">
             <div class="col-md-3">
-                <img src="https://image.bongngo.tv/upload/bg_one-piece-dao-hai-tac.jpg">
+                <img src={{time.movie.imgMovie}}>
             </div>
             <div class="col-md-9">
                 <table class="table table-striped">
-                    <h2>{{time.idMovie}}</h2>
+                    <h2>{{time.movie.nameMovie}}</h2>
                     <tr>
                         <td class="w-25 ">
                             <p>Màn hình :</p>
                         </td>
-                        <td>{{time.room}}</td>
+                        <td>{{time.room.nameRoom}}</td>
                     </tr>
                     <tr>
                         <td>
@@ -25,7 +25,7 @@
                         <td>
                             <p>Giờ chiếu :</p>
                         </td>
-                        <td>{{time.showTime}}</td>
+                        <td>{{time.showTime.timeStart}}</td>
                     </tr>
                     <tr>
                         <td>
@@ -48,11 +48,8 @@
                         <td>
                             <div *ngFor="let idChair of chairListChoise">
                                 <div *ngFor="let chair of chairs">
-                                    <div *ngIf="chair.idChair==idChair && chair.idChairDetail==1">
-                                        {{chair.position}} : {{45000}} vnd
-                                    </div>
-                                    <div *ngIf="chair.idChair==idChair && chair.idChairDetail==2">
-                                        {{chair.position}} : {{45000+10000}} vnd
+                                    <div *ngIf="chair.idChair==idChair">
+                                        {{chair.position}} : {{time.showTime.priceTime+chair.priceChairType}} vnd
                                     </div>
                                 </div>
                             </div>
@@ -74,7 +71,7 @@
                         <td>
                             <p>Tổng cộng :</p>
                         </td>
-                        <td>{{45000*chairListChoise.length +amountVip*10000-45000*pointChange}} vnd</td>
+                        <td>{{priceSum}} vnd</td>
                     </tr>
                 </table>
 

@@ -10,12 +10,26 @@ import { Room } from 'src/app/model/Room';
   styleUrls: ['./list-room.component.css']
 })
 export class ListRoomComponent implements OnInit {
-  rooms:Room[]=[];
-  constructor(private roomService :RoomService,private router :Router, private route: ActivatedRoute, ) { }
+  rooms: Room[] = [];
+  constructor(private roomService: RoomService, private router: Router, private route: ActivatedRoute, ) { }
 
   ngOnInit() {
-    this.roomService.getRooms().subscribe((data:Room[])=>{
-      data.forEach(element=>{this.rooms.push(element)})
+    this.roomService.getRooms().subscribe((data: Room[]) => {
+      data.forEach(element => { this.rooms.push(element) })
     })
+  }
+  searchNameRoom(nameRoom) {
+    this.rooms = [];
+    if ((nameRoom == "")||((nameRoom == "&sbnp"))) {
+      this.roomService.getRooms().subscribe((data: Room[]) => {
+        data.forEach(element => { this.rooms.push(element) })
+      })
+      }
+    else {
+      this.roomService.searchNameRoon(nameRoom).subscribe(
+        (data: Room[]) => {
+          data.forEach(element => { this.rooms.push(element) })
+        })
+    }
   }
 }

@@ -1,6 +1,6 @@
 export class Movie{
-    idMovie: Number;
-    nameMovie: string;
+    idMovie: number;
+    nameMovie: String;
     categoryMovie: string;
     actor: string;
     author: string;

@@ -3,7 +3,6 @@ import { ShowTime } from 'src/app/model/ShowTimes';
 import { ShowTimesService } from 'src/app/service/show-times.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/model/user';
-
 import { Chair } from 'src/app/model/chair';
 import { ChairServiceService } from 'src/app/service/chair-service';
 import { UsersService } from 'src/app/service/users.service';
@@ -20,9 +19,9 @@ export class ConfirmticketComponent implements OnInit {
   time: ShowTime;
   idTime: number;
   pointChange: number = 0;
-  amountVip: number = 0;
   users : User[] = [];
   user:User;
+  priceSum:number=0;
   constructor(private chairService: ChairServiceService, private router: Router, 
     private route: ActivatedRoute, private showTimesService: ShowTimesService,private usersService:UsersService ) {
     this.router.routeReuseStrategy.shouldReuseRoute = function () {
@@ -52,20 +51,19 @@ export class ConfirmticketComponent implements OnInit {
     this.chairService.getchairs()
       .subscribe((data: Chair[]) => {
         data.forEach(element => {
-          if (this.time.room == element.idRoom) {
+          if (this.time.room.idRoom == element.room.idRoom) {
             this.chairs.push(element)
             }
         })
         for (let i = 0; i < this.chairs.length; i++) {
           for (let j = 0; j < this.chairListChoise.length; j++) {
-            if ((this.chairs[i].idChair == this.chairListChoise[j]) && (this.chairs[i].idChairDetail == 2)) {
-              this.amountVip++;
+            if (this.chairs[i].idChair == this.chairListChoise[j]) {
+              this.priceSum+=this.chairs[i].priceChairType+this.time.showTime.priceTime;
             }
           }
         }
       });
   }
-
   checkMember(memberId: number) {
     this.pointChange = 0;
     let isFind = false;
@@ -79,6 +77,7 @@ export class ConfirmticketComponent implements OnInit {
       this.user = null;
     }
   }
+  
   onItemChange(valueChange: number) {
     this.pointChange = valueChange;
   }

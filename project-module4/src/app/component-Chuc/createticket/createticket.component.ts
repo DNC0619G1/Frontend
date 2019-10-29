@@ -9,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./createticket.component.css']
 })
 export class CreateticketComponent implements OnInit {
-  filmShowMap: Map<number, ShowTime[]>;
+  filmShowMap: Map<String, ShowTime[]>;
   setDate: Date;
   isExist: Boolean = true;
 
@@ -22,11 +22,11 @@ export class CreateticketComponent implements OnInit {
     this.showTimesService.getShowTimes()
       .subscribe((data: ShowTime[]) => {
         data.forEach(filmShow => {
-          const id = filmShow.idMovie;
-          if (this.filmShowMap.get(id) == null) {
-            this.filmShowMap.set(id, [filmShow]);
+          const nameMovie = filmShow.movie.nameMovie;
+          if (this.filmShowMap.get(nameMovie) == null) {
+            this.filmShowMap.set(nameMovie, [filmShow]);
           } else {
-            this.filmShowMap.get(id).push(filmShow);
+            this.filmShowMap.get(nameMovie).push(filmShow);
           }
         });
       });
@@ -37,7 +37,6 @@ export class CreateticketComponent implements OnInit {
   }
 
   isContainFilmAsDay(filmShows: ShowTime[], day: Date): boolean {
-    console.log(day)
     let hasFilm = false;
     filmShows.forEach(filmShow => {
       if (filmShow.showDate == day) {
