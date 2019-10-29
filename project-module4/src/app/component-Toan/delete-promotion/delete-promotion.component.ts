@@ -30,9 +30,10 @@ export class DeletePromotionComponent implements OnInit {
   }
 
   Confirm() {
-    this.promotionService.deletePromotion(this.id).subscribe();
-    alert("ĐÃ XÓA THÀNH CÔNG");
-    () =>
-    this.router.navigate(['/listPromotion']);
+    this.promotionService.deletePromotion(this.id).subscribe(next => {
+      alert("ĐÃ XÓA THÀNH CÔNG");
+      this.router.navigate(['/listPromotion']);
+    });
+
   }
 }

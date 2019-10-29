@@ -23,11 +23,19 @@ export class ListPromotionComponent implements OnInit {
   }
   Search(keyword) {
     this.promotions = [];
+    if(keyword == null){
+      this.promotionService.getAllPromotions().subscribe((data: Promotion[]) => {
+        data.forEach(element => {
+          this.promotions.push(element);
+        });
+      });
+    } else {
     this.promotionService.searchPromotion(keyword).subscribe((data: Promotion[]) => {
       data.forEach(element => {
         this.promotions.push(element);
       })
     })
+  }
     this.keyword = null;
   }
 }
