@@ -32,6 +32,8 @@ import { CreatRoomComponent } from './component-Chuc/creat-room/creat-room.compo
 import { CreateChairComponent } from './component-Chuc/create-chair/create-chair.component';
 import { EditRoomComponent } from './component-Chuc/edit-room/edit-room.component';
 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,7 +68,8 @@ import { EditRoomComponent } from './component-Chuc/edit-room/edit-room.componen
     FormsModule,
     HttpClientModule,
     NgxPaginationModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
