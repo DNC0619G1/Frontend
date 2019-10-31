@@ -10,6 +10,7 @@ import { Title } from '@angular/platform-browser';
 export class ListPromotionComponent implements OnInit {
   promotions: Promotion[] = [];
   keyword: any;
+  id: number;
   constructor(private promotionService: PromotionService,private titleService: Title) {
     this.titleService.setTitle("Danh Sách Khuyến Mãi");
    }
@@ -37,5 +38,15 @@ export class ListPromotionComponent implements OnInit {
     })
   }
     this.keyword = null;
+  }
+
+  delete(id){
+    console.log(id)
+    this.id = id;
+  }
+
+  confirm(){
+    this.promotionService.deletePromotion(this.id).subscribe();
+    window.location.reload();
   }
 }

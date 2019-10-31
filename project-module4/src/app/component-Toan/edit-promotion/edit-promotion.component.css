@@ -6,4 +6,10 @@
     width: 70%;
     min-height: 150px;
     }
-    
+    button{
+        margin: 0.2em 0.2em 0.2em 0.2em;
+    }    
+    span{
+        font-style: italic;
+        color: red;
+    }
