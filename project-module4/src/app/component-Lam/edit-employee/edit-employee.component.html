@@ -1,7 +1,8 @@
 <h2>Sửa Thông Tin Nhân Viên</h2>
 <hr>
 <div class="col-sm-13" *ngIf="employee; else nothing">
-    <form [formGroup]="employeeForm" (ngSubmit)="update(newPassWord.value,veriPassWord.value)">
+    <!-- newPassWord.value,veriPassWord.value -->
+    <form [formGroup]="employeeForm" (ngSubmit)="update()">
         <table>
             <tr>
                 <td>
@@ -15,35 +16,69 @@
                 <td>
                     <p>Tài Khoản <i>*</i></p>
                 </td>
-                <td><input type="text" formControlName="accountEmployee" value={{employee.accountEmployee}} disabled class="form-control" placeholder="Tài Khoản"></td>
+                <td><input type="text" formControlName="accountEmployee" disabled class="form-control"
+                        placeholder="Tài Khoản"></td>
             </tr>
             <br>
             <tr>
                 <td>
                     <p>Mật Khẩu <i>*</i></p>
                 </td>
-                <td><input type="password" #newPassWord formControlName="passwordEmployee" class="form-control" placeholder="Mật Khẩu"></td>
+                <td><input type="password" formControlName="passwordEmployee" class="form-control"
+                        placeholder="Mật Khẩu" [ngClass]="{ 'is-invalid': submitted && f.passwordEmployee.errors }">
+                    <div *ngIf="submitted && f.passwordEmployee.errors" class="invalid-feedback">
+                        <div *ngIf="f.passwordEmployee.errors.required">PassWord Không Được Để Trống</div>
+                        <div *ngIf="f.passwordEmployee.errors.minlength">PassWord Phải lớn Hơn 6 ký Tự</div>
+                    </div>
+                </td>
+                <!-- #newPassWord -->
+                <!-- <td>
+                    <div *ngIf="submitted && f.passwordEmployee.errors" class="invalid-feedback">
+                        <div *ngIf="f.passwordEmployee.errors.required">PassWord Không Được Để Trống</div>
+                        <div *ngIf="f.passwordEmployee.errors.minlength">PassWord Phải lớn Hơn 6 ký Tự</div>
+                    </div>
+                </td> -->
             </tr>
             <br>
-            <tr>
+            <!-- <tr>
                 <td>
                     <p>Nhập Lại Mật Khẩu <i>*</i></p>
                 </td>
                 <td><input type="password" #veriPassWord class="form-control" placeholder="Xác Nhận Mật Khẩu"></td>
             </tr>
-            <br>
+            <br> -->
             <tr>
                 <td>
                     <p>Họ Tên <i>*</i></p>
                 </td>
-                <td><input type="text" formControlName="nameEmployee" value={{employee.nameEmployee}} class="form-control" placeholder="Họ Và Tên"></td>
+                <td><input type="text" formControlName="nameEmployee" class="form-control" placeholder="Họ Và Tên"
+                        [ngClass]="{'is-invalid':submitted && f.nameEmployee.errors}">
+                    <div *ngIf="submitted && f.nameEmployee.errors" class="invalid-feedback">
+                        <div *ngIf="f.nameEmployee.errors.required">Tên Không Được Để Trống</div>
+                        <div *ngIf="f.nameEmployee.errors.minlength">Tên Phải 6 Ký Tự trở lên</div>
+                    </div>
+                </td>
             </tr>
             <br>
             <tr>
                 <td>
                     <p>Ngày Sinh <i>*</i></p>
                 </td>
-                <td><input type="date" formControlName="birthDayEmployee" value={{employee.birthDayEmployee}} class="form-control"></td>
+                <!-- <td><input type="date" formControlName="birthDayEmployee" class="form-control"></td>
+                <td> -->
+                <td>
+                    <mat-form-field>
+                        <input matInput [matDatepicker]="picker" formControlName="birthDayEmployee"
+                            [ngClass]="{ 'is-invalid': submitted && f.birthDayEmployee.errors }"
+                            placeholder="Choose a date">
+                        <div *ngIf="submitted && f.birthDayEmployee.errors" class="invalid-feedback">
+                            <div *ngIf="f.birthDayEmployee.errors.required">Vui Lòng Ngày Sinh</div>
+                        </div>
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+
+                </td>
             </tr>
             <br>
             <tr>
@@ -58,8 +93,13 @@
                 <td>
                     Email <i>*</i>
                 </td>
-                <td><input type="email" formControlName="emailEmployee" value={{employee.emailEmployee}} class="form-control" placeholder="Email" aria-label="Sizing example input"
-                        aria-describedby="inputGroup-sizing-sm">
+                <td><input type="email" formControlName="emailEmployee" class="form-control" placeholder="Email"
+                        aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"
+                        [ngClass]="{'is-invalid':submitted && f.emailEmployee.errors}">
+                    <div *ngIf="submitted && f.emailEmployee.errors" class="invalid-feedback">
+                        <div *ngIf="f.emailEmployee.errors.required">Email Không Được Để Trống</div>
+                        <div *ngIf="f.emailEmployee.errors.email">Email Không Hợp Lệ</div>
+                    </div>
                 </td>
             </tr>
             <br>
@@ -67,8 +107,15 @@
                 <td>
                     CMND <i>*</i>
                 </td>
-                <td><input type="text" formControlName="licenseEmployee" value={{employee.licenseEmployee}} class="form-control" placeholder="Chứng Minh Nhân Dân"
-                        aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                <td><input type="number" formControlName="licenseEmployee" class="form-control"
+                        placeholder="Chứng Minh Thư" aria-label="Sizing example input"
+                        aria-describedby="inputGroup-sizing-sm"
+                        [ngClass]="{'is-invalid':submitted && f.licenseEmployee.errors}">
+                    <div *ngIf="submitted && f.licenseEmployee.errors" class="invalid-feedback">
+                        <div *ngIf="f.licenseEmployee.errors.required">Chứng Minh Thư Không Để Trống</div>
+                        <div *ngIf="f.licenseEmployee.errors.min">Chứng Minh Thư Phải 6->10 Số</div>
+                        <div *ngIf="f.licenseEmployee.errors.max">Chứng Minh Thư Phải 6->10 Số</div>
+                    </div>
                 </td>
             </tr>
             <br>
@@ -76,8 +123,15 @@
                 <td>
                     Số Điện Thoại <i>*</i>
                 </td>
-                <td><input type="text" formControlName="numberPhoneEmployee" value={{employee.numberPhoneEmployee}} class="form-control" placeholder="Số Điện Thoại"
-                        aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                <td><input type="number" formControlName="numberPhoneEmployee" class="form-control"
+                        placeholder="Số Điện Thoại" aria-label="Sizing example input"
+                        aria-describedby="inputGroup-sizing-sm"
+                        [ngClass]="{'is-invalid':submitted && f.numberPhoneEmployee.errors}">
+                    <div *ngIf="submitted && f.numberPhoneEmployee.errors" class="invalid-feedback">
+                        <div *ngIf="f.numberPhoneEmployee.errors.required">SĐT Không Được Để Trống</div>
+                        <div *ngIf="f.numberPhoneEmployee.errors.min">Chứng Minh Thư Phải 6->10 Số</div>
+                        <div *ngIf="f.numberPhoneEmployee.errors.max">Chứng Minh Thư Phải 6->10 Số</div>
+                    </div>
                 </td>
             </tr>
             <br>
@@ -85,17 +139,47 @@
                 <td>
                     Địa Chỉ <i>*</i>
                 </td>
-                <td><input type="text" formControlName="addressEmployee" value={{employee.addressEmployee}} class="form-control" placeholder="Địa Chỉ"
-                        aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                <td><input type="text" formControlName="addressEmployee" class="form-control" placeholder="Địa Chỉ"
+                        aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"
+                        [ngClass]="{'is-invalid':submitted && f.addressEmployee.errors}">
+                    <div *ngIf="submitted && f.addressEmployee.errors" class="invalid-feedback">
+                        <div *ngIf="f.addressEmployee.errors.required">Nhập Địa Chỉ Vào</div>
+                    </div>
                 </td>
             </tr>
             <br>
             <tr>
                 <td></td>
-                <td><button type="submit" class="btn btn-primary" id="add"><span class="glyphicon glyphicon-ok-sign"></span>Sửa</button>
-                    <button type="button" routerLink="/admin/employeeList" class="btn btn-primary" id="back"><span class="glyphicon glyphicon-circle-arrow-left"></span>Quay Lại</button>
+                <td><button type="submit" class="btn btn-primary" id="add" data-toggle="modal" data-target="#myModal"><span
+                            class="glyphicon glyphicon-ok-sign"></span>Sửa</button>
+                    <button type="button" routerLink="/admin/employeeList" class="btn btn-primary" id="back"><span
+                            class="glyphicon glyphicon-circle-arrow-left"></span>Quay Lại</button>
                 </td>
             </tr>
         </table>
     </form>
 </div>
+<div class="modal" id="myModal" *ngIf="show">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Sửa Nhân Viên</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+          Bạn Sửa Thông Tin Thành Công
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" (click)="confirm()" class="btn btn-danger" data-dismiss="modal">OK</button>
+          <!-- <button type="button" (click)="backClicked()" class="btn btn-danger" data-dismiss="modal">Cancel</button> -->
+        </div>
+        
+      </div>
+    </div>
+  </div>
