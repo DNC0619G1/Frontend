@@ -7,8 +7,9 @@
                 type="button" [routerLink]="['/addPromotion']">Thêm chương trình Khuyến mãi</button></div>
 
         <div class="d-flex justify-content-center align-items-center">
-            <input type="text" class="form-control mr-1" placeholder="Search" style="width: 200px;" [(ngModel)]="keyword">
-       
+            <input type="text" class="form-control mr-1" placeholder="Search" style="width: 200px;"
+                [(ngModel)]="keyword">
+
             <button class="btn btn-secondary" type="button" style="background-color: rgb(25, 39, 44);"
                 (click)="Search(keyword)">
                 <i class="fa fa-search"></i>
@@ -17,7 +18,7 @@
 
     </div>
 
-    <div style="width: 100%;">
+    <div style="width: 100%; min-height: 300px;">
 
 
         <table class="table">
@@ -39,15 +40,35 @@
                     <td>{{promotion.endDate}}</td>
                     <td>{{promotion.saleOff}} đồng</td>
                     <td>{{promotion.detailPromotion}}</td>
-                    <td><a [routerLink]="['/editPromotion', promotion.idPromotion]"><span
-                                class="glyphicon glyphicon-pencil"></span></a></td>
-                    <td><a [routerLink]="['/deletePromotion', promotion.idPromotion]"><span
-                                class="glyphicon glyphicon-trash"></span></a></td>
+                    <td><a [routerLink]="['/editPromotion', promotion.idPromotion]" class="btn btn-primary" style="background: none; border: none;"><span
+                        id="icon" class="glyphicon glyphicon-pencil"></span></a></td>
+                    <td><a class="btn btn-primary" data-toggle="modal" data-target="#myModal"
+                            (click)="delete(promotion.idPromotion)" style="background: none; border: none;"><span id="icon" class="glyphicon glyphicon-trash"></span></a>
+                    </td>
                 </tr>
             </tbody>
         </table>
+
     </div>
     <div id="page">
         <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+</div>
+
+
+<div class="modal" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-body">
+                <h4><b>Bạn thực sự muốn xóa chương trình khuyến mãi này</b></h4>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" (click)="confirm()" class="btn btn-info" data-dismiss="modal">Đúng</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Không</button>
+            </div>
+
+        </div>
     </div>
 </div>
