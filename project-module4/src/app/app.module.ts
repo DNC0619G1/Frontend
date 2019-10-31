@@ -40,7 +40,8 @@ import { ListEmployeeComponent } from './component-Lam/list-employee/list-employ
 import { InsertEmployeeComponent } from './component-Lam/insert-employee/insert-employee.component';
 import { EditEmployeeComponent } from './component-Lam/edit-employee/edit-employee.component';
 import { DeleteEmployeeComponent } from './component-Lam/delete-employee/delete-employee.component';
-
+import { MaterialModule } from './material.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
@@ -82,7 +83,9 @@ import { DeleteEmployeeComponent } from './component-Lam/delete-employee/delete-
     HttpClientModule,
     NgxPaginationModule,
     ReactiveFormsModule,
-    NgbModule
+    NgbModule,
+    MaterialModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

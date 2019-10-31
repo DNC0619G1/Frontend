@@ -10,9 +10,9 @@
         </a>
     </div>
     <div class="col-sm-3">
-        <input class="form-control" id="search-box" type="text" placeholder="Search">
-        <button type="button" class="btn btn-primary" id="search-btn"><i
-                class="glyphicon glyphicon-search"></i></button>
+            <input class="form-control" id="search-box" type="text" name="name" placeholder="Search" [(ngModel)]= "name">
+            <button type="button" (click) = "search(name)" class="btn btn-primary" id="search-btn"><i
+                    class="glyphicon glyphicon-search"></i></button>
     </div>
     <div class="col-sm-13">
         <div class="table-responsive">
@@ -47,6 +47,8 @@
                 </tbody>
             </table>
         </div>
-        <div id="page"><pagination-controls (pageChange)= "p = $event"></pagination-controls></div>
+        <div id="page">
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </div>
     </div>
 </div>

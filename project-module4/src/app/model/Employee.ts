@@ -3,7 +3,7 @@ export class Employee{
     accountEmployee : string;
     passwordEmployee : string;
     nameEmployee : string;
-    birthDayEmployee : string;
+    birthDayEmployee : Date;
     sexEmployee : string;
     emailEmployee : string;
     licenseEmployee : number;

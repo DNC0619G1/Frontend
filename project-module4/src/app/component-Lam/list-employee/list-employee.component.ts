@@ -26,8 +26,23 @@ export class ListEmployeeComponent implements OnInit {
         this.employees.push(element);
       });
     });
-    this.router.navigateByUrl('/admin/employeeList', { skipLocationChange: true });
-    this.router.navigate(["/admin/employeeList"]);
   }
+  search(name: string) {
+    this.employees = [];
+    if (name == null) {
+      this.employeeService.getAllEmployees().subscribe((data: Employee[]) => {
+        data.forEach(element => {
+          this.employees.push(element);
+        });
+      });
+    }
+    else {
+      this.employeeService.searchEmployee(name).subscribe((data: Employee[]) => {
+        data.forEach(element => {
+          this.employees.push(element);
+        });
+      });
+    }
 
+  }
 }
