@@ -23,7 +23,6 @@ import { ListChairComponent } from './component-Chuc/list-chair/list-chair.compo
 import {ReactiveFormsModule} from '@angular/forms';
 import { ListPromotionComponent } from './component-Toan/list-promotion/list-promotion.component';
 import { EditPromotionComponent } from './component-Toan/edit-promotion/edit-promotion.component';
-import { DeletePromotionComponent } from './component-Toan/delete-promotion/delete-promotion.component';
 import { AddPromotionComponent } from './component-Toan/add-promotion/add-promotion.component';
 import { ListRoomComponent } from './component-Chuc/list-room/list-room.component';
 import { RommDetailComponent } from './component-Chuc/romm-detail/romm-detail.component';
@@ -62,7 +61,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ListChairComponent,
     ListPromotionComponent,
     EditPromotionComponent,
-    DeletePromotionComponent,
     AddPromotionComponent,
     ListRoomComponent,
     RommDetailComponent,

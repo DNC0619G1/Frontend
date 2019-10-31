@@ -15,7 +15,6 @@ import { ConfirmticketComponent } from './component-Chuc/confirmticket/confirmti
 import { InforTicketComponent } from './component-Chuc/infor-ticket/infor-ticket.component';
 import { ListPromotionComponent } from './component-Toan/list-promotion/list-promotion.component';
 import { EditPromotionComponent } from './component-Toan/edit-promotion/edit-promotion.component';
-import { DeletePromotionComponent } from './component-Toan/delete-promotion/delete-promotion.component';
 import { AddPromotionComponent } from './component-Toan/add-promotion/add-promotion.component';
 import { ListRoomComponent } from './component-Chuc/list-room/list-room.component';
 import { RommDetailComponent } from './component-Chuc/romm-detail/romm-detail.component';
@@ -38,7 +37,6 @@ const routes: Routes = [
   {path:'search/:keyword', component: SearchMovieComponent},
   {path:'listPromotion', component: ListPromotionComponent},
   {path:'editPromotion/:id', component: EditPromotionComponent},
-  {path:'deletePromotion/:id', component: DeletePromotionComponent},
   {path:'listCategory/:category', component: ListCategoryMoviesComponent},
   {path:'addPromotion', component: AddPromotionComponent},
   {
