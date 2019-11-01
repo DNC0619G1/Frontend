@@ -14,7 +14,6 @@ export class RommDetailComponent implements OnInit {
   room: Room;
   idRoom: number;
   rowColumnMap: Map<number, number[]>=new Map<0, []>();
-  // mapChairs: Map<number, Chair[]>;
   chairs: Chair[] = [];
   constructor(private roomService: RoomService, private router: Router, private route: ActivatedRoute, private chairService: ChairServiceService) { }
 

@@ -1,29 +1,45 @@
 <h3> Thêm Ghế:</h3>
 <hr>
-<form (ngSubmit)="onSubmit()">
+<form [formGroup]="chairForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
         <label for="name">Hàng</label>
-        <input type="number" class="form-control" id="row" required [(ngModel)]="chair.row" name="row">
+        <input type="number" class="form-control" id="row" formControlName="row" #chairRow
+            [ngClass]="{ 'is-invalid': submitted && f.row.errors }">
+        <div *ngIf="submitted && f.row.errors" class="invalid-feedback">
+            <div *ngIf="f.row.errors.required">Row yêu cầu phải nhập</div>
+            <div *ngIf="f.row.errors.min">Giá trị nhỏ nhất là 1</div>
+            <div *ngIf="f.row.errors.max">Giá trị lớn nhất là {{rows.length}}</div>
+        </div>
     </div>
     <div class="form-group">
         <label for="name">Cột</label>
-        <input type="number" class="form-control" id="column" required [(ngModel)]="chair.column" name="column">
+        <input type="number" class="form-control" id="column" formControlName="column" #chairColumn
+            [ngClass]="{ 'is-invalid': submitted && f.column.errors }" (change)="changeRow(chairColumn.value)">
+        <div *ngIf="submitted && f.column.errors" class="invalid-feedback">
+            <div *ngIf="f.column.errors.required">Row yêu cầu phải nhập</div>
+            <div *ngIf="f.column.errors.min">Giá trị nhỏ nhất là 1</div>
+            <div *ngIf="f.column.errors.max">Giá trị lớn nhất là 20</div>
+        </div>
     </div>
     <div class="form-group">
-        <label for="name">Vị trí</label>
-        <input type="text" class="form-control" id="position" required [(ngModel)]="chair.position" name="column"
-            placeholder="example :A1">
+        <label for="name">Vị trí:</label>
+        <div *ngIf="!chairRow.value || !chairColumn.value">
+            <input type="text" class="form-control" placeholder="example :A1">
+        </div>
+        <div *ngFor="let row of rows; index as idrow">
+            <div *ngIf="chairRow.value-1==idrow && chairColumn.value">
+                <input type="text" class="form-control" formControlName="position" name="position"
+                value={{row+chairColumn.value}} disabled style="background: white;">
+            </div>
+        </div>
     </div>
     <div class="form-group">
         <label for="name">Loại ghế : </label>
-        <input class="chair-detail" type="radio" name="change-detai" #chairDetail1
-            value="2" (change)="changDetail(chairDetail1.value)" > VIP
-        <input class="chair-detail" type="radio" name="change-detai" #chairDetail2
-            value="1" (change)="changDetail(chairDetail2.value)" [checked]='true'> Normal
-
+        <input class="chair-detail" type="radio" name="detail" formControlName="detail" value="1" [checked]=true> Normal
+        <input class="chair-detail" type="radio" name="detail" formControlName="detail" value="2" > VIP
     </div>
-
     <button type="submit" class="btn btn-primary">Thêm</button>
-    <button type="button" class="btn btn-primary" [routerLink]="['/roomdetail', idRoom]" style="margin-left: 10px;">Cancel</button>
+    <button type="button" class="btn btn-primary" [routerLink]="['/roomdetail', idRoom]"
+        style="margin-left: 10px;">Cancel</button>
 </form>
 <br>
