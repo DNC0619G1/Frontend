@@ -9,6 +9,7 @@
         <label for="name">Mô tả:</label>
         <textarea type="text" class="form-control" id="Description" required [(ngModel)]="room.description" name="Description" style="height: 150px;"></textarea>
       </div>
-    <button type="submit" class="btn btn-primary">Thêm</button>
+    <button type="submit" class="btn btn-primary" style="margin-right: 10px;">Thêm</button>
+    <button type="submit" class="btn btn-primary" [routerLink]="['/rooms']">Cancel</button>
 </form>
 <br>

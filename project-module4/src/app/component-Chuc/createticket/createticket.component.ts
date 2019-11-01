@@ -12,12 +12,10 @@ export class CreateticketComponent implements OnInit {
   filmShowMap: Map<String, ShowTime[]>;
   setDate: Date;
   isExist: Boolean = true;
-
   constructor(private showTimesService: ShowTimesService, private route: ActivatedRoute) {
     this.filmShowMap = new Map();
     this.setDate = new Date();
   }
-
   ngOnInit() {
     this.showTimesService.getShowTimes()
       .subscribe((data: ShowTime[]) => {

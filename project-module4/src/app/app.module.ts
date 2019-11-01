@@ -30,9 +30,6 @@ import { CreatRoomComponent } from './component-Chuc/creat-room/creat-room.compo
 import { CreateChairComponent } from './component-Chuc/create-chair/create-chair.component';
 import { EditRoomComponent } from './component-Chuc/edit-room/edit-room.component';
 
-
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
 import { EditChairComponent } from './component-Chuc/edit-chair/edit-chair.component';
 import { ChairDetailComponent } from './component-Chuc/chair-detail/chair-detail.component';
 import { ListEmployeeComponent } from './component-Lam/list-employee/list-employee.component';
@@ -81,9 +78,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     NgxPaginationModule,
     ReactiveFormsModule,
+
     NgbModule,
     MaterialModule,
     BrowserAnimationsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
