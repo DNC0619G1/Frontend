@@ -4,6 +4,7 @@ import { Employee } from 'src/app/model/Employee';
 import { FormGroup } from '@angular/forms';
 import { EmployeeService } from 'src/app/service/employee.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { windowCount } from 'rxjs/operators';
 @Component({
   selector: 'app-delete-employee',
   templateUrl: './delete-employee.component.html',
@@ -34,6 +35,10 @@ export class DeleteEmployeeComponent implements OnInit {
   }
   deleteEmployee(){
     this.employeeService.deleteEmployee(this.idEmployee).subscribe();
+    // this.router.navigate(['/admin/employeeList']);
+  }
+  confirm(){
     this.router.navigate(['/admin/employeeList']);
+    // window.location.reload();
   }
 }

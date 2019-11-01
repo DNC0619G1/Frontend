@@ -5,7 +5,7 @@
 <div class="row">
     <div class="col-md-4"></div>
     <div class="col-md-8">
-        <form (ngSubmit)="onSubmit()">
+        <!-- <form (ngSubmit)="onSubmit()">
             <div class="form-group">
                 <label for="name">Hình ảnh</label>
                 <input type="file" class="form-control" required [(ngModel)]="promotion.imgPromotion" name="imgPromotion">
@@ -31,7 +31,85 @@
                 <textarea type="text" class="form-control" required [(ngModel)]="promotion.detailPromotion" name="detailPromotion"></textarea>
             </div>
             <button type="submit" class="btn btn-success">Thêm</button>
+        </form> -->
+
+        <form [formGroup]="promotionFormGroup" (ngSubmit)="onSubmit()" novalidate>
+            <div class="form-group">
+                <label class="center-block">Hình ảnh:
+                    <input class="form-control" type="file" formControlName="imgPromotion">
+                </label>
+            </div>
+            <div class="form-group" [ngClass]="{'has-error': promotionFormGroup.get('titlePromotion').errors && 
+        (promotionFormGroup.get('titlePromotion').touched || promotionFormGroup.get('titlePromotion').dirty)}">
+                <label class="center-block">Tiêu đề:
+                    <input class="form-control" type="text" formControlName="titlePromotion">
+                </label>
+                <span *ngIf="promotionFormGroup.get('titlePromotion').errors && 
+                (promotionFormGroup.get('titlePromotion').touched || promotionFormGroup.get('titlePromotion').dirty)">
+                    <span *ngIf="promotionFormGroup.get('titlePromotion').errors.required">Không được bỏ trống</span>
+                </span>
+            </div>
+            <div class="form-group" [ngClass]= "{'has-error': promotionFormGroup.get('startDate').errors &&
+        (promotionFormGroup.get('startDate').touched || promotionFormGroup.get('startDate').dirty)}">
+                <label class="center-block">Thời gian bắt đầu:
+                    <input class="form-control" type="date" formControlName="startDate">
+                </label>
+                <span *ngIf = "promotionFormGroup.get('startDate').errors &&
+                (promotionFormGroup.get('startDate').touched || promotionFormGroup.get('startDate').dirty)">
+                <span *ngIf= "promotionFormGroup.get('startDate').errors">Không được bỏ trống</span>
+                </span>
+            </div>
+            <div class="form-group" [ngClass]="{'has-error': promotionFormGroup.get('endDate').errors && 
+        (promotionFormGroup.get('endDate').touched || promotionFormGroup.get('endDate').dirty)}">
+                <label class="center-block">Thời gian kết thúc:
+                    <input class="form-control" type="date" formControlName="endDate">
+                </label>
+                <span *ngIf= "promotionFormGroup.get('endDate').errors &&
+                (promotionFormGroup.get('endDate').touched || promotionFormGroup.get('endDate').dirty)">
+                <span *ngIf= "promotionFormGroup.get('endDate').errors">Không được bỏ trống</span>    
+            </span>
+                <span *ngIf= "show">Không được đặt trước thời gian bắt đầu</span>
+            </div>
+            <div class="form-group" [ngClass] = "{'has-error': promotionFormGroup.get('saleOff').errors &&
+        (promotionFormGroup.get('saleOff').touched || promotionFormGroup.get('saleOff').dirty)}">
+                <label class="center-block">Mức giá giảm:
+                    <input class="form-control" type="number" formControlName="saleOff">
+                </label>
+                <span *ngIf="promotionFormGroup.get('saleOff').errors &&
+                (promotionFormGroup.get('saleOff').touched || promotionFormGroup.get('saleOff').dirty)">
+                <span *ngIf="promotionFormGroup.get('saleOff').errors">Không được bỏ trống</span>
+            </span>
+            </div>
+            <div class="form-group" [ngClass]= "{'has-error': promotionFormGroup.get('detailPromotion').errors &&
+        (promotionFormGroup.get('detailPromotion').touched || promotionFormGroup.get('detailPromotion').dirty)}">
+                <label class="center-block">Chi tiết:
+                    <textarea class="form-control" formControlName="detailPromotion"></textarea>
+                </label>
+                <span *ngIf= "promotionFormGroup.get('detailPromotion').errors &&
+                (promotionFormGroup.get('detailPromotion').touched || promotionFormGroup.get('detailPromotion').dirty)">
+                <span *ngIf = "promotionFormGroup.get('detailPromotion').errors"></span>
+            </span>
+            </div>
+            <button type="submit" class="btn btn-success" [disabled]="promotionFormGroup.status=='INVALID'">Thêm khuyến
+                mãi</button>
+            <button type="button" class="btn btn-secondary" [routerLink]="['/listPromotion']">Hủy bỏ</button>
         </form>
         <br>
+    </div>
+</div>
+
+<div class="modal" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-body">
+                <h4><b>Bạn đã thêm khuyến mãi thành công</b></h4>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" (click)="confirm()" class="btn btn-info" data-dismiss="modal">OK</button>
+            </div>
+
+        </div>
     </div>
 </div>

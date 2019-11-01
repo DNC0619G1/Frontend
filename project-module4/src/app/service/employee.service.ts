@@ -9,7 +9,7 @@ import { Employee } from '../model/Employee';
 })
 export class EmployeeService {
 
-  private readonly API_URL = 'http://localhost:8080/'
+  private readonly API_URL = 'http://localhost:8080'
 
   constructor(private http: HttpClient) { }
   getAllEmployees(): Observable<Employee[]> {
@@ -29,5 +29,8 @@ export class EmployeeService {
   // }
   deleteEmployee(idEmployee:number): Observable<any>{
     return this.http.delete(`${this.API_URL}/employees/delete/${idEmployee}`);
+  }
+  searchEmployee(nameEmployee: string): Observable<Employee[]>{
+    return this.http.get<Employee[]>(`${this.API_URL}/employees/search/${nameEmployee}`);
   }
 }
