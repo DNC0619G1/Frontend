@@ -1,4 +1,4 @@
-<div class="container ng-scope">
+<div class="container ng-scope" style="min-height: 350px;">
     <div class="row">
         <div class="col-md-12">
             <h3>chọn ghế</h3>
@@ -20,16 +20,16 @@
         <div *ngIf="time">
             <div class="row">
                 <div class="col-md-3">
-                    <p>Phim : {{time.movie.nameMovie}} </p>
+                    <p><b>Phim : </b>{{time.movie.nameMovie}} </p>
                 </div>
                 <div class="col-md-3">
-                    <p>Ngày chiếu : {{time.showDate}}</p>
+                    <p><b>Ngày chiếu : </b> {{time.showDate}}</p>
                 </div>
                 <div class="col-md-3">
-                    <p>Giờ chiếu: {{time.showTime.timeStart}}</p>
+                    <p><b>Giờ chiếu: </b> {{time.showTime.timeStart}}</p>
                 </div>
                 <div class="col-md-3">
-                    <p>Phòng: {{time.room.nameRoom}}</p>
+                    <p><b>Phòng: </b> {{time.room.nameRoom}}</p>
                 </div>
             </div>
         </div>
@@ -93,7 +93,6 @@
                 </tr>
             </table>
         </div>
-        <button (click)="checkChair(selectChar)" class="btn btn-primary">Tiếp tục</button>
-        <!-- <button [routerLink]="['/xacnhanbanve/',time.idTime]" class="btn btn-primary">Tiếp tục</button> -->
+        <button (click)="checkChair(selectChar)" class="btn btn-primary" style="margin-bottom: 10px;">Tiếp tục</button>
     </div>
 </div>

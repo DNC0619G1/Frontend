@@ -27,6 +27,9 @@ import { ListEmployeeComponent } from './component-Lam/list-employee/list-employ
 import { InsertEmployeeComponent } from './component-Lam/insert-employee/insert-employee.component';
 import { EditEmployeeComponent } from './component-Lam/edit-employee/edit-employee.component';
 import { DeleteEmployeeComponent } from './component-Lam/delete-employee/delete-employee.component';
+import { ListPromotionsUserComponent } from './component-Chuc/list-promotions-user/list-promotions-user.component';
+import { ListShowtimeUserComponent } from './component-Chuc/list-showtime-user/list-showtime-user.component';
+import { PromotionDetailComponent } from './component-Chuc/promotion-detail/promotion-detail.component';
 
 
 
@@ -59,6 +62,9 @@ const routes: Routes = [
   { path: "newchair/:idRoom", component: CreateChairComponent },
   { path: "chairdetail/:idRoom/:chair.idChair", component: ChairDetailComponent },
   { path: "editchair/:chair.idChair", component: EditChairComponent },
+  { path: "Khuyenmai", component: ListPromotionsUserComponent},
+  { path: "Khuyenmaidetail/:idPromotion", component: PromotionDetailComponent},
+  { path: "lichchieu", component: ListShowtimeUserComponent},
   {
     path: 'infoUser/history/:idUser',component :HitoryComponent
   },

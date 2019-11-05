@@ -48,12 +48,11 @@ export class CreateChairComponent implements OnInit {
       detail: new FormControl('1'),
     });
   }
-  changeRow(column :number){
+
+  onSubmit() {
     if (this.chairForm.invalid) {
       return;
     }
-  }
-  onSubmit() {
     this.submitted = true;
     let isExist = false;
     for (let i = 0; i < this.chairs.length; i++) {

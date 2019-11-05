@@ -1,0 +1,12 @@
+<div class="row">
+    <div *ngIf="promotion">
+        <h3>{{promotion.titlePromotion}}</h3>
+    </div>
+    <img src={{promotion.imgPromotion}} style="width: 100%;">
+    <li class="list-group-item" style="width: 100%;">
+        <span class="glyphicon glyphicon-calendar"></span> Từ {{promotion.startDate|date:"dd/MM"}}
+        đến {{promotion.endDate|date:"dd/MM/yyyy"}}</li>
+    <textarea class="form-control" rows="5" id="comment">{{promotion.detailPromotion}}</textarea>
+    <button style="margin: 10px;" class="btn btn-primary" [routerLink]="['/Khuyenmai']">Quay lại
+    </button>
+</div>

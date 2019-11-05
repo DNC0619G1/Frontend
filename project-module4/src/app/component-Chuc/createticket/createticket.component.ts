@@ -11,10 +11,12 @@ import { ActivatedRoute } from '@angular/router';
 export class CreateticketComponent implements OnInit {
   filmShowMap: Map<String, ShowTime[]>;
   setDate: Date;
-  isExist: Boolean = true;
+  minDate = new Date();
+  maxDate:Date=new Date();
   constructor(private showTimesService: ShowTimesService, private route: ActivatedRoute) {
     this.filmShowMap = new Map();
     this.setDate = new Date();
+    this.maxDate = new Date(this.maxDate.setDate(this.maxDate.getDate() - this.maxDate.getDay()+7));
   }
   ngOnInit() {
     this.showTimesService.getShowTimes()
