@@ -20,7 +20,6 @@
         <a href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Menu
         </a>
-
         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                 <a class="dropdown-item" [routerLink]="['/admin/employeeList']">Danh Sách Nhân Viên</a>
             <a class="dropdown-item" [routerLink]="['/listPromotion']">Danh sách khuyến mãi</a>
@@ -46,6 +45,12 @@
     </div>
     <div class="item-nav">
         <a class="nav-link" [routerLink]="['/muave']">Mua vé</a>
+    </div>
+    <div class="item-nav">
+        <a class="nav-link" [routerLink]="['/Khuyenmai']">Khuyến mãi</a>
+    </div>
+    <div class="item-nav">
+        <a class="nav-link" [routerLink]="['/lichchieu']">Lịch chiếu</a>
     </div>
     <div class="item-navs">
         <button type="submit" class="btn btn-outline-success my-2 my-sm-0" [routerLink]="['/search', keyword ]">Tìm
