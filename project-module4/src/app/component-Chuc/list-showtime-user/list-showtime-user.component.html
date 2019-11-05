@@ -1,0 +1,28 @@
+<div class="row">
+    <div class='col-md-12'>
+        <div class="form-group">
+            <label class="control-label">chọn ngày :</label>
+            <mat-form-field>
+                <input matInput [matDatepicker]="myDatepicker" [(ngModel)]='setDate' [min]="minDate" [max]="maxDate">
+                <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
+                <mat-datepicker #myDatepicker></mat-datepicker>
+            </mat-form-field>
+        </div>
+    </div>
+</div>
+<div *ngFor='let showTimes of mapShowTime|keyvalue'>
+    <div *ngIf="isContainFilmAsDay(showTimes.value,  (setDate | date: 'dd/MM/yyyy'))" class="col-md-4">
+        <li class="list-group-item" style="font-weight:bold;background: lightblue;">{{showTimes.key}}</li>
+        <li class="list-group-item">Giờ Chiếu:</li>
+        <div *ngFor="let showTime of showTimes.value">
+            <div *ngIf="isSameDay(showTime.showDate, (setDate | date: 'dd/MM/yyyy'))">
+                <li class="list-group-item" style="margin-bottom: 10px;">
+                    <label>{{showTime.showTime.timeStart}}</label>
+                    <button [routerLink]="['/chonve', showTime.idTime]" style="float: right;">
+                        Chọn vé
+                    </button>
+                </li>
+            </div>
+        </div>
+    </div>
+</div>

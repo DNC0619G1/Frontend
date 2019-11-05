@@ -3,13 +3,12 @@
         <div class="row">
             <div class='col-md-12'>
                 <div class="form-group">
-                    <label class="control-label">chọn ngày</label>
-                    <div class='input-group date' id='datetimepicker1'>
-                        <input type="date" [(ngModel)]='setDate'>
-                        <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-calendar"></span>
-                        </span>
-                    </div>
+                    <label class="control-label">chọn ngày :</label>
+                    <mat-form-field>
+                        <input matInput [matDatepicker]="myDatepicker" [(ngModel)]='setDate' [min]="minDate"  [max]="maxDate">
+                        <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
+                        <mat-datepicker #myDatepicker></mat-datepicker>
+                      </mat-form-field>
                 </div>
             </div>
         </div>
@@ -17,7 +16,7 @@
             <div class='col-md-12'>
                 <div class="form-group">
                     <div *ngFor='let filmShows of filmShowMap|keyvalue'>
-                        <div *ngIf="isContainFilmAsDay(filmShows.value,  (setDate | date: 'dd/MM/yyyy'))" class="col-md-4">
+                        <div *ngIf="isContainFilmAsDay(filmShows.value,  (setDate| date: 'dd/MM/yyyy'))" class="col-md-4">
                             <li class="list-group-item" style="font-weight:bold;background: lightblue;">{{filmShows.key}}</li>
                             <li class="list-group-item" >Giờ Chiếu:</li>
                             <div *ngFor="let filmShow of filmShows.value">

@@ -82,7 +82,6 @@ export class ListChairComponent implements OnInit {
       window.alert("Ban chọn chưa đủ ghế ")
     }
     else {
-      console.log(this.chairListChoise )
       this.router.navigate(['/xacnhanbanve', this.time.idTime, JSON.stringify(this.chairListChoise)])
     }
   }

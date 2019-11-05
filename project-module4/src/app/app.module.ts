@@ -29,10 +29,6 @@ import { RommDetailComponent } from './component-Chuc/romm-detail/romm-detail.co
 import { CreatRoomComponent } from './component-Chuc/creat-room/creat-room.component';
 import { CreateChairComponent } from './component-Chuc/create-chair/create-chair.component';
 import { EditRoomComponent } from './component-Chuc/edit-room/edit-room.component';
-
-
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
 import { EditChairComponent } from './component-Chuc/edit-chair/edit-chair.component';
 import { ChairDetailComponent } from './component-Chuc/chair-detail/chair-detail.component';
 import { ListEmployeeComponent } from './component-Lam/list-employee/list-employee.component';
@@ -42,6 +38,10 @@ import { DeleteEmployeeComponent } from './component-Lam/delete-employee/delete-
 import { MaterialModule } from './material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegisterComponent } from './component-Lam/register/register.component';
+import { ListPromotionsUserComponent } from './component-Chuc/list-promotions-user/list-promotions-user.component';
+import { ListShowtimeUserComponent } from './component-Chuc/list-showtime-user/list-showtime-user.component';
+import { PromotionDetailComponent } from './component-Chuc/promotion-detail/promotion-detail.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -75,6 +75,9 @@ import { RegisterComponent } from './component-Lam/register/register.component';
     EditEmployeeComponent,
     DeleteEmployeeComponent,
     RegisterComponent,
+    ListPromotionsUserComponent,
+    ListShowtimeUserComponent,
+    PromotionDetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -83,9 +86,9 @@ import { RegisterComponent } from './component-Lam/register/register.component';
     HttpClientModule,
     NgxPaginationModule,
     ReactiveFormsModule,
-    NgbModule,
     MaterialModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
