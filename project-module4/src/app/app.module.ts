@@ -37,11 +37,10 @@ import { EditEmployeeComponent } from './component-Lam/edit-employee/edit-employ
 import { DeleteEmployeeComponent } from './component-Lam/delete-employee/delete-employee.component';
 import { MaterialModule } from './material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RegisterComponent } from './component-Lam/register/register.component';
 import { ListPromotionsUserComponent } from './component-Chuc/list-promotions-user/list-promotions-user.component';
 import { ListShowtimeUserComponent } from './component-Chuc/list-showtime-user/list-showtime-user.component';
 import { PromotionDetailComponent } from './component-Chuc/promotion-detail/promotion-detail.component';
-
-
 
 @NgModule({
   declarations: [
@@ -75,6 +74,7 @@ import { PromotionDetailComponent } from './component-Chuc/promotion-detail/prom
     InsertEmployeeComponent,
     EditEmployeeComponent,
     DeleteEmployeeComponent,
+    RegisterComponent,
     ListPromotionsUserComponent,
     ListShowtimeUserComponent,
     PromotionDetailComponent,
