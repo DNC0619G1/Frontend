@@ -41,6 +41,7 @@ import { EditEmployeeComponent } from './component-Lam/edit-employee/edit-employ
 import { DeleteEmployeeComponent } from './component-Lam/delete-employee/delete-employee.component';
 import { MaterialModule } from './material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RegisterComponent } from './component-Lam/register/register.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -73,6 +74,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     InsertEmployeeComponent,
     EditEmployeeComponent,
     DeleteEmployeeComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,

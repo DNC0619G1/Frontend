@@ -27,6 +27,7 @@ import { ListEmployeeComponent } from './component-Lam/list-employee/list-employ
 import { InsertEmployeeComponent } from './component-Lam/insert-employee/insert-employee.component';
 import { EditEmployeeComponent } from './component-Lam/edit-employee/edit-employee.component';
 import { DeleteEmployeeComponent } from './component-Lam/delete-employee/delete-employee.component';
+import { RegisterComponent } from './component-Lam/register/register.component';
 
 
 
@@ -73,6 +74,9 @@ const routes: Routes = [
   },
   {
     path: 'admin/employeeDelete/:idEmployee', component: DeleteEmployeeComponent
+  },
+  {
+    path: 'register', component: RegisterComponent
   }
 ];
 
