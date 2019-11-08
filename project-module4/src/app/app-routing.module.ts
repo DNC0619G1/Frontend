@@ -27,10 +27,12 @@ import { ListEmployeeComponent } from './component-Lam/list-employee/list-employ
 import { InsertEmployeeComponent } from './component-Lam/insert-employee/insert-employee.component';
 import { EditEmployeeComponent } from './component-Lam/edit-employee/edit-employee.component';
 import { DeleteEmployeeComponent } from './component-Lam/delete-employee/delete-employee.component';
+import { RegisterComponent } from './component-Lam/register/register.component';
 import { ListPromotionsUserComponent } from './component-Chuc/list-promotions-user/list-promotions-user.component';
 import { ListShowtimeUserComponent } from './component-Chuc/list-showtime-user/list-showtime-user.component';
 import { PromotionDetailComponent } from './component-Chuc/promotion-detail/promotion-detail.component';
 import { PriceTicketComponent } from './component-Chuc/price-ticket/price-ticket.component';
+
 
 
 
@@ -81,6 +83,9 @@ const routes: Routes = [
   },
   {
     path: 'admin/employeeDelete/:idEmployee', component: DeleteEmployeeComponent
+  },
+  {
+    path: 'register', component: RegisterComponent
   }
 ];
 
