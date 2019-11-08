@@ -12,24 +12,24 @@ export class CreateticketComponent implements OnInit {
   filmShowMap: Map<String, ShowTime[]>;
   setDate: Date;
   minDate = new Date();
-  maxDate:Date=new Date();
+  maxDate: Date = new Date();
   constructor(private showTimesService: ShowTimesService, private route: ActivatedRoute) {
     this.filmShowMap = new Map();
     this.setDate = new Date();
-    this.maxDate = new Date(this.maxDate.setDate(this.maxDate.getDate() - this.maxDate.getDay()+7));
+    this.maxDate = new Date(this.maxDate.setDate(this.maxDate.getDate() - this.maxDate.getDay() + 7));
+    console.log(this.setDate.getDay());
   }
   ngOnInit() {
-    this.showTimesService.getShowTimes()
-      .subscribe((data: ShowTime[]) => {
-        data.forEach(filmShow => {
-          const nameMovie = filmShow.movie.nameMovie;
-          if (this.filmShowMap.get(nameMovie) == null) {
-            this.filmShowMap.set(nameMovie, [filmShow]);
-          } else {
-            this.filmShowMap.get(nameMovie).push(filmShow);
-          }
-        });
+    this.showTimesService.getShowTimes().subscribe((data: ShowTime[]) => {
+      data.forEach(filmShow => {
+        const nameMovie = filmShow.movie.nameMovie;
+        if (this.filmShowMap.get(nameMovie) == null) {
+          this.filmShowMap.set(nameMovie, [filmShow]);
+        } else {
+          this.filmShowMap.get(nameMovie).push(filmShow);
+        }
       });
+    });
   }
 
   isSameDay(start: Date, end: Date): boolean {

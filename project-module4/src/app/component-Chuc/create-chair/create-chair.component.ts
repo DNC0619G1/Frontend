@@ -26,8 +26,7 @@ export class CreateChairComponent implements OnInit {
     this.createForm();
     this.room = new Room();
     this.idRoom = this.route.snapshot.params['idRoom'];
-    this.roomService.getRoomByID(this.idRoom)
-      .subscribe(data => {
+    this.roomService.getRoomByID(this.idRoom).subscribe(data => {
         this.room = data;
         this.chair.room = this.room;
       })
@@ -52,8 +51,8 @@ export class CreateChairComponent implements OnInit {
   onSubmit() {
     if (this.chairForm.invalid) {
       return;
-    }
-    this.submitted = true;
+    }else{
+      this.submitted = true;
     let isExist = false;
     for (let i = 0; i < this.chairs.length; i++) {
       if ((this.chairs[i].row == this.chairForm.get('row').value) && (this.chairs[i].column == this.chairForm.get('column').value)) {
@@ -72,6 +71,8 @@ export class CreateChairComponent implements OnInit {
       })
     } else {
       window.alert("Hàng và cột đã tồn tại.")
+    }
+
     }
   }
 }

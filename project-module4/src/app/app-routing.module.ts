@@ -30,6 +30,7 @@ import { DeleteEmployeeComponent } from './component-Lam/delete-employee/delete-
 import { ListPromotionsUserComponent } from './component-Chuc/list-promotions-user/list-promotions-user.component';
 import { ListShowtimeUserComponent } from './component-Chuc/list-showtime-user/list-showtime-user.component';
 import { PromotionDetailComponent } from './component-Chuc/promotion-detail/promotion-detail.component';
+import { PriceTicketComponent } from './component-Chuc/price-ticket/price-ticket.component';
 
 
 
@@ -65,6 +66,7 @@ const routes: Routes = [
   { path: "Khuyenmai", component: ListPromotionsUserComponent},
   { path: "Khuyenmaidetail/:idPromotion", component: PromotionDetailComponent},
   { path: "lichchieu", component: ListShowtimeUserComponent},
+  { path: "giave", component: PriceTicketComponent},
   {
     path: 'infoUser/history/:idUser',component :HitoryComponent
   },

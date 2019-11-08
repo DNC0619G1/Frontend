@@ -16,4 +16,7 @@ export class BookingService {
   createbooking(booking: Partial<any>): Observable<Booking> {
     return this.http.post<Booking>(`${this.API_URL}/createbooking`,booking);
   }
+  getBookingrByID(id:number):Observable<Booking>{
+    return this.http.get<Booking>(`${this.API_URL}/getbooking/${id}`)
+  }
 }

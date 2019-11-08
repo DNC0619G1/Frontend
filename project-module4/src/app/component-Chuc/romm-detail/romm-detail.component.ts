@@ -24,8 +24,7 @@ export class RommDetailComponent implements OnInit {
       .subscribe(data => {
         this.room = data;
       })
-    this.chairService.getchairs()
-      .subscribe((data: Chair[]) => {
+    this.chairService.getchairs().subscribe((data: Chair[]) => {
         data.forEach(element => {
           if (this.idRoom == element.room.idRoom) {
             this.chairs.push(element)

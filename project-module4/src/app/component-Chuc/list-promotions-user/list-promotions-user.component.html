@@ -1,6 +1,7 @@
 <div class="container ng-scope" style="min-height: 450px;">
-    <div *ngFor='let promotion of promotions'>
-        <div *ngIf="isEndDate(promotion.endDate|date:'yyyy/MM/dd',(today|date:'yyyy/MM/dd'))">
+    <div *ngIf="promotions.length!=0;else not">
+        <div *ngFor='let promotion of promotions'>
+            <!-- <div *ngIf="isEndDate(promotion.endDate|date:'yyyy/MM/dd',(today|date:'yyyy/MM/dd'))"> -->
             <ul style="list-style: none;" class="col-md-4">
                 <li style="width: 100%;">
                     <button [routerLink]="['/Khuyenmaidetail',promotion.idPromotion]" style="width: 100%;">
@@ -15,6 +16,8 @@
                     </button>
                 </li>
             </ul>
+            <!-- </div> -->
         </div>
     </div>
+    <ng-template #not>Content to render when value is null.</ng-template>
 </div>
