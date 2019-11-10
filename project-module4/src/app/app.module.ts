@@ -41,6 +41,8 @@ import { RegisterComponent } from './component-Lam/register/register.component';
 import { ListPromotionsUserComponent } from './component-Chuc/list-promotions-user/list-promotions-user.component';
 import { ListShowtimeUserComponent } from './component-Chuc/list-showtime-user/list-showtime-user.component';
 import { PromotionDetailComponent } from './component-Chuc/promotion-detail/promotion-detail.component';
+import { PriceTicketComponent } from './component-Chuc/price-ticket/price-ticket.component';
+
 
 @NgModule({
   declarations: [
@@ -78,6 +80,7 @@ import { PromotionDetailComponent } from './component-Chuc/promotion-detail/prom
     ListPromotionsUserComponent,
     ListShowtimeUserComponent,
     PromotionDetailComponent,
+    PriceTicketComponent,
   ],
   imports: [
     BrowserModule,

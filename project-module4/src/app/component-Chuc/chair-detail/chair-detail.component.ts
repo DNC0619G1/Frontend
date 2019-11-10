@@ -10,8 +10,8 @@ import { Chair } from 'src/app/model/chair';
 })
 export class ChairDetailComponent implements OnInit {
   idRoom: number;
-  idChair:number;
-  chair:Chair;
+  idChair: number;
+  chair: Chair;
   constructor(private router: Router, private route: ActivatedRoute, private chairService: ChairServiceService) { }
 
   ngOnInit() {
@@ -22,13 +22,12 @@ export class ChairDetailComponent implements OnInit {
         this.chair = data;
       })
   }
-  editChair(idChair:number){
-    this.router.navigate(['/editchair',idChair])
+  editChair(idChair: number) {
+    this.router.navigate(['/editchair', idChair])
   }
-  deleteChair(idChair :number){
-    this.chairService.deleteChair(this.chair.idChair).subscribe(
-      next => {
-        this.router.navigate(['/roomdetail',this.idRoom]);
-      }
-    )}
+  deleteChair(idChair: number) {
+    this.chairService.deleteChair(this.chair.idChair).subscribe(data => {
+      this.router.navigate(['/roomdetail', this.idRoom]);
+    })
+  }
 }

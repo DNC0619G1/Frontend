@@ -4,6 +4,9 @@ import { ChairServiceService } from 'src/app/service/chair-service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ShowTime } from 'src/app/model/ShowTimes';
 import { ShowTimesService } from 'src/app/service/show-times.service';
+import { Movie } from 'src/app/Model/movie';
+import { Room } from 'src/app/model/Room';
+import { TimeFrame } from 'src/app/model/TimeFrame';
 
 @Component({
   selector: 'app-list-chair',
@@ -12,23 +15,30 @@ import { ShowTimesService } from 'src/app/service/show-times.service';
 })
 export class ListChairComponent implements OnInit {
   chairs: Chair[] = [];//danh sach ghe 
+  chairLists: Chair[] = [];
   rowColumnMap: Map<number, number[]> = new Map<0, []>();
   showTimes: ShowTime[];//danh sach lich chieu
-  time: ShowTime;//lich chieu dc chon
+  time: ShowTime= new ShowTime();//lich chieu dc chon
   idShowTime: number;
+  idRoom: number = 0;
   chairListChoise: number[] = [];//danh sach ghe chon
   amountChairChoise: number;
   constructor(private chairService: ChairServiceService, private router: Router, private route: ActivatedRoute, private showTimesService: ShowTimesService, ) { }
-
   ngOnInit() {
-    this.time = new ShowTime();
+    this.time.room=new Room();
+    this.time.movie=new Movie();
+    this.time.showTime=new TimeFrame();
     this.idShowTime = this.route.snapshot.params['showtime.idTime'];
     this.showTimesService.getShowTimeById(this.idShowTime).subscribe(data => {
       this.time = data;
+      this.idRoom = this.time.room.idRoom;
     })
-    this.chairService.getchairs().subscribe((data: Chair[]) => {
+    this.chairService.getChairLists(this.idShowTime).subscribe((data: Chair[]) => {
+      this.chairLists = data;
+    })
+    this.chairService.getChairsByIdRoom(this.idRoom).subscribe((data: Chair[]) => {
       data.forEach(element => {
-        if (this.time.room.idRoom == element.room.idRoom) {
+        if (this.idRoom == element.room.idRoom) {
           this.chairs.push(element);
           if (this.rowColumnMap.get(element.row) == null) {
             this.rowColumnMap.set(element.row, [element.column]);
@@ -37,12 +47,10 @@ export class ListChairComponent implements OnInit {
           }
         }
       })
-      this.rowColumnMap.forEach((value: number[], key: number) => {
-        value.sort();
-      });
-    });
-  }
+      this.rowColumnMap.forEach((value: number[], key: number) => { value.sort() });
+    })
 
+  }
   changeStatus(row: number, col: number) {
     for (let i = 0; i < this.chairs.length; i++) {
       if ((this.chairs[i].column == col) && (this.chairs[i].row == row)) {
@@ -53,7 +61,6 @@ export class ListChairComponent implements OnInit {
             this.chairListChoise.splice(0, 1);//xoa pt dau tien khi da du so ghe.
           }
           this.chairListChoise.push(i)//them chi so mang ghe da chon vao cuoi danh sach
-
         } else {
           for (let j = 0; j < this.chairListChoise.length; j++) {
             if (i == this.chairListChoise[j]) {
@@ -65,23 +72,29 @@ export class ListChairComponent implements OnInit {
     }
   }
   chairChanged(idchair: number) {
+    for (let i = 0; i < this.chairs.length; i++) {
+      for (let j = 0; j < this.chairLists.length; j++) {
+        if (this.chairs[i].idChair == this.chairLists[j].idChair) {
+          this.chairs[i].statusChair = 0;
+        }
+      }
+    }
     this.amountChairChoise = idchair;
     if (this.amountChairChoise < this.chairListChoise.length) {//neu ng dung thay doi so ghe it hon lua chon ban dau
       for (let i = 0; i < this.chairListChoise.length; i++) {//bo het cac ghe da chon
-        this.chairs[i].choiseStatus = false//cho cac ghe da chon ve false
+        this.chairs[this.chairListChoise[i]].choiseStatus = false//cho cac ghe da chon ve false
       }
       this.chairListChoise.length = 0;//sau khi xoa ghe da chon cho do dai da chon ve 0 de push lai gia tri
     }
   }
   checkChair(selectChar: number) {
-    for (let j = 0; j < this.chairListChoise.length; j++) {
-        this.chairListChoise[j]=this.chairs[this.chairListChoise[j]].idChair;//xoa pt khi click lai
-    }
-    let isNext: boolean = false;
     if (selectChar > this.chairListChoise.length) {
       window.alert("Ban chọn chưa đủ ghế ")
     }
     else {
+      for (let j = 0; j < this.chairListChoise.length; j++) {
+        this.chairListChoise[j] = this.chairs[this.chairListChoise[j]].idChair;//gan id ghe chon 
+      }
       this.router.navigate(['/xacnhanbanve', this.time.idTime, JSON.stringify(this.chairListChoise)])
     }
   }
