@@ -13,6 +13,7 @@ import { Room } from 'src/app/model/Room';
 import { TimeFrame } from 'src/app/model/TimeFrame';
 import { BookingdetailService } from 'src/app/service/bookingdetail.service';
 import { BookingDetail } from 'src/app/model/BookingDetail';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-confirmticket',
@@ -34,11 +35,12 @@ export class ConfirmticketComponent implements OnInit {
   bookingDetail: BookingDetail;
   day: Date = new Date();
   chairLists: Chair[] = [];
-  constructor(private chairService: ChairServiceService, private router: Router, private route: ActivatedRoute,
+  constructor(private chairService: ChairServiceService, private titleService: Title, private router: Router, private route: ActivatedRoute,
     private showTimesService: ShowTimesService, private usersService: UsersService, private bookingService: BookingService, private bookingdetailService: BookingdetailService) {
     this.router.routeReuseStrategy.shouldReuseRoute = function () {
       return false;
     }
+    this.titleService.setTitle("Xác nhận bán vé")
   }
   ngOnInit() {
     this.bookingDetail = new BookingDetail();

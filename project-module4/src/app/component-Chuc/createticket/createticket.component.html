@@ -18,12 +18,12 @@
                 <div class="form-group">
                     <div *ngFor='let filmShows of filmShowMap|keyvalue'>
                         <div *ngIf="isContainFilmAsDay(filmShows.value,  (setDate| date: 'dd/MM/yyyy'))"
-                            class="col-md-4">
+                            class="col-md-6" style="margin-bottom: 10px;min-height: 200px;">
                             <li class="list-group-item" style="font-weight:bold;background: lightblue;">
                                 {{filmShows.key}}</li>
                             <li class="list-group-item">Giờ Chiếu:</li>
                             <div *ngFor="let filmShow of filmShows.value">
-                                <div *ngIf="isSameDay(filmShow.showDate, (setDate | date: 'dd/MM/yyyy'))">
+                                <div *ngIf="isSameDay(filmShow.showDate, (setDate | date: 'dd/MM/yyyy'))" style="float: left;">
                                     <li class="list-group-item">
                                         <button [routerLink]="['/chonve', filmShow.idTime]">
                                             {{filmShow.showTime.timeStart}}

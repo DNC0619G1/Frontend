@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Room } from 'src/app/model/Room';
 import { Chair } from 'src/app/model/chair';
 import { ChairServiceService } from 'src/app/service/chair-service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-romm-detail',
@@ -15,7 +16,9 @@ export class RommDetailComponent implements OnInit {
   idRoom: number;
   rowColumnMap: Map<number, number[]>=new Map<0, []>();
   chairs: Chair[] = [];
-  constructor(private roomService: RoomService, private router: Router, private route: ActivatedRoute, private chairService: ChairServiceService) { }
+  constructor(private titleService: Title,private roomService: RoomService, private router: Router, private route: ActivatedRoute, private chairService: ChairServiceService) { 
+    this.titleService.setTitle("phòng")
+  }
 
   ngOnInit() {
     this.room = new Room();
