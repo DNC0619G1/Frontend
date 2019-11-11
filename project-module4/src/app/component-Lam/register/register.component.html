@@ -1,0 +1,163 @@
+<h2>Đăng Ký Tài Khoản</h2>
+<hr>
+<div class="col-sm-13">
+    <form (ngSubmit)="create()" [formGroup]="userForm">
+        <table>
+            <tr>
+                <td>
+                    <p>Tài Khoản <i>*</i></p>
+                </td>
+                <td><input type="text" formControlName="userName" class="form-control" placeholder="Tài Khoản"
+                        [ngClass]="{ 'is-invalid': submitted && f.userName.errors }">
+                    <div *ngIf="submitted && f.userName.errors" class="invalid-feedback">
+                        <div *ngIf="f.userName.errors.required">Vui Lòng Nhập Tên Tài Khoản</div>
+                        <div *ngIf="f.userName.errors.minlength">Tài Khoản Phải có 6 ký Tự Trở Lên</div>
+                    </div>
+                </td>
+            </tr>
+            <br>
+            <tr>
+                <td>
+                    <p>Mật Khẩu <i>*</i></p>
+                </td>
+                <td><input type="password" formControlName="password" class="form-control"
+                        placeholder="Mật Khẩu" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+                    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                        <div *ngIf="f.password.errors.required">PassWord Không Được Để Trống</div>
+                        <div *ngIf="f.password.errors.minlength">PassWord Phải lớn Hơn 6 ký Tự</div>
+                    </div>
+                </td>
+            </tr>
+            <br>
+            <tr>
+                <td>
+                    <p>Họ Tên <i>*</i></p>
+                </td>
+                <td><input type="text" formControlName="fullName" class="form-control" placeholder="Họ Và Tên"
+                        [ngClass]="{ 'is-invalid': submitted && f.fullName.errors }">
+                    <div *ngIf="submitted && f.fullName.errors" class="invalid-feedback">
+                        <div *ngIf="f.fullName.errors.required">Vui Lòng Nhập Tên</div>
+                        <div *ngIf="f.fullName.errors.minlength">Tên Phải lớn Hơn 6 ký Tự</div>
+                    </div>
+            </tr>
+            <br>
+            <tr>
+                <td>
+                    <p>Ngày Sinh <i>*</i></p>
+                </td>
+                <td>
+                    <mat-form-field>
+                        <input matInput [matDatepicker]="picker" formControlName="birthDay"
+                            [ngClass]="{ 'is-invalid': submitted && f.birthDay.errors }"
+                            placeholder="Choose a date">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                    <div *ngIf="submitted && f.birthDay.errors" class="invalid-feedback">
+                        <div *ngIf="f.birthDay.errors.required">Vui Lòng Ngày Sinh</div>
+                    </div>
+                </td>
+            </tr>
+            <br>
+            <tr>
+                <td>Giới Tính : </td>
+                <td>
+                    <input type="radio" formControlName="sex" name="sex" value="Man" [checked]=true> Nam
+                    <input type="radio" formControlName="sex" name="sex" value="Woman"> Nữ
+                </td>
+            </tr>
+            <br>
+            <tr>
+                <td>
+                    Email <i>*</i>
+                </td>
+                <td><input type="email" formControlName="email" class="form-control" placeholder="Email"
+                        aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"
+                        [ngClass]="{'is-invalid':submitted && f.email.errors}">
+                    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                        <div *ngIf="f.email.errors.required">Email Không Được Để Trống</div>
+                        <div *ngIf="f.email.errors.email">Email Không Hợp Lệ</div>
+                    </div>
+                </td>
+            </tr>
+            <br>
+            <tr>
+                <td>
+                    CMND <i>*</i>
+                </td>
+                <td><input type="number" formControlName="license" class="form-control"
+                        placeholder="Chứng Minh Thư" aria-label="Sizing example input"
+                        aria-describedby="inputGroup-sizing-sm"
+                        [ngClass]="{'is-invalid':submitted && f.license.errors}">
+                    <div *ngIf="submitted && f.license.errors" class="invalid-feedback">
+                        <div *ngIf="f.license.errors.required">Chứng Minh Thư Không Để Trống</div>
+                        <div *ngIf="f.license.errors.min">Chứng Minh Thư Phải 6->10 Số</div>
+                        <div *ngIf="f.license.errors.max">Chứng Minh Thư Phải 6->10 Số</div>
+                    </div>
+                </td>
+            </tr>
+            <br>
+            <tr>
+                <td>
+                    Số Điện Thoại <i>*</i>
+                </td>
+                <td><input type="number" formControlName="numberPhone" class="form-control"
+                        placeholder="Số Điện Thoại" aria-label="Sizing example input"
+                        aria-describedby="inputGroup-sizing-sm"
+                        [ngClass]="{'is-invalid':submitted && f.numberPhone.errors}">
+                    <div *ngIf="submitted && f.numberPhone.errors" class="invalid-feedback">
+                        <div *ngIf="f.numberPhone.errors.required">SĐT Không Được Để Trống</div>
+                        <div *ngIf="f.numberPhone.errors.min">SĐT Phải 6->10 Số</div>
+                        <div *ngIf="f.numberPhone.errors.max">SĐT Phải 6->10 Số</div>
+                    </div>
+                </td>
+            </tr>
+            <br>
+            <tr>
+                <td>
+                    Địa Chỉ <i>*</i>
+                </td>
+                <td><input type="text" formControlName="address" class="form-control" placeholder="Địa Chỉ"
+                        aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"
+                        [ngClass]="{'is-invalid':submitted && f.address.errors}">
+                    <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
+                        <div *ngIf="f.address.errors.required">Nhập Địa Chỉ Vào</div>
+                    </div>
+                </td>
+            </tr>
+            <br>
+            <tr>
+                <td></td>
+                <td><button type="submit" class="btn btn-primary" id="add" data-toggle="modal" data-target="#myModal"><span
+                            class="glyphicon glyphicon-ok-sign"></span>Đăng Ký</button>
+                    <button type="button" (click)="backClicked()" class="btn btn-primary" id="back"><span
+                            class="glyphicon glyphicon-circle-arrow-left"></span>Quay Lại</button>
+                </td>
+            </tr>
+        </table>
+        <!-- <div class="modal" id="myModal" *ngIf="show==true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+              
+               
+                <div class="modal-header">
+                  <h4 class="modal-title">Thêm Nhân Viên</h4>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+   
+                <div class="modal-body">
+                  Bạn Đã Thêm Thành Công
+                </div>
+                
+                <div class="modal-footer">
+                  <button type="button" (click)="confirm()" class="btn btn-danger" data-dismiss="modal">OK</button>
+                </div>
+                
+              </div>
+            </div>
+          </div> -->
+    </form>
+</div>
+
+
+
