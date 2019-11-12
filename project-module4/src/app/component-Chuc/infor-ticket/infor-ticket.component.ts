@@ -9,6 +9,8 @@ import { UsersService } from 'src/app/service/users.service';
 import { Movie } from 'src/app/Model/movie';
 import { Room } from 'src/app/model/Room';
 import { TimeFrame } from 'src/app/model/TimeFrame';
+import { Title } from '@angular/platform-browser';
+
 
 @Component({
   selector: 'app-infor-ticket',
@@ -28,7 +30,9 @@ export class InforTicketComponent implements OnInit {
   priceSum: number = 0;
   idRoom: number = 0;
   constructor(private chairService: ChairServiceService, private router: Router, private route: ActivatedRoute, private usersService: UsersService,
-    private showTimesService: ShowTimesService, ) { }
+    private showTimesService: ShowTimesService, private titleService: Title,) { 
+      this.titleService.setTitle("Thông tin bán vé")
+    }
 
   ngOnInit() {
     this.time = new ShowTime();

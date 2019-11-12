@@ -37,7 +37,6 @@ import { EditEmployeeComponent } from './component-Lam/edit-employee/edit-employ
 import { DeleteEmployeeComponent } from './component-Lam/delete-employee/delete-employee.component';
 import { MaterialModule } from './material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { RegisterComponent } from './component-Lam/register/register.component';
 import { ListPromotionsUserComponent } from './component-Chuc/list-promotions-user/list-promotions-user.component';
 import { ListShowtimeUserComponent } from './component-Chuc/list-showtime-user/list-showtime-user.component';
 import { PromotionDetailComponent } from './component-Chuc/promotion-detail/promotion-detail.component';
@@ -46,6 +45,7 @@ import { OrderChairComponent } from './component-Lam/order-chair/order-chair.com
 import { ShowInfoOrderTicketChairComponent } from './component-Lam/show-info-order-ticket-chair/show-info-order-ticket-chair.component';
 import { UserTicketOrderComponent } from './component-Lam/user-ticket-order/user-ticket-order.component';
 import { PriceTicketComponent } from './component-Chuc/price-ticket/price-ticket.component'
+
 
 @NgModule({
   declarations: [
@@ -79,7 +79,6 @@ import { PriceTicketComponent } from './component-Chuc/price-ticket/price-ticket
     InsertEmployeeComponent,
     EditEmployeeComponent,
     DeleteEmployeeComponent,
-    RegisterComponent,
     ListPromotionsUserComponent,
     ListShowtimeUserComponent,
     PromotionDetailComponent,

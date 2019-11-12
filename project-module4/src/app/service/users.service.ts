@@ -16,12 +16,10 @@ export class UsersService {
       map(response => response.filter((post, i) => i < count))
     );
   }
-  createUser(user: Partial<User>): Observable<User> {
-    return this.http.post<User>(`${this.API_URL}`, user);
-  }
   getUserByIdUser(idUser: number): Observable<User> {
     return this.http.get<User>(`${this.API_URL}/showAndUpdate/${idUser}`);
   }
+
   updateUser(user: User,idUser: number): Observable<User> {
     return this.http.put<User>(`${this.API_URL}/update/${idUser}`, user);
   }

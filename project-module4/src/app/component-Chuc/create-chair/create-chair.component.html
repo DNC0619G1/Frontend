@@ -3,8 +3,8 @@
 <form [formGroup]="chairForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
         <label for="name">Hàng</label>
-        <input type="number" class="form-control" id="row" formControlName="row" #chairRow
-            [ngClass]="{ 'is-invalid': submitted && f.row.errors }">
+        <input type="number" class="form-control" formControlName="row" #chairRow
+            [ngClass]="{ 'is-invalid': submitted && f.row.errors }" >
         <div *ngIf="submitted && f.row.errors" class="invalid-feedback">
             <div *ngIf="f.row.errors.required">Row yêu cầu phải nhập</div>
             <div *ngIf="f.row.errors.min">Giá trị nhỏ nhất là 1</div>
@@ -13,7 +13,7 @@
     </div>
     <div class="form-group">
         <label for="name">Cột</label>
-        <input type="number" class="form-control" id="column" formControlName="column" #chairColumn
+        <input type="number" class="form-control" formControlName="column" #chairColumn
             [ngClass]="{ 'is-invalid': submitted && f.column.errors }" >
         <div *ngIf="submitted && f.column.errors" class="invalid-feedback">
             <div *ngIf="f.column.errors.required">Row yêu cầu phải nhập</div>

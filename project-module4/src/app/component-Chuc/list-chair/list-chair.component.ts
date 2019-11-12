@@ -8,6 +8,9 @@ import { Movie } from 'src/app/Model/movie';
 import { Room } from 'src/app/model/Room';
 import { TimeFrame } from 'src/app/model/TimeFrame';
 
+import { Title } from '@angular/platform-browser';
+
+
 @Component({
   selector: 'app-list-chair',
   templateUrl: './list-chair.component.html',
@@ -23,7 +26,11 @@ export class ListChairComponent implements OnInit {
   idRoom: number = 0;
   chairListChoise: number[] = [];//danh sach ghe chon
   amountChairChoise: number;
-  constructor(private chairService: ChairServiceService, private router: Router, private route: ActivatedRoute, private showTimesService: ShowTimesService, ) { }
+
+  constructor(private titleService: Title,private chairService: ChairServiceService, private router: Router, private route: ActivatedRoute, private showTimesService: ShowTimesService, ) { 
+    this.titleService.setTitle("Chọn ghế")
+  }
+
   ngOnInit() {
     this.time.room=new Room();
     this.time.movie=new Movie();
@@ -32,10 +39,12 @@ export class ListChairComponent implements OnInit {
     this.showTimesService.getShowTimeById(this.idShowTime).subscribe(data => {
       this.time = data;
       this.idRoom = this.time.room.idRoom;
+
     })
     this.chairService.getChairLists(this.idShowTime).subscribe((data: Chair[]) => {
       this.chairLists = data;
     })
+
     this.chairService.getChairsByIdRoom(this.idRoom).subscribe((data: Chair[]) => {
       data.forEach(element => {
         if (this.idRoom == element.room.idRoom) {

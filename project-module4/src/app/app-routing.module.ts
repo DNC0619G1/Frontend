@@ -27,7 +27,6 @@ import { ListEmployeeComponent } from './component-Lam/list-employee/list-employ
 import { InsertEmployeeComponent } from './component-Lam/insert-employee/insert-employee.component';
 import { EditEmployeeComponent } from './component-Lam/edit-employee/edit-employee.component';
 import { DeleteEmployeeComponent } from './component-Lam/delete-employee/delete-employee.component';
-import { RegisterComponent } from './component-Lam/register/register.component';
 import { ListPromotionsUserComponent } from './component-Chuc/list-promotions-user/list-promotions-user.component';
 import { ListShowtimeUserComponent } from './component-Chuc/list-showtime-user/list-showtime-user.component';
 import { PromotionDetailComponent } from './component-Chuc/promotion-detail/promotion-detail.component';
@@ -35,6 +34,7 @@ import { OrderTicketComponent } from './component-Lam/order-ticket/order-ticket.
 import { OrderChairComponent } from './component-Lam/order-chair/order-chair.component';
 import { ShowInfoOrderTicketChairComponent } from './component-Lam/show-info-order-ticket-chair/show-info-order-ticket-chair.component';
 import { UserTicketOrderComponent } from './component-Lam/user-ticket-order/user-ticket-order.component';
+import { PriceTicketComponent } from './component-Chuc/price-ticket/price-ticket.component';
 import { PriceTicketComponent } from './component-Chuc/price-ticket/price-ticket.component';
 
 const routes: Routes = [
@@ -84,6 +84,7 @@ const routes: Routes = [
   },
   {
     path: 'admin/employeeDelete/:idEmployee', component: DeleteEmployeeComponent
+
   },
   {
     path: 'register', component: RegisterComponent

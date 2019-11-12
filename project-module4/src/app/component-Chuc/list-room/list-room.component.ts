@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RoomService } from 'src/app/service/room.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Room } from 'src/app/model/Room';
+import { Title } from '@angular/platform-browser';
 
 
 @Component({
@@ -11,7 +12,9 @@ import { Room } from 'src/app/model/Room';
 })
 export class ListRoomComponent implements OnInit {
   rooms: Room[] = [];
-  constructor(private roomService: RoomService, private router: Router, private route: ActivatedRoute, ) { }
+  constructor(private titleService: Title,private roomService: RoomService, private router: Router, private route: ActivatedRoute, ) { 
+    this.titleService.setTitle("Danh sách phòng chiếu")
+  }
 
   ngOnInit() {
     this.roomService.getRooms().subscribe((data: Room[]) => {
