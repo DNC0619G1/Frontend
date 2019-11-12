@@ -7,6 +7,7 @@ import { ShowTimesService } from 'src/app/service/show-times.service';
 import { Movie } from 'src/app/Model/movie';
 import { Room } from 'src/app/model/Room';
 import { TimeFrame } from 'src/app/model/TimeFrame';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-list-chair',
@@ -23,7 +24,9 @@ export class ListChairComponent implements OnInit {
   idRoom: number = 0;
   chairListChoise: number[] = [];//danh sach ghe chon
   amountChairChoise: number;
-  constructor(private chairService: ChairServiceService, private router: Router, private route: ActivatedRoute, private showTimesService: ShowTimesService, ) { }
+  constructor(private titleService: Title,private chairService: ChairServiceService, private router: Router, private route: ActivatedRoute, private showTimesService: ShowTimesService, ) { 
+    this.titleService.setTitle("Chọn ghế")
+  }
   ngOnInit() {
     this.time.room=new Room();
     this.time.movie=new Movie();

@@ -15,16 +15,46 @@
                 <th>Thứ 6,7,CN</th>
             </tr>
             <tr>
-                <td>Trước 17h</td>
-                <td>50000 vnđ</td>
-                <td>45000 vnđ</td>
-                <td>65000 vnđ</td>
+                <td><b>Trước 17h</b></td>
+                <td>
+                    <div *ngFor="let priceTicket of priceTickets">
+                        <div *ngIf="priceTicket.idPriceTicket==2">
+                            {{priceTicket.timeFrameType.priceType+priceTicket.dayWeekPrice}}</div>
+                    </div>
+                </td>
+                <td>
+                    <div *ngFor="let priceTicket of priceTickets">
+                        <div *ngIf="priceTicket.idPriceTicket==1">
+                            {{priceTicket.timeFrameType.priceType+priceTicket.dayWeekPrice}}</div>
+                    </div>
+                </td>
+                <td>
+                    <div *ngFor="let priceTicket of priceTickets">
+                        <div *ngIf="priceTicket.idPriceTicket==3">
+                            {{priceTicket.timeFrameType.priceType+priceTicket.dayWeekPrice}}</div>
+                    </div>
+                </td>
             </tr>
             <tr>
-                <td>Sau 17h</td>
-                <td>60000 vnđ</td>
-                <td>45000 vnđ</td>
-                <td>75000 vnđ</td>
+                <td><b>Sau 17h</b></td>
+                <td>
+                    <div *ngFor="let priceTicket of priceTickets">
+                        <div *ngIf="priceTicket.idPriceTicket==5">
+                            {{priceTicket.timeFrameType.priceType+priceTicket.dayWeekPrice}}</div>
+                    </div>
+                </td>
+                <td>
+                    <div *ngFor="let priceTicket of priceTickets">
+                        <div *ngIf="priceTicket.idPriceTicket==4">
+                            {{priceTicket.timeFrameType.priceType+priceTicket.dayWeekPrice}}</div>
+                    </div>
+                </td>
+                <td>
+                    <div *ngFor="let priceTicket of priceTickets">
+                        <div *ngIf="priceTicket.idPriceTicket==6">
+                            {{priceTicket.timeFrameType.priceType+priceTicket.dayWeekPrice}}</div>
+                    </div>
+                </td>
             </tr>
         </tbody>
     </table>
@@ -43,16 +73,46 @@
                 <th>Thứ 6,7,CN</th>
             </tr>
             <tr>
-                <td>Trước 17h</td>
-                <td>60000 vnđ</td>
-                <td>55000 vnđ</td>
-                <td>75000 vnđ</td>
+                <td><b>Trước 17h</b></td>
+                <td>
+                    <div *ngFor="let priceTicket of priceTickets">
+                        <div *ngIf="priceTicket.idPriceTicket==2">
+                            {{priceTicket.timeFrameType.priceType+priceTicket.dayWeekPrice+20000}}</div>
+                    </div>
+                </td>
+                <td>
+                    <div *ngFor="let priceTicket of priceTickets">
+                        <div *ngIf="priceTicket.idPriceTicket==1">
+                            {{priceTicket.timeFrameType.priceType+priceTicket.dayWeekPrice+20000}}</div>
+                    </div>
+                </td>
+                <td>
+                    <div *ngFor="let priceTicket of priceTickets">
+                        <div *ngIf="priceTicket.idPriceTicket==3">
+                            {{priceTicket.timeFrameType.priceType+priceTicket.dayWeekPrice+20000}}</div>
+                    </div>
+                </td>
             </tr>
             <tr>
-                <td>Sau 17h</td>
-                <td>70000 vnđ</td>
-                <td>55000 vnđ</td>
-                <td>85000 vnđ</td>
+                <td><b>Sau 17h</b></td>
+                <td>
+                    <div *ngFor="let priceTicket of priceTickets">
+                        <div *ngIf="priceTicket.idPriceTicket==5">
+                            {{priceTicket.timeFrameType.priceType+priceTicket.dayWeekPrice+20000}}</div>
+                    </div>
+                </td>
+                <td>
+                    <div *ngFor="let priceTicket of priceTickets">
+                        <div *ngIf="priceTicket.idPriceTicket==4">
+                            {{priceTicket.timeFrameType.priceType+priceTicket.dayWeekPrice+20000}}</div>
+                    </div>
+                </td>
+                <td>
+                    <div *ngFor="let priceTicket of priceTickets">
+                        <div *ngIf="priceTicket.idPriceTicket==6">
+                            {{priceTicket.timeFrameType.priceType+priceTicket.dayWeekPrice+20000}}</div>
+                    </div>
+                </td>
             </tr>
         </tbody>
     </table>

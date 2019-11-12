@@ -1,11 +1,33 @@
-<div class="container ng-scope" style="min-height: 450px;">
+<div class="row" style="min-height: 350px;">
     <div *ngIf="promotions.length!=0;else not">
+        <div *ngIf="promotions.length>1;else once">
+            <div *ngFor='let promotion of promotions'>
+                <!-- <div *ngIf="isEndDate(promotion.endDate|date:'yyyy/MM/dd',(today|date:'yyyy/MM/dd'))"> -->
+                <ul style="list-style: none;margin-top: 20px;" class="col-md-6">
+                    <li style="width: 100%;">
+                        <button [routerLink]="['/Khuyenmaidetail',promotion.idPromotion]" style="width: 100%;">
+                            <img src="{{promotion.imgPromotion}}" style="width: 100%;height: 350px;">
+                        </button>
+                    </li>
+                    <li style="width: 100%;"><span class="glyphicon glyphicon-calendar"></span>
+                        Từ {{promotion.startDate|date:"dd/MM"}} đến {{promotion.endDate|date:"dd/MM/yyyy"}}</li>
+                    <li style="width: 100%;">
+                        <button type="button" class="btn btn-primary btn-lg"
+                            [routerLink]="['/Khuyenmaidetail',promotion.idPromotion]" style="width: 100%;">Xem ngay
+                        </button>
+                    </li>
+                </ul>
+                <!-- </div> -->
+            </div>
+        </div>
+    </div>
+    <ng-template #once>
         <div *ngFor='let promotion of promotions'>
-            <!-- <div *ngIf="isEndDate(promotion.endDate|date:'yyyy/MM/dd',(today|date:'yyyy/MM/dd'))"> -->
-            <ul style="list-style: none;" class="col-md-4">
+            <div class="col-md-3"></div>
+            <ul style="list-style: none;margin-top: 20px;width: 50%; " class="col-md-6">
                 <li style="width: 100%;">
                     <button [routerLink]="['/Khuyenmaidetail',promotion.idPromotion]" style="width: 100%;">
-                        <img src="{{promotion.imgPromotion}}" style="width: 100%;">
+                        <img src="{{promotion.imgPromotion}}" style="width: 100%;height: 350px;">
                     </button>
                 </li>
                 <li style="width: 100%;"><span class="glyphicon glyphicon-calendar"></span>
@@ -16,8 +38,13 @@
                     </button>
                 </li>
             </ul>
-            <!-- </div> -->
+            <div class="col-md-3"></div>
         </div>
-    </div>
-    <ng-template #not>Content to render when value is null.</ng-template>
+    </ng-template>
+    <ng-template #not>
+        <div class="alert alert-success" role="alert" style="margin-top: 20px;">
+            <h4 class="alert-heading">SORRY!</h4>
+            <p>Hiện tại chưa có chương trình khuyến mãi. Xin quý khách quay lại sau. </p>
+        </div>
+    </ng-template>
 </div>

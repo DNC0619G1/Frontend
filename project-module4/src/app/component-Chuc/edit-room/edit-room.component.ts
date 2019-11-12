@@ -9,21 +9,19 @@ import { Room } from 'src/app/model/Room';
   styleUrls: ['./edit-room.component.css']
 })
 export class EditRoomComponent implements OnInit {
-  room:Room=new Room();
-  idRoom:number;
-  constructor(private route: ActivatedRoute,private router: Router,
+  room: Room = new Room();
+  idRoom: number;
+  constructor(private route: ActivatedRoute, private router: Router,
     private roomService: RoomService) {
-     }
+  }
   ngOnInit() {
     this.idRoom = this.route.snapshot.params['idRoom'];
-    this.roomService.getRoomByID(this.idRoom)
-    .subscribe(data => {
-        this.room = data;
-      }, error => console.log(error)
+    this.roomService.getRoomByID(this.idRoom).subscribe(data => {
+      this.room = data;
+    }, error => console.log(error)
     )
   }
   updateRoom() {
-    this.roomService.createRoom(this.room)
-      .subscribe(data => this.router.navigate(['/rooms']), error => console.log(error));
+    this.roomService.createRoom(this.room).subscribe(data => this.router.navigate(['/rooms']), error => console.log(error));
   }
 }

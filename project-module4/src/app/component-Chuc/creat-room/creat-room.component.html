@@ -1,15 +1,26 @@
 <h3> Thêm Phòng Chiếu</h3>
 <hr>
-<form (ngSubmit)="onSubmit()">
-    <div class="form-group">
-        <label for="name">Tên Phòng</label>
-        <input type="text" class="form-control" id="firstName" required [(ngModel)]="room.nameRoom" name="nameRoom">
-      </div>
-      <div class="form-group">
-        <label for="name">Mô tả:</label>
-        <textarea type="text" class="form-control" id="Description" required [(ngModel)]="room.description" name="Description" style="height: 150px;"></textarea>
-      </div>
-    <button type="submit" class="btn btn-primary" style="margin-right: 10px;">Thêm</button>
-    <button type="submit" class="btn btn-primary" [routerLink]="['/rooms']">Cancel</button>
+<form [formGroup]="roomForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="name">Tên Phòng</label>
+    <input type="text" class="form-control" formControlName="nameRoom"
+      [ngClass]="{ 'is-invalid': submitted && f.nameRoom.errors }">
+    <div *ngIf="submitted && f.nameRoom.errors" class="invalid-feedback">
+      <div *ngIf="f.nameRoom.errors.required">Tên phòng yêu cầu phải nhập</div>
+      <div *ngIf="f.nameRoom.errors.minlength">Tên phòng Phải có it nhất 3 ký Tự </div>
+      <div *ngIf="f.nameRoom.errors.maxlength">Tên phòng nhiều nhất 30 ký Tự</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="name">Mô tả:</label>
+    <textarea type="text" class="form-control" formControlName="description"
+      [ngClass]="{ 'is-invalid': submitted && f.description.errors }"></textarea>
+    <div *ngIf="submitted && f.description.errors" class="invalid-feedback">
+      <div *ngIf="f.description.errors.required">Description yêu cầu phải nhập</div>
+      <div *ngIf="f.description.errors.minlength">Description Phải có it nhất 3 ký Tự </div>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary" style="margin-right: 10px;">Thêm</button>
+  <button type="button" class="btn btn-primary" [routerLink]="['/rooms']">Cancel</button>
 </form>
 <br>
