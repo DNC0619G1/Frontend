@@ -14,7 +14,7 @@ export class CreateticketComponent implements OnInit {
   setDate: Date;
   minDate = new Date();
   maxDate: Date = new Date();
-  constructor(private titleService: Title,private showTimesService: ShowTimesService, private route: ActivatedRoute) {
+  constructor(private titleService: Title, private showTimesService: ShowTimesService, private route: ActivatedRoute) {
     this.filmShowMap = new Map();
     this.setDate = new Date();
     this.maxDate = new Date(this.maxDate.setDate(this.maxDate.getDate() - this.maxDate.getDay() + 6));
@@ -31,6 +31,9 @@ export class CreateticketComponent implements OnInit {
           this.filmShowMap.get(nameMovie).push(filmShow);
         }
       });
+      this.filmShowMap.forEach((value: ShowTime[]) => {
+        value.sort((a, b) => a.showTime.timeStart.localeCompare(b.showTime.timeStart));
+      })
     });
   }
 
@@ -41,9 +44,7 @@ export class CreateticketComponent implements OnInit {
   isContainFilmAsDay(filmShows: ShowTime[], day: Date): boolean {
     let hasFilm = false;
     filmShows.forEach(filmShow => {
-      if (filmShow.showDate == day) {
-        hasFilm = true;
-      }
+      if (filmShow.showDate == day) { hasFilm = true; }
     });
     return hasFilm;
   }

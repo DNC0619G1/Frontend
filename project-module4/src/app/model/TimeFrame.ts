@@ -1,5 +1,5 @@
 export class TimeFrame {
-    idTime : number;
+    idTimeFrame : number;
     timeStart : string;
     priceTime : number;
 }

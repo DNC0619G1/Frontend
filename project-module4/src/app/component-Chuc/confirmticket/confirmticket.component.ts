@@ -119,7 +119,7 @@ export class ConfirmticketComponent implements OnInit {
       window.alert("Bạn đã mua vé thành công. Thông tin chi tiết như sau");
       this.router.navigate(['/thongtinbanve', this.time.idTime, JSON.stringify(this.chairListChoise), this.user.idUser, this.pointChange])
     }else{
-      window.alert("Ghế đã đặt thành công!")
+      window.alert("Ghế Ban đã đặt!")
     }
   }
 }
