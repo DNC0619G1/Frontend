@@ -1,0 +1,113 @@
+<div class="container ng-scope">
+    <h3> Thông Tin Đặt Vé</h3>
+    <hr>
+    <div *ngIf="time">
+        <div class="row">
+            <div class="col-md-3">
+                <img src="../../../assets/{{time.movie.imgMovie}}">
+            </div>
+            <div class="col-md-9">
+                <table class="table table-striped">
+                    <h2>{{time.movie.nameMovie}}</h2>
+                    <tr>
+                        <td class="w-25 ">
+                            <p>Màn hình :</p>
+                        </td>
+                        <td>{{time.room.nameRoom}}</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Ngày chiếu :</p>
+                        </td>
+                        <td>{{time.showDate}}</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Giờ chiếu :</p>
+                        </td>
+                        <td>{{time.showTime.timeStart}}</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Ghế :</p>
+                        </td>
+                        <td>
+                            <div *ngFor="let idChair of chairListChoise">
+                                <div *ngFor="let chair of chairs">
+                                    <div *ngIf="chair.idChair==idChair">
+                                            {{chair.position}}
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Giá :</p>
+                        </td>
+                        <td>
+                            <div *ngFor="let idChair of chairListChoise">
+                                <div *ngFor="let chair of chairs">
+                                    <div *ngIf="chair.idChair==idChair">
+                                        {{chair.position}} : {{time.showTime.priceTime+chair.priceChairType}} vnd
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Tổng cộng :</p>
+                        </td>
+                        <td>{{priceSum}} vnd</td>
+                    </tr>
+                </table>
+
+                <div class="confirm">
+                    <h4>Thông Tin Tài Khoản Đặt Vé</h4>
+                    <div *ngIf="user">
+                        <table class="table table-striped">
+                            <tr>
+                                <td class="w-25 ">
+                                    <p>Họ Và Tên :</p>
+                                </td>
+                                <td>
+                                    <p>{{user.fullName}}</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>Email :</p>
+                                </td>
+                                <td>
+                                    <p>{{user.email}}</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>CMND :</p>
+                                </td>
+                                <td>
+                                    <p>{{user.license}}</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>Số điện thoại :</p>
+                                </td>
+                                <td>
+                                    <p>{{user.numberPhone}}</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>Vui Lòng Thanh Toán Trước 30 Phút, Không Thì Vé Sẽ Tự Hủy</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

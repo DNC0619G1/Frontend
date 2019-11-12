@@ -11,6 +11,7 @@ import { Room } from 'src/app/model/Room';
 import { TimeFrame } from 'src/app/model/TimeFrame';
 import { Title } from '@angular/platform-browser';
 
+
 @Component({
   selector: 'app-infor-ticket',
   templateUrl: './infor-ticket.component.html',
