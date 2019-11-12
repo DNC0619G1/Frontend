@@ -66,7 +66,7 @@ export class RegisterComponent implements OnInit {
     this.user.nameMemberCard = "CGV-Test";
     this.user.point = 0;
     this.user.id_role = 3;
-    this.userService.createUser(this.user).subscribe();
+    // this.userService.createUser(this.user).subscribe();
     this.user = new User();
     this.router.navigate(['']);
     console.log(this.user);

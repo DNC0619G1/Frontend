@@ -32,6 +32,9 @@ export class CreateticketComponent implements OnInit {
           this.filmShowMap.get(nameMovie).push(filmShow);
         }
       });
+      this.filmShowMap.forEach((value: ShowTime[]) => {
+        value.sort((a, b) => a.showTime.timeStart.localeCompare(b.showTime.timeStart));
+      })
     });
   }
 
@@ -42,9 +45,7 @@ export class CreateticketComponent implements OnInit {
   isContainFilmAsDay(filmShows: ShowTime[], day: Date): boolean {
     let hasFilm = false;
     filmShows.forEach(filmShow => {
-      if (filmShow.showDate == day) {
-        hasFilm = true;
-      }
+      if (filmShow.showDate == day) { hasFilm = true; }
     });
     return hasFilm;
   }

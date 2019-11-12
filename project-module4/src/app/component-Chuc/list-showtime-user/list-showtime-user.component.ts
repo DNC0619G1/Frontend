@@ -20,9 +20,29 @@ export class ListShowtimeUserComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.showTimesService.getMapShowTimes().subscribe((data: Map<String, ShowTime[]>) => {
-      this.mapShowTime = data
+    this.mapShowTime = new Map();
+    this.showTimesService.getShowTimes().subscribe((data: ShowTime[]) => {
+      data.forEach(filmShow => {
+        const nameMovie = filmShow.movie.nameMovie;
+        if (this.mapShowTime.get(nameMovie) == null) {
+          this.mapShowTime.set(nameMovie, [filmShow]);
+        } else {
+          this.mapShowTime.get(nameMovie).push(filmShow);
+        }
+      });
+      this.mapShowTime.forEach((value: ShowTime[]) => {
+        value.sort((a, b) => a.showTime.timeStart.localeCompare(b.showTime.timeStart));
+      })
     });
+
+    // this.showTimesService.getMapShowTimes().subscribe((data: Map<String, ShowTime[]>) => {
+    //   this.mapShowTime = data;
+    //   console.log(this.mapShowTime)
+    //   this.mapShowTime.forEach((value: ShowTime[]) => {
+    //     value.sort((a, b) => a.showTime.timeStart.localeCompare(b.showTime.timeStart));
+    //   })
+    //   console.log(this.mapShowTime)
+    // })
   }
   
   isSameDay(start: Date, end: Date): boolean {
