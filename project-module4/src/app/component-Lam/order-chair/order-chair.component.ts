@@ -1,44 +1,53 @@
 import { Component, OnInit } from '@angular/core';
 import { Chair } from 'src/app/model/chair';
-import { ChairServiceService } from 'src/app/service/chair-service';
-import { ActivatedRoute, Router } from '@angular/router';
 import { ShowTime } from 'src/app/model/ShowTimes';
+import { ChairServiceService } from 'src/app/service/chair-service';
+import { Router, ActivatedRoute } from '@angular/router';
 import { ShowTimesService } from 'src/app/service/show-times.service';
-import { Movie } from 'src/app/Model/movie';
-import { Room } from 'src/app/model/Room';
-import { TimeFrame } from 'src/app/model/TimeFrame';
-
+import { Title } from '@angular/platform-browser';
+import { UsersService } from '../../service/users.service';
+import { User } from 'src/app/model/user';
 @Component({
-  selector: 'app-list-chair',
-  templateUrl: './list-chair.component.html',
-  styleUrls: ['./list-chair.component.css']
+  selector: 'app-order-chair',
+  templateUrl: './order-chair.component.html',
+  styleUrls: ['./order-chair.component.css']
 })
-export class ListChairComponent implements OnInit {
+export class OrderChairComponent implements OnInit {
   chairs: Chair[] = [];//danh sach ghe 
-  chairLists: Chair[] = [];
+  user: User = new User();
   rowColumnMap: Map<number, number[]> = new Map<0, []>();
   showTimes: ShowTime[];//danh sach lich chieu
-  time: ShowTime= new ShowTime();//lich chieu dc chon
+  time: ShowTime = new ShowTime();//lich chieu dc chon
   idShowTime: number;
-  idRoom: number = 0;
+  idUser: number;
   chairListChoise: number[] = [];//danh sach ghe chon
   amountChairChoise: number;
-  constructor(private chairService: ChairServiceService, private router: Router, private route: ActivatedRoute, private showTimesService: ShowTimesService, ) { }
+  constructor(private chairService: ChairServiceService,
+    private router: Router,
+    private route: ActivatedRoute,
+    private showTimesService: ShowTimesService,
+    private titleService: Title,
+    private usersService: UsersService
+  ) {
+    this.titleService.setTitle("Chọn Ghế");
+  }
   ngOnInit() {
-    this.time.room=new Room();
-    this.time.movie=new Movie();
-    this.time.showTime=new TimeFrame();
+    this.time = new ShowTime();
     this.idShowTime = this.route.snapshot.params['showtime.idTime'];
     this.showTimesService.getShowTimeById(this.idShowTime).subscribe(data => {
       this.time = data;
-      this.idRoom = this.time.room.idRoom;
     })
-    this.chairService.getChairLists(this.idShowTime).subscribe((data: Chair[]) => {
-      this.chairLists = data;
-    })
-    this.chairService.getChairsByIdRoom(this.idRoom).subscribe((data: Chair[]) => {
+     this.idUser = +this.route.snapshot.params['user.idUser'];
+    this.usersService.getUserByIdUser(this.idUser).subscribe(
+      next => (this.user = next),
+      error => {
+        console.log(error);
+        this.user = null;
+      },
+    );
+    this.chairService.getchairs().subscribe((data: Chair[]) => {
       data.forEach(element => {
-        if (this.idRoom == element.room.idRoom) {
+        if (this.time.room.idRoom == element.room.idRoom) {
           this.chairs.push(element);
           if (this.rowColumnMap.get(element.row) == null) {
             this.rowColumnMap.set(element.row, [element.column]);
@@ -47,10 +56,12 @@ export class ListChairComponent implements OnInit {
           }
         }
       })
-      this.rowColumnMap.forEach((value: number[], key: number) => { value.sort() });
-    })
-
+      this.rowColumnMap.forEach((value: number[], key: number) => {
+        value.sort();
+      });
+    });
   }
+
   changeStatus(row: number, col: number) {
     for (let i = 0; i < this.chairs.length; i++) {
       if ((this.chairs[i].column == col) && (this.chairs[i].row == row)) {
@@ -61,6 +72,7 @@ export class ListChairComponent implements OnInit {
             this.chairListChoise.splice(0, 1);//xoa pt dau tien khi da du so ghe.
           }
           this.chairListChoise.push(i)//them chi so mang ghe da chon vao cuoi danh sach
+
         } else {
           for (let j = 0; j < this.chairListChoise.length; j++) {
             if (i == this.chairListChoise[j]) {
@@ -72,15 +84,8 @@ export class ListChairComponent implements OnInit {
     }
   }
   chairChanged(idchair: number) {
-    for (let i = 0; i < this.chairs.length; i++) {
-      for (let j = 0; j < this.chairLists.length; j++) {
-        if (this.chairs[i].idChair == this.chairLists[j].idChair) {
-          this.chairs[i].statusChair = 0;
-        }
-      }
-    }
     this.amountChairChoise = idchair;
-    if (this.amountChairChoise < this.chairListChoise.length) {//neu ng dung thay doi so ghe it hon lua chon ban dau
+    if (this.amountChairChoise != this.chairListChoise.length) {//neu ng dung thay doi so ghe it hon lua chon ban dau
       for (let i = 0; i < this.chairListChoise.length; i++) {//bo het cac ghe da chon
         this.chairs[this.chairListChoise[i]].choiseStatus = false//cho cac ghe da chon ve false
       }
@@ -89,13 +94,15 @@ export class ListChairComponent implements OnInit {
   }
   checkChair(selectChar: number) {
     if (selectChar > this.chairListChoise.length) {
-      window.alert("Ban chọn chưa đủ ghế ")
+      window.alert("Ban chọn chưa đủ ghế ");
     }
     else {
       for (let j = 0; j < this.chairListChoise.length; j++) {
-        this.chairListChoise[j] = this.chairs[this.chairListChoise[j]].idChair;//gan id ghe chon 
+        this.chairListChoise[j] = this.chairs[this.chairListChoise[j]].idChair;//xoa pt khi click lai
       }
-      this.router.navigate(['/xacnhanbanve', this.time.idTime, JSON.stringify(this.chairListChoise)])
+      this.router.navigate(['/verifyOrderTicket', this.time.idTime,this.user.idUser, JSON.stringify(this.chairListChoise)])
+      console.log(this.user.idUser + " " + this.time.idTime, JSON.stringify(this.chairListChoise))
     }
   }
 }
+

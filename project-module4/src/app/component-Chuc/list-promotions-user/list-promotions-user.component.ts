@@ -17,17 +17,10 @@ export class ListPromotionsUserComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.promotionService.getAllPromotions().subscribe((data: Promotion[]) => {
-      data.forEach(element => {
-        this.promotions.push(element);
-      });
-      // for (let i = 0; i < this.promotions.length; i++) {
-      //   if (this.datePipe.transform(this.today, "yyyy-MM-dd") <this.datePipe.transform(this.promotions[i].endDate, "yyyy-MM-dd")) {
-      //     this.count++;
-      //   }
-      // }
+    this.promotionService.getAllPromotionsAfterEndDate().subscribe((data: Promotion[]) => {
+        this.promotions=data;
     });
-
+    console.log(this.promotions);
   }
   isEndDate(end: Date, today: Date): boolean {
     return end >= today;

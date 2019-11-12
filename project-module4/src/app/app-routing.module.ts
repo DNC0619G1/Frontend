@@ -31,9 +31,11 @@ import { RegisterComponent } from './component-Lam/register/register.component';
 import { ListPromotionsUserComponent } from './component-Chuc/list-promotions-user/list-promotions-user.component';
 import { ListShowtimeUserComponent } from './component-Chuc/list-showtime-user/list-showtime-user.component';
 import { PromotionDetailComponent } from './component-Chuc/promotion-detail/promotion-detail.component';
-
-
-
+import { OrderTicketComponent } from './component-Lam/order-ticket/order-ticket.component';
+import { OrderChairComponent } from './component-Lam/order-chair/order-chair.component';
+import { ShowInfoOrderTicketChairComponent } from './component-Lam/show-info-order-ticket-chair/show-info-order-ticket-chair.component';
+import { UserTicketOrderComponent } from './component-Lam/user-ticket-order/user-ticket-order.component';
+import { PriceTicketComponent } from './component-Chuc/price-ticket/price-ticket.component';
 
 const routes: Routes = [
   {path:'', component: ListMoviesComponent},
@@ -67,6 +69,7 @@ const routes: Routes = [
   { path: "Khuyenmai", component: ListPromotionsUserComponent},
   { path: "Khuyenmaidetail/:idPromotion", component: PromotionDetailComponent},
   { path: "lichchieu", component: ListShowtimeUserComponent},
+  { path: "giave", component: PriceTicketComponent},
   {
     path: 'infoUser/history/:idUser',component :HitoryComponent
   },
@@ -84,6 +87,18 @@ const routes: Routes = [
   },
   {
     path: 'register', component: RegisterComponent
+  },
+  {
+    path: 'orderTicket/:idUser', component: OrderTicketComponent
+  },
+  {
+    path: 'orderChair/:showtime.idTime/:user.idUser', component: OrderChairComponent
+  },
+  {
+    path: 'verifyOrderTicket/:time.idTime/:user.idUser/:chairListChoise', component: ShowInfoOrderTicketChairComponent
+  },
+  {
+    path: 'userOrderTicket/:time.idTime/:user.idUser/:chairListChoise',component: UserTicketOrderComponent
   }
 ];
 

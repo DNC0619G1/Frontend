@@ -1,9 +1,10 @@
 <div class="container">
-    <div class="panel-body" style="min-height: 350px;">
+    <div class="panel-body">
         <div class="row">
             <div class='col-md-12'>
-                <label class="control-label">chọn ngày :</label>
                 <div class="form-group">
+                    <h3>{{user.fullName}}</h3>
+                    <label class="control-label">chọn ngày :</label>
                     <mat-form-field>
                         <input matInput [matDatepicker]="myDatepicker" [(ngModel)]='setDate' [min]="minDate"
                             [max]="maxDate">
@@ -25,7 +26,7 @@
                             <div *ngFor="let filmShow of filmShows.value">
                                 <div *ngIf="isSameDay(filmShow.showDate, (setDate | date: 'dd/MM/yyyy'))">
                                     <li class="list-group-item">
-                                        <button [routerLink]="['/chonve', filmShow.idTime]">
+                                        <button [routerLink]="['/orderChair', filmShow.idTime, user.idUser]">
                                             {{filmShow.showTime.timeStart}}
                                         </button>
                                     </li>

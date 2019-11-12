@@ -11,7 +11,7 @@
                 (click)="searchNameRoom(inputsearch.value)"></i></button>
     </div>
 </div>
-<div class="row ">
+<div class="row " style="min-height: 300px;">
     <table class="table">
         <thead class="thead-light">
             <tr>
@@ -31,8 +31,8 @@
                 </td>
             </tr>
         </tbody>
-        <div>
-            <pagination-controls (pageChange)="p = $event"></pagination-controls>
-        </div>
     </table>
+</div>
+<div>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
 </div>

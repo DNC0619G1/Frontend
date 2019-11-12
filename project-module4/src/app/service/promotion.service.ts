@@ -31,4 +31,7 @@ export class PromotionService {
   searchPromotion(title: string): Observable<Promotion[]>{
     return this.http.get<Promotion[]>(`${this.API_URL}/promotion/search/${title}`);
   }
+  getAllPromotionsAfterEndDate(): Observable<Promotion[]> {
+    return this.http.get<Promotion[]>(`${this.API_URL}/promotion/afterenddate`);
+  }
 }

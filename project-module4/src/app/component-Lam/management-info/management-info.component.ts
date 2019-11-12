@@ -39,16 +39,6 @@ export class ManagementInfoComponent implements OnInit {
     });
 
   }
-  // ngOnInit() {
-
-  //   this.route.params.subscribe(params => {
-  //     this.idUser = params['iderUser'];
-  //     console.log(this.idUser)
-  //   })
-  //   this.getUser();
-  //   this.editForm();
-  //   console.log(this.userForm)
-  // }
   ngOnInit() {
     const idUser = +this.route.snapshot.paramMap.get('idUser');
     this.usersService.getUserByIdUser(idUser).subscribe(
@@ -58,17 +48,8 @@ export class ManagementInfoComponent implements OnInit {
         this.user = null;
       },
     );
-    
-    // this.getUser();
     this.editForm();
   }
-
-  // getUser(){
-  //   this.usersService.getPostByIdUser(this.idUser).subscribe(data => {
-  //     this.userForm.patchValue(data);
-  //     console.log(this.userForm);
-  //   })
-  // }
   checkOldPassword = "";
   checkNewPassword = "";
   updatePassword(password: String, oldPassword: String, newPassword: String, verifyPassword: String) {

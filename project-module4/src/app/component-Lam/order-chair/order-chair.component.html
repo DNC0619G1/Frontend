@@ -1,10 +1,10 @@
 <div class="container ng-scope" style="min-height: 350px;">
     <div class="row">
         <div class="col-md-12">
-            <h3>chọn ghế</h3>
+            <h3><i>Đặt Ghế</i></h3>
             <div class="row">
                 <div class="col-md-12" style="text-align: left">
-                    <label>chọn số lượng ghế :</label>
+                    <i>Chọn Số Lượng Ghế :</i>
                     <select [(ngModel)]='selectChar' (ngModelChange)="chairChanged(selectChar)" style="width: 40px">
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -20,7 +20,7 @@
         <div *ngIf="time">
             <div class="row">
                 <div class="col-md-3">
-                    <p><b>Phim : </b> {{time.movie.nameMovie}} </p>
+                    <p><b>Phim : </b>{{time.movie.nameMovie}} </p>
                 </div>
                 <div class="col-md-3">
                     <p><b>Ngày chiếu : </b> {{time.showDate}}</p>
@@ -39,19 +39,19 @@
         <div class="container ng-scope">
             <div class="row">
                 <div class="col-md-3">
-                    <li style="background:orangered"></li>
+                    <li><i class="fas fa-couch fa-2x" style="color:#fad390"></i></li>
                     <label>: Ghế đã đặt</label>
                 </div>
                 <div class="col-md-3">
-                    <li style="background:palegreen;"></li>
+                    <li><i class="fas fa-couch fa-2x" style="color:#78e08f"></i></li>
                     <label>: Ghế vip</label>
                 </div>
                 <div class="col-md-3">
-                    <li style="background:yellow;"></li>
+                    <li><i class="fas fa-couch fa-2x" style="color:#3498db"></i></li>
                     <label>: Ghế đang chọn</label>
                 </div>
                 <div class="col-md-3">
-                    <li style="background:none"></li>
+                    <li><i class="fas fa-couch fa-2x" style="color:#7f8c8d"></i></li>
                     <label>: Ghế trống</label>
                 </div>
             </div>
@@ -62,7 +62,7 @@
                             <div *ngIf="chair.row==columns.key && chair.column==column">
                                 <div *ngIf="chair.statusChair==0; else not">
                                     <button class="chair-button">
-                                        <li style="background:orangered;"> {{chair.position}}</li>
+                                        <li><i class="fas fa-couch fa-2x" style="color:#fad390"></i><p style="color:#fad390">{{chair.position}}</p></li>
                                     </button>
                                 </div>
                             </div>
@@ -70,20 +70,20 @@
                                 <div *ngIf="chair.idChairDetail==2">
                                     <button class="chair-button" (click)="changeStatus(chair.row,chair.column)">
                                         <div *ngIf="chair.choiseStatus==false;">
-                                            <li style="background:palegreen;"> {{chair.position}}</li>
+                                            <li><i class="fas fa-couch fa-2x" style="color:#78e08f"></i><p style="color:#78e08f">{{chair.position}}</p></li>
                                         </div>
                                         <div *ngIf="chair.choiseStatus==true;">
-                                            <li style="background:yellow;"> {{chair.position}}</li>
+                                            <li><i class="fas fa-couch fa-2x" style="color:#3498db"></i><p style="color:#3498db">{{chair.position}}</p></li>
                                         </div>
                                     </button>
                                 </div>
                                 <div *ngIf="chair.idChairDetail==1">
                                     <button class="chair-button" (click)="changeStatus(chair.row,chair.column)">
                                         <div *ngIf="chair.choiseStatus==false;">
-                                            <li> {{chair.position}}</li>
+                                            <li><i class="fas fa-couch fa-2x" style="color:#7f8c8d"></i><p style="color:#7f8c8d">{{chair.position}}</p></li>
                                         </div>
                                         <div *ngIf="chair.choiseStatus==true;">
-                                            <li style="background:yellow;"> {{chair.position}}</li>
+                                            <li><i class="fas fa-couch fa-2x" style="color:#3498db"></i><p style="color:#3498db">{{chair.position}}</p></li>
                                         </div>
                                     </button>
                                 </div>

@@ -1,5 +1,5 @@
 <div class="container ng-scope">
-    <h3> Thông tin bán vé</h3>
+    <h3> Thông Tin Đặt Vé</h3>
     <hr>
     <div *ngIf="time">
         <div class="row">
@@ -7,13 +7,13 @@
                 <img src="../../../assets/{{time.movie.imgMovie}}">
             </div>
             <div class="col-md-9">
-                <h2 style="margin-bottom: 20px;">{{time.movie.nameMovie}}</h2>
                 <table class="table table-striped">
+                    <h2>{{time.movie.nameMovie}}</h2>
                     <tr>
                         <td class="w-25 ">
                             <p>Màn hình :</p>
                         </td>
-                        <td >{{time.room.nameRoom}}</td>
+                        <td>{{time.room.nameRoom}}</td>
                     </tr>
                     <tr>
                         <td>
@@ -35,7 +35,7 @@
                             <div *ngFor="let idChair of chairListChoise">
                                 <div *ngFor="let chair of chairs">
                                     <div *ngIf="chair.idChair==idChair">
-                                        {{chair.position}}
+                                            {{chair.position}}
                                     </div>
                                 </div>
                             </div>
@@ -57,33 +57,30 @@
                     </tr>
                     <tr>
                         <td>
-                            <p>Đổi vé :</p>
-                        </td>
-                        <td>{{pointChange}}</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>Điểm đổi vé : </p>
-                        </td>
-                        <td>{{user.point-pointChange*100}}</td>
-                    </tr>
-                    <tr>
-                        <td>
                             <p>Tổng cộng :</p>
                         </td>
-                        <td>{{priceSum-pointChange*time.showTime.priceTime}} vnd</td>
+                        <td>{{priceSum}} vnd</td>
                     </tr>
                 </table>
+
                 <div class="confirm">
-                    <h4 style="margin-bottom: 20px;"><b>Thông tin thành viên</b></h4>
+                    <h4>Thông Tin Tài Khoản Đặt Vé</h4>
                     <div *ngIf="user">
                         <table class="table table-striped">
                             <tr>
                                 <td class="w-25 ">
-                                    <p>Mã thành viên :</p>
+                                    <p>Họ Và Tên :</p>
                                 </td>
                                 <td>
-                                    <p>{{user.nameMemberCard}}</p>
+                                    <p>{{user.fullName}}</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>Email :</p>
+                                </td>
+                                <td>
+                                    <p>{{user.email}}</p>
                                 </td>
                             </tr>
                             <tr>
@@ -96,18 +93,15 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <p>Họ tên :</p>
-                                </td>
-                                <td>
-                                    <p>{{user.fullName}}</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
                                     <p>Số điện thoại :</p>
                                 </td>
                                 <td>
                                     <p>{{user.numberPhone}}</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>Vui Lòng Thanh Toán Trước 30 Phút, Không Thì Vé Sẽ Tự Hủy</p>
                                 </td>
                             </tr>
                         </table>

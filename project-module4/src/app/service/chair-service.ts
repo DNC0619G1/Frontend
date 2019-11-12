@@ -24,5 +24,10 @@ export class ChairServiceService {
   deleteChair(id: number): Observable<any>{
     return this.http.delete(`${this.API_URL}/deletechair/${id}`);
   } 
-
+  getChairLists(id: number):Observable<Chair[]> {
+    return this.http.get<Chair[]>(`${this.API_URL}/getchairlist/${id}`);
+  }
+  getChairsByIdRoom(id: number):Observable<Chair[]> {
+    return this.http.get<Chair[]>(`${this.API_URL}/chairlist/${id}`);
+  }
 }
