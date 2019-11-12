@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="panel-body">
+        <div class="row">
+            <div class='col-md-12'>
+                <div class="form-group">
+                    <h3>{{user.fullName}}</h3>
+                    <label class="control-label">chọn ngày :</label>
+                    <mat-form-field>
+                        <input matInput [matDatepicker]="myDatepicker" [(ngModel)]='setDate' [min]="minDate"
+                            [max]="maxDate">
+                        <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
+                        <mat-datepicker #myDatepicker></mat-datepicker>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class='col-md-12'>
+                <div class="form-group">
+                    <div *ngFor='let filmShows of filmShowMap|keyvalue'>
+                        <div *ngIf="isContainFilmAsDay(filmShows.value,  (setDate| date: 'dd/MM/yyyy'))"
+                            class="col-md-4">
+                            <li class="list-group-item" style="font-weight:bold;background: lightblue;">
+                                {{filmShows.key}}</li>
+                            <li class="list-group-item">Giờ Chiếu:</li>
+                            <div *ngFor="let filmShow of filmShows.value">
+                                <div *ngIf="isSameDay(filmShow.showDate, (setDate | date: 'dd/MM/yyyy'))">
+                                    <li class="list-group-item">
+                                        <button [routerLink]="['/orderChair', filmShow.idTime, user.idUser]">
+                                            {{filmShow.showTime.timeStart}}
+                                        </button>
+                                    </li>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

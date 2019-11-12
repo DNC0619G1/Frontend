@@ -35,7 +35,9 @@ export class ConfirmticketComponent implements OnInit {
   bookingDetail: BookingDetail;
   day: Date = new Date();
   chairLists: Chair[] = [];
+
   constructor(private chairService: ChairServiceService, private titleService: Title, private router: Router, private route: ActivatedRoute,
+
     private showTimesService: ShowTimesService, private usersService: UsersService, private bookingService: BookingService, private bookingdetailService: BookingdetailService) {
     this.router.routeReuseStrategy.shouldReuseRoute = function () {
       return false;

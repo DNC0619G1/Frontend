@@ -13,9 +13,11 @@ export class ChairDetailComponent implements OnInit {
   idRoom: number;
   idChair: number;
   chair: Chair;
+
   constructor(private router: Router, private titleService: Title, private route: ActivatedRoute, private chairService: ChairServiceService) {
     this.titleService.setTitle("chi tiết ghế");
    }
+
 
   ngOnInit() {
     this.idRoom = this.route.snapshot.params['idRoom'];

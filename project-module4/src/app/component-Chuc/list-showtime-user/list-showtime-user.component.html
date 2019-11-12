@@ -13,6 +13,7 @@
         </div>
     </div>
     <div *ngFor='let showTimes of mapShowTime|keyvalue'>
+
         <div *ngIf="isContainFilmAsDay(showTimes.value,  (setDate | date: 'dd/MM/yyyy'))" class="col-md-4" style="margin-bottom: 10px;">
             <li class="list-group-item" style="font-weight:bold;background: lightblue;">{{showTimes.key}}</li>
             <li class="list-group-item">Giờ Chiếu:</li>

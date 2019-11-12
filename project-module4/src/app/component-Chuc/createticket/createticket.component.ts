@@ -14,7 +14,8 @@ export class CreateticketComponent implements OnInit {
   setDate: Date;
   minDate = new Date();
   maxDate: Date = new Date();
-  constructor(private titleService: Title, private showTimesService: ShowTimesService, private route: ActivatedRoute) {
+
+  constructor(private titleService: Title,private showTimesService: ShowTimesService, private route: ActivatedRoute) {
     this.filmShowMap = new Map();
     this.setDate = new Date();
     this.maxDate = new Date(this.maxDate.setDate(this.maxDate.getDate() - this.maxDate.getDay() + 6));
