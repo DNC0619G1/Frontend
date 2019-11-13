@@ -45,7 +45,7 @@ import { OrderChairComponent } from './component-Lam/order-chair/order-chair.com
 import { ShowInfoOrderTicketChairComponent } from './component-Lam/show-info-order-ticket-chair/show-info-order-ticket-chair.component';
 import { UserTicketOrderComponent } from './component-Lam/user-ticket-order/user-ticket-order.component';
 import { PriceTicketComponent } from './component-Chuc/price-ticket/price-ticket.component'
-
+import { RegisterComponent } from './component-Lam/register/register.component';
 
 @NgModule({
   declarations: [
@@ -87,6 +87,7 @@ import { PriceTicketComponent } from './component-Chuc/price-ticket/price-ticket
     ShowInfoOrderTicketChairComponent,
     UserTicketOrderComponent,
     PriceTicketComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
