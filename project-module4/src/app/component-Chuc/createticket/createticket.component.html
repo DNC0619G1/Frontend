@@ -21,16 +21,18 @@
                             class="col-md-6" style="margin-bottom: 10px;min-height: 200px;">
                             <li class="list-group-item" style="font-weight:bold;background: lightblue;">
                                 {{filmShows.key}}</li>
-                            <li class="list-group-item">Giờ Chiếu:</li>
-                            <div *ngFor="let filmShow of filmShows.value">
-                                <div *ngIf="isSameDay(filmShow.showDate, (setDate | date: 'dd/MM/yyyy'))" style="float: left;">
-                                    <li class="list-group-item">
-                                        <button [routerLink]="['/chonve', filmShow.idTime]">
-                                            {{filmShow.showTime.timeStart}}
-                                        </button>
-                                    </li>
+                            <li class="list-group-item" style="float: left; width: 100%;">Giờ Chiếu:
+                                <hr>
+                                <div *ngFor="let filmShow of filmShows.value">
+                                    <div *ngIf="isSameDay(filmShow.showDate, (setDate | date: 'dd/MM/yyyy'))">
+                                        <div class="list-group-item" style="border: none; float: left;">
+                                            <button style="float: left;" [routerLink]="['/chonve', filmShow.idTime]">
+                                                {{filmShow.showTime.timeStart}}
+                                            </button>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
+                            </li>
                         </div>
                     </div>
                 </div>

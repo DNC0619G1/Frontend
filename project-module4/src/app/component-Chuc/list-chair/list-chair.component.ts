@@ -44,8 +44,7 @@ export class ListChairComponent implements OnInit {
     this.chairService.getChairLists(this.idShowTime).subscribe((data: Chair[]) => {
       this.chairLists = data;
     })
-
-    this.chairService.getChairsByIdRoom(this.idRoom).subscribe((data: Chair[]) => {
+    this.chairService.getchairs().subscribe((data: Chair[]) => {
       data.forEach(element => {
         if (this.idRoom == element.room.idRoom) {
           this.chairs.push(element);
